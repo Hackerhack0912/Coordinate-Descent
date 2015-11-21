@@ -18,9 +18,15 @@ class DataManagement
 {
 public:
     DataManagement();
+    
     void store(string FileName, int feature_num, int table_type, long row_num);
+    void readColumn(string fileName, long row_num);
+    void fetchColumn(string fileName, long row_num,double *col);
+    void join(string table_name1, string table_name2, string joinTable);
+    vector<string> getFieldNames(string tableName,vector<long> &tableInfo);
+    void readTable(string tableName);
+private:
     vector<string> split(const string &s, char delim);
-    void read(string fileName, long row_num);
 };
 
 #endif /* defined(__Coordinate_descent__DataManagement__) */

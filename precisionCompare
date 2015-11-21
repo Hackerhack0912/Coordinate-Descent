@@ -1,0 +1,45 @@
+Setting stepSize: 
+Setting error tolearence: 
+Setting number of iterations: 
+Start materialize
+size of table info: 4
+Check the vector size to store the tableInfo: 3
+Fetch the information of fields of the corresponding table
+The final loss: 137.769564
+Number of iteration: 10
+Model: -0.55841585040983510169, 2.59973826321776968484, -2.39522701634495716050, 0.08518956541812630623, 0.00172197470229083966, -0.10870235274705301876, 0.20609817816605169316, -0.02260114660474513149, 0.02142724720810454397, 0.02178475455231429145
+
+Finish materialize
+Setting stepSize: 
+Setting error tolearence: 
+Setting number of iterations: 
+Start stream
+size of table info: 4
+Check the vector size to store the tableInfo: 3
+Fetch the information of fields of the corresponding table
+size of table info: 4
+Check the vector size to store the tableInfo: 3
+Fetch the information of fields of the corresponding table
+Start fetching KKMR reference
+Finish fetchig KKMR reference
+The final loss: 137.769564
+Number of iteration: 10
+Model: -0.55841585040983510169, 2.59973826321776968484, -2.39522701634495716050, 0.08518956541812630623, 0.00172197470229083966, -0.10870235274705301876, 0.20609817816605169316, -0.02260114660474513149, 0.02142724720810454397, 0.02178475455231429145
+Finish stream
+
+Setting stepSize: 
+Setting error tolearence: 
+Setting number of iterations: 
+Start factorize
+size of table info: 4
+Check the vector size to store the tableInfo: 3
+Fetch the information of fields of the corresponding table
+size of table info: 4
+Check the vector size to store the tableInfo: 3
+Fetch the information of fields of the corresponding table
+Start fetching KKMR reference
+Finish fetchig KKMR reference
+The final loss: 137.769564
+Number of iteration: 10
+Model: -0.55841585040983510169, 2.59973826321776924075, -2.39522701634495716050, 0.08518956541812632011, 0.00172197470229083945, -0.10870235274705296324, 0.20609817816605166541, -0.02260114660474512108, 0.02142724720810454397, 0.02178475455231429492
+Finish factorize
