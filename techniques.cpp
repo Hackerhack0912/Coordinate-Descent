@@ -349,7 +349,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     }
     fk.read((char *)KKMR, row_num*(sizeof(double)));
     fk.close();
-    printf("Finish fetchig KKMR reference\n");
+    //printf("Finish fetchig KKMR reference\n");
     
     double *Y;
     double *H;
@@ -408,6 +408,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                 
                 //Update the current coordinate
                 model[j] = model[j] - step_size * F_partial;
+                cout<<"model("<<j<<"): "<<model[j]<<endl;
                 
                 double diff = model[j] - W_j;
                 //Update the intermediate variable
@@ -447,6 +448,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                 
                 //Update the current coordinate
                 model[j] = model[j] - step_size * F_partial;
+                cout<<"model("<<j<<"): "<<model[j]<<endl;
                 
                 double diff = model[j] - W_j;
 

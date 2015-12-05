@@ -41,8 +41,8 @@ double linear_models::G_lsr(double a, double b)
     return 2*(b-a);
 }
 
-//Unfinished
 double linear_models::G_svm(double a, double b)
 {
+    
     return 0;
 }

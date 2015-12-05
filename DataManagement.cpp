@@ -127,6 +127,8 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
         {
             continue;
         }
+        
+        
         //Write the value in each filed of current tuple into the corresponding columns
         for(int i = 0; i < col_num; i ++)
         {
