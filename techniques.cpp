@@ -6,23 +6,33 @@
 //  Copyright © 2015 Zhiwei Fan. All rights reserved.
 //
 
-#include "techniques.h"
-#include "DataManagement.h"
-#include "linear_models.h"
 #include <iostream>
 #include <fstream>
 #include <cmath>
-
+#include <stdlib.h>
+#include <time.h>
+#include "techniques.h"
+#include "DataManagement.h"
+#include "linear_models.h"
 
 techniques::techniques(){};
 
 
-
+/**
+ Coordinate Descent/Block Coordinate Descent:
+ (CD/BCD)
+ Materialize, Stream, Factorize
+ 
+ Stochastic Gradient Descent/Batch Gradient Descent:
+ (SGD/BGD)
+ Materialize only
+ 
+ **/
 //Just Logistic Regression by now
 void techniques::materialize(string table_T, setting _setting, double *model)
 {
-    cout<<"Start materialize"<<endl;
     DataManagement DM;
+    DM.message("Start materialize");
     linear_models lm;
     vector<long> tableInfo(3);
     vector<string> fields = DM.getFieldNames(table_T, tableInfo);
@@ -67,8 +77,7 @@ void techniques::materialize(string table_T, setting _setting, double *model)
     }
    
 
-    
-    
+
     DM.fetchColumn(fields[1], row_num, Y);
     
     //First do Logistic Regression
@@ -154,15 +163,15 @@ void techniques::materialize(string table_T, setting _setting, double *model)
        
     }
     
-    cout<<"Finish materialize"<<endl;
+    DM.message("Finish materialize");
     
 }
 
 /* Should be no oid-oid mapping here */
 void techniques::stream(string table_S, string table_R, setting _setting, double *model)
 {
-    cout<<"Start stream"<<endl;
     DataManagement DM;
+    DM.message("Start stream");
     linear_models lm;
     
     //Get the table information and column names
@@ -313,14 +322,14 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
         
     }
     
-    cout<<"Finish stream"<<endl;
+    DM.message("Finish stream");
 }
 
 
 void techniques::factorize(string table_S, string table_R, setting _setting, double *model)
 {
-    cout<<"Start factorize"<<endl;
     DataManagement DM;
+    DM.message("Start factorize");
     linear_models lm;
     
     //Get the table information and column names
@@ -510,7 +519,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
         
     }
     
-    cout<<"Finish factorize"<<endl;
+    DM.message("Finish factorize");
 
 }
 
@@ -528,4 +537,318 @@ bool techniques::stop(int k, double r_prev, double r_curr, setting &setting)
         return false;
     }
 }
+
+
+/*
+ Read a single file the columns of which are in format like: id, label, feature
+ The offset entry for W0 is not considered for now
+ Logistic Regression for now
+ */
+
+//specific techniques selection: flag (for generalization purpose)
+
+void techniques::SGD(vector< vector<double> > data, setting _setting, double *&model, int feature_num)
+{
+    DataManagement::message("Start SGD");
+    long data_size = data.size();
+    vector<long> original_index_set;
+    vector<long> shuffling_index;
+    //Initialize the original_index_set
+    for(long i = 0; i < data_size; i ++)
+    {
+        original_index_set.push_back(i);
+    }
+    
+    linear_models lm;
+    //setting
+    double step_size = _setting.step_size;
+    
+    //Allocate the memory to model
+    model = new double[feature_num];
+    
+    for(int i = 0; i < feature_num; i ++)
+    {
+        model[i] = 0.00;
+        
+    }
+    
+    //Loss Function
+    double F = 0.00;
+    double r_curr = 0.00;
+    double r_prev = 0.00;
+    int k = 0;
+    
+    do
+    {
+        r_prev = F;
+        F = 0.00;
+        vector<double> gradient(feature_num,0.00);
+        
+        //Shuffling
+        shuffling_index = shuffle(original_index_set, (unsigned)time(NULL));
+        /**
+        cout<<"shuffling order:"<<endl;
+        for(int i = 0; i < shuffling_index.size(); i ++)
+        {
+            cout<<shuffling_index.at(i)<<" ";
+        }
+        cout<<endl;
+        **/
+        
+        for(long j = 0; j < data_size; j ++)
+        {
+            long cur_index = shuffling_index[j];
+            
+            //Update the model
+            double output = 0.00;
+            for(int k = 0; k < feature_num; k ++)
+            {
+                output += model[k]*data[cur_index][k+2];
+            }
+            
+            for(int k = 0; k < feature_num; k ++)
+            {
+                gradient[k] = lm.G_lr(data[cur_index][1],output)*data[cur_index][2+k];
+                model[k] = model[k]-step_size*gradient[k];
+            }
+            
+        }
+        
+        //Calculate F
+        for(long j = 0; j < data_size; j ++)
+        {
+            double output = 0.00;
+            for(int k = 0; k < feature_num; k ++)
+            {
+                output += model[k]*data[j][k+2];
+            }
+            double tmp = lm.Fe_lr(data[j][1], output);
+            F += tmp;
+        }
+        
+        r_curr = F;
+        k ++;
+    }
+    while(!stop(k,r_prev,r_curr,_setting));
+    
+    printf("The final loss: %lf\n",r_curr);
+    printf("Number of iteration: %d\n",k);
+    printf("Model: ");
+    for(int i = 0; i < feature_num; i ++)
+    {
+        if(i == feature_num - 1)
+        {
+            printf("%.20f\n",model[i]);
+        }
+        else
+        {
+            printf("%.20f, ",model[i]);
+        }
+        
+    }
+    
+    DataManagement::message("Finish SGD");
+
+}
+
+void techniques::BGD(vector< vector<double> > data, setting _setting, double *&model, int feature_num)
+{
+    DataManagement::message("Start BGD");
+    long data_size = data.size();
+    
+    linear_models lm;
+    //setting
+    double step_size = _setting.step_size;
+    
+    //Allocate the memory to the model
+    model = new double[feature_num];
+    
+    for(int i = 0; i < feature_num; i ++)
+    {
+        model[i] = 0.00;
+        
+    }
+    
+    //Loss Function
+    double F = 0.00;
+    double r_curr = 0.00;
+    double r_prev = 0.00;
+    int k = 0;
+    
+    do
+    {
+        r_prev = F;
+        F = 0.00;
+        vector<double> gradient(feature_num,0.00);
+        
+        for(long j = 0; j < data_size; j ++)
+        {
+            
+            //Update the model
+            double output = 0.00;
+            for(int k = 0; k < feature_num; k ++)
+            {
+                output += model[k]*data[j][2+k];
+            }
+            
+            for(int k = 0; k < feature_num; k ++)
+            {
+                gradient[k] += lm.G_lr(data[j][1],output)*data[j][2+k];
+            }
+            
+        }
+        
+        
+        for(int k = 0; k < feature_num; k ++)
+        {
+            model[k] = model[k]-step_size*gradient[k];
+        }
+        
+        for(long j = 0; j < data_size; j ++)
+        {
+            double output = 0.00;
+            for(int k = 0; k < feature_num; k ++)
+            {
+                output += model[k]*data[j][2+k];
+            }
+            double tmp = lm.Fe_lr(data[j][1], output);
+            cout<<"tmp loss: "<<tmp<<endl;
+            F += tmp;
+        }
+        
+        
+        r_curr = F;
+        printf("The loss: %lf\n",F);
+        k ++;
+    }
+    while(!stop(k,r_prev,r_curr,_setting));
+    
+    printf("The final loss: %lf\n",r_curr);
+    printf("Number of iteration: %d\n",k);
+    printf("Model: ");
+    for(int i = 0; i < feature_num; i ++)
+    {
+        if(i == feature_num - 1)
+        {
+            printf("%.20f\n",model[i]);
+        }
+        else
+        {
+            printf("%.20f, ",model[i]);
+        }
+        
+    }
+    
+    DataManagement::message("Finish BGD");
+
+}
+
+void techniques::classify(vector< vector<double> > data, vector<double> model)
+{
+    linear_models lm;
+    // Count the number of correct classifcation
+    long count = 0;
+    long data_size =  data.size();
+    if(data.at(0).size() != model.size()+2)
+    {
+        DataManagement::errorMessage("Inconsistent file provided");
+    }
+    
+    int featureNum = (int)model.size();
+    for(long i = 0; i < data_size; i ++)
+    {
+        double actual_label = data[i][1];
+        double predicted_label = 0.00;
+        double confidence = 0.00;
+        double output = 0.00;
+        for(int j = 0; j < featureNum; j ++)
+        {
+            output += model[j]*data[i][2+j];
+        }
+        cout<<"W^TX: "<<output<<endl;
+        confidence = lm.C_lr(output);
+        if(confidence > 0.5)
+        {
+            predicted_label = 1.00;
+        }
+        else
+        {
+            predicted_label = -1.00;
+        }
+        if(actual_label == predicted_label)
+        {
+            cout<<"Prediction Correct"<<endl;
+            count++;
+        }
+        else
+        {
+            cout<<"Prediction Wrong"<<endl;
+        }
+        cout<<"Confidence: "<<confidence<<endl;
+        cout<<"Actual Label: "<<actual_label<<","<<"Predicted Label: "<<predicted_label<<endl;
+    }
+    cout<<"Correcteness: "<<(double)count/(double)data_size<<endl;
+    
+    cout<<"Predict the newest day: "<<endl;
+    vector<double> toBePredicted;
+    toBePredicted.push_back(1);
+    for(int i = 0; i < 4; i ++)
+    {
+        toBePredicted.push_back(0);
+    }
+    
+    toBePredicted.push_back(7.93);
+    toBePredicted.push_back(8.16);
+    toBePredicted.push_back(7.87);
+    toBePredicted.push_back(8.06);
+    toBePredicted.push_back(23.3105);
+    toBePredicted.push_back(8.06);
+    toBePredicted.push_back(1);
+    toBePredicted.push_back(7.93);
+    toBePredicted.push_back(1);
+    toBePredicted.push_back(0.15);
+    
+    double output = 0.00;
+    for(int j = 0; j < featureNum; j ++)
+    {
+        output += model[j]*toBePredicted[j];
+    }
+    
+}
+
+vector<int> techniques::shuffle(vector<int> &index_set, unsigned seed)
+{
+    vector<int> original_set = index_set;
+    int size = (int)index_set.size();
+    vector<int> new_index_set;
+    srand (seed);
+    for(int i = 0; i < size; i ++)
+    {
+        int cur_size = (int)original_set.size();
+        int rand_index = random()%cur_size;
+        new_index_set.push_back(original_set.at(rand_index));
+        original_set.erase(original_set.begin()+rand_index);
+    }
+    
+    return new_index_set;
+}
+
+vector<long> techniques::shuffle(vector<long> &index_set, unsigned seed)
+{
+    vector<long> original_set = index_set;
+    long size = (long)index_set.size();
+    vector<long> new_index_set;
+    srand(seed);
+    for(long i = 0; i < size; i ++)
+    {
+        long cur_size = original_set.size();
+        long rand_index = random()%cur_size;
+        new_index_set.push_back(original_set.at(rand_index));
+        original_set.erase(original_set.begin()+rand_index);
+    }
+    
+    return new_index_set;
+}
+
+
 

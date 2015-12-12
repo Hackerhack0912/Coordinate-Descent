@@ -13,13 +13,15 @@
 
 /*
  options:
- 1. create table: coordinate_descent create file_name(table_name) type feature_num row_num
- 2. join table: coordinate_descent join table_name1 table_name2 joinTable_name
- 3. read table: coordinate_descent read table_name
- 4. materialize: coordinate_descent m talbe_name
- 5. stream: coordinate_descent s table_name_S table_name_R
- 6. factorize: coordinate_descent f table_name_S table_name_R
- 7. readColumn: coordinate_descent column_name row_num
+ 1. create table: DB create file_name(table_name) type feature_num row_num
+ 2. join table: DB join table_name1 table_name2 joinTable_name
+ 3. read table: DB read table_name
+ 4. materialize: DB m table_name
+ 5. stream: DB s table_name_S table_name_R
+ 6. factorize: DB f table_name_S table_name_R
+ 7. readColumn: DB column_name row_num
+ 8. Stochastic Gradient Descent: DB SGD train_file_name test_file_name
+ 9. Batch Gradient Descent:DB BGD train_file_name test_file_name
  */
 int main(int argc, const char * argv[]) {
     
@@ -32,6 +34,8 @@ int main(int argc, const char * argv[]) {
     string option4 = "m";
     string option5 = "s";
     string option6 = "f";
+    string option8 = "SGD";
+    string option9 = "BGD";
     
     if(argc == 6 && argv[1] == option1)
     {
@@ -50,30 +54,67 @@ int main(int argc, const char * argv[]) {
         string joinTableName = argv[4];
         dM.join(tableName1, tableName2, joinTableName);
     }
-    else if(argc == 3 && argv[1] == option3)
+    else if(argc == 4 && (argv[1] == option8 || argv[1] == option9))
     {
-        //option3
         string tableName = argv[2];
-        dM.readTable(tableName);
-    }
-    else if(argc == 3 && argv[1] == option4)
-    {
-        //option4
-        string tableName = argv[2];
-        double *model;
-        setting _setting;
-        printf("Setting stepSize: \n");
-        scanf("%lf",&_setting.step_size);
-        //_setting.step_size = 0.01;
-        printf("Setting error tolearence: \n");
-        //_setting.error = 0.00005;
-        scanf("%lf",&_setting.error);
-        printf("Setting number of iterations: \n");
-        _setting.iter_num = 10;
-        scanf("%d",&_setting.iter_num);
-        t.materialize(tableName, _setting, model);
-        //Print the model
-        delete model;
+        string testTable = argv[3];
+        string option = argv[1];
+        
+        
+        if(option == option3)
+        {
+            dM.readTable(tableName);
+        }
+        else
+        {
+            double *model;
+            int feature_num = 0;
+            vector<double> model_vector;
+            setting _setting;
+            printf("Setting stepSize: \n");
+            scanf("%lf",&_setting.step_size);
+            //_setting.step_size = 0.01;
+            printf("Setting error tolearence: \n");
+            //_setting.error = 0.00005;
+            scanf("%lf",&_setting.error);
+            printf("Setting number of iterations: \n");
+            _setting.iter_num = 10;
+            scanf("%d",&_setting.iter_num);
+
+            if(option == option4)
+            {
+                //Feature Number to be dealt with it later
+                t.materialize(tableName, _setting, model);
+            }
+            else if(option == option8)
+            {
+                vector< vector<double> > data = dM.rowStore(tableName);
+                int featureNum = (int)(data.at(0).size()-2);
+                feature_num = featureNum;
+                t.SGD(data, _setting, model, featureNum);
+            }
+            else if(option == option9)
+            {
+                vector< vector<double> > data = dM.rowStore(tableName);
+                int featureNum = (int)(data.at(0).size()-2);
+                feature_num = featureNum;
+                t.BGD(data, _setting, model, featureNum);
+            }
+            else
+            {
+                DataManagement::message("Invalid option");
+            }
+            
+            vector< vector<double> > testData = dM.rowStore(testTable);
+            for(int i = 0; i < feature_num; i ++)
+            {
+                model_vector.push_back(model[i]);
+            }
+            t.classify(testData, model_vector);
+           
+            delete[] model;
+        }
+        
     }
     else if(argc == 4)
     {
@@ -101,7 +142,7 @@ int main(int argc, const char * argv[]) {
         }
         
         //Print the model
-        delete model;
+        delete[] model;
     }
     else
     {

@@ -24,9 +24,26 @@
 DataManagement::DataManagement(){};
 
 /**
+ Note:
+ Currently the file input is assumed have the table id simply as array index
+ All files as input are assumed to be preprocessed, corresponding processing functionality to be added
+ **/
+
+/**
+ Function to be added:
+ (Simple)
+ 1. Read the "actual table name" 
+ 2. Read the "actual name" of features from the table and store in the information file
+ 3. Read the "actual id" of features from the table and store in the information file
+ 
+ **/
+
+/**
+ Function:Store the each coloumn in the the file to be a "binary array" (table in column store)
+ *Note: Table type, number of features and number of rows need to be figured out ahead
  @param fileName:the name of the file storing the table to be stored
  @param featurenum: number of features in the table
- @param table_type: 0 if the table to be stored is entity table S; 1 if the table to be stored is attribute table R
+ @param table_type: 0 if the table to be stored is entity table S; 1 if the table to be stored is attribute table R; 2 if the table to be stored is a "Full table" (tid,label,t_1,t_2,t_3 ...)
  @param row_num: the number of rows in the table (number of lines in the input file)
  @corresponding file format for table S: sid,fk,y(label),x_s[](feature vector)
  @corresponding file format for table R: rid,x_r[](feature vector)
@@ -40,7 +57,7 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
     //Decide the number of fields according to the table type and store the corresponding name of each field
     if(table_type == 0)
     {
-        cout<<"The table to be stored is entity table S"<<endl;
+        printf("The table to be stored is entity table S\n");
         //sid + label + fk + x_s[]
         col_num = 1 + 1 + 1 + feature_num;
         table_name = "S";
@@ -50,11 +67,11 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
         table_field->at(2) = "fk";
         for(int i = 0; i < feature_num; i ++)
         {
-            table_field->at(3+i) = "x_s" + to_string(i);
+            table_field->at(3+i) = "x_s" + to_string((unsigned long long)i);
         }
     }
     else if(table_type == 1){
-        cout<<"The table to be stores is attribute table R"<<endl;
+        message("The table to be stores is attribute table R");
         //rid + x_r
         col_num = 1 + feature_num;
         table_name = "R";
@@ -62,43 +79,45 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
         table_field->at(0) = "rid";
         for(int i = 0; i < feature_num; i ++)
         {
-            table_field->at(1+i) = "x_r" + to_string(i);
+            table_field->at(1+i) = "x_r" + to_string((unsigned long long)i);
+        }
+    }
+    else if(table_type == 2)
+    {
+        message("The table to be stores is Full table T");
+        message("Appoint the index of label column: ");
+        int label_index = 0;
+        cin>>label_index;
+        //tid, label, x_t[]
+        col_num = 2 + feature_num;
+        table_name = "T";
+        table_field = new vector<string>(col_num);
+        table_field->at(0) = "tid";
+        table_field->at(1) = "T_label";
+        for(int i = 0; i < feature_num; i ++)
+        {
+            table_field->at(2+i) = "x_t" + to_string((unsigned long long)i);
         }
     }
     else{
-        cerr<<"Error Message: "<<"Invalid table type identifier given"<<endl;
+        errorMessage("Invalid table type identifier given");
         exit(1);
     }
     
-    //Create a 2-D array to store the data (in column-store version)
-    /**
-     Note: This is under the assumption that all columns will perfectly fit in memory for convenience of data reading.
-           A more realistic but much more redundant alternative would be provided later
-     **/
-    
-    /**
-    double** table = new double*[col_num];
-    for(int i = 0; i < col_num; i ++)
-    {
-        table[i] = new double[row_num];
-    }
-    **/
-    
     //Reading the file and load the data to the corresponding columns (binary array)
-    cout<< "Open the input file"<<endl;
-    cout<< "File Name: "<<fileName<<endl;
+    message("Open the input file");
+    message("File Name: "+fileName);
     ifstream infile;
     infile.open(fileName);
-    
     
     //Memory free case: all columns can fit in memory the same time
     if(!infile.is_open())
     {
-        cerr<<"Error Message: "<<"Cannot open the file: the name of the file might be wrong or the file might be broken"<<endl;
+        errorMessage("Cannot open the file: the name of the file might be wrong or the file might be broken");
         exit(1);
     }
     
-    cout<<"Open the output File"<<endl;
+    message("Open the output File");
     // Open the corresponding number of files (representing columns) to store the loading data
     ofstream *outFile = new ofstream[col_num];
     // output buffer
@@ -108,12 +127,12 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
         outFile[i].open(table_name + "_" + table_field->at(i), ios::out | ios::binary);
         if(!outFile[i].is_open())
         {
-            cerr<<"Error Message: "<<"Cannot open file."<<endl;
+            errorMessage("Cannot open file.");
             exit(1);
         }
     }
     
-    cout<<"Starting to load the data from the file into the database"<<endl;
+    message("Starting to load the data from the file into the database");
     // All valid files should seperate the columns with ' ' (one space)
     char delim = ' ';
     while(!infile.eof())
@@ -128,7 +147,12 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
             continue;
         }
         
-        
+        //Check the consistency of feature number
+        if(tuple.size() != col_num )
+        {
+            message("Inconsistency of feature number");
+        }
+    
         //Write the value in each filed of current tuple into the corresponding columns
         for(int i = 0; i < col_num; i ++)
         {
@@ -148,7 +172,7 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
     info.close();
     
    
-    cout<<"Finish loading"<<endl;
+    message("Finish loading");
     // Close all writing files
     //int result;
     for(int i = 0; i < col_num; i ++)
@@ -161,42 +185,20 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
     delete [] write;
     delete [] outFile;
     delete table_field;
-    
-    //double *cur_col = new double[row_num];
-    //Write each column into the corresponding binary file
-    /**
-    double *cur_col = new double[row_num];
-    for(int i = 0; i < col_num; i ++)
-    {
-        ofstream outFile(table_name + "_" + table_field->at(i), ios::out | ios::binary);
-        if(!outFile)
-        {
-            cerr<<"Error Message"<<"Cannot open file."<<endl;
-            exit(1);
-        }
-        for(int j = 0; j < row_num; j ++)
-        {
-            cur_col[j] = table[i][j];
-        }
-        outFile.write((char *) cur_col, row_num*(sizeof (double)));
-        delete [] table[i];
-    }
-    **/
-    
-    /**
-    delete [] cur_col;
-    delete table_field;
-    delete [] table;
-    **/
 }
 
+/**
+ Read the content of a single column specified by the given column name
+ @param fileName: the column name
+ @param row_num: the number of entries in the column
+ **/
 void DataManagement::readColumn(string fileName, long row_num)
 {
     double *col = new double[row_num];
     ifstream inFile(fileName, ios::in | ios::binary);
     if(!inFile.is_open())
     {
-        cerr<<"Error Message: "<<"Cannot open file."<<endl;
+        errorMessage("Cannot open file.");
         exit(1);
     }
     inFile.read((char *) col, row_num * (sizeof(double)));
@@ -208,12 +210,12 @@ void DataManagement::readColumn(string fileName, long row_num)
     delete col;
 }
 
-void DataManagement::fetchColumn(string fileName, long row_num,double *col )
+void DataManagement::fetchColumn(string fileName, long row_num, double *col )
 {
     ifstream inFile(fileName, ios::in | ios::binary);
     if(!inFile.is_open())
     {
-        cerr<<"Error Message: "<<"Cannot open file."<<endl;
+        errorMessage("Cannot open file.");
         exit(1);
     }
     inFile.read((char *) col, row_num * (sizeof(double)));
@@ -221,8 +223,8 @@ void DataManagement::fetchColumn(string fileName, long row_num,double *col )
 }
 
 /*
- @ fileName: corresponding info file containing the information of the table
- @ fields: reference for the vector used to store the name of corresponding fields
+ @param fileName: corresponding info file containing the information of the table
+ @param fields: reference for the vector used to store the name of corresponding fields
  tableInfo:table_type, table_feature_num, table_row_num
  */
 vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tableInfo)
@@ -238,9 +240,10 @@ vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tab
     info.open(tableName+"_info");
     if(!info.is_open())
     {
-        cerr<<"Error Message: "<<"Unable to read the given information file"<<endl;
+        errorMessage("Unable to read the given information file");
         exit(1);
     }
+    
     string s;
     while(!info.eof())
     {
@@ -261,17 +264,17 @@ vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tab
     table_feature_num = atoi(table_info[2].c_str());
     table_row_num = atol(table_info[3].c_str());
     
-    cout<<"Check the vector size to store the tableInfo: "<<tableInfo.size()<<endl;
+    message("Check the vector size to store the tableInfo: ");
     if(tableInfo.size() != 3)
     {
-        cerr<<"The size of the vector to store the table info is wrong"<<endl;
+        errorMessage("The size of the vector to store the table info is wrong");
         exit(1);
     }
     tableInfo[0] = table_type;
     tableInfo[1] = table_feature_num;
     tableInfo[2] = table_row_num;
     
-    cout<<"Fetch the information of fields of the corresponding table"<<endl;
+    message("Fetch the information of fields of the corresponding table");
     if(table_type == 0)
     {
         // Entity table S: sid + label + fk + x_s[]
@@ -280,7 +283,7 @@ vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tab
         fields.push_back(table_name+"_"+"fk");
         for(int i = 0; i < table_feature_num; i ++)
         {
-            fields.push_back(table_name+"_"+"x"+"_s"+to_string(i));
+            fields.push_back(table_name+"_"+"x"+"_s"+to_string((unsigned long long)i));
         }
     }
     else if(table_type == 1)
@@ -289,7 +292,7 @@ vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tab
         fields.push_back(table_name+"_"+"rid");
         for(int i = 0; i < table_feature_num; i ++)
         {
-            fields.push_back(table_name+"_"+"x"+"_r"+to_string(i));
+            fields.push_back(table_name+"_"+"x"+"_r"+to_string((unsigned long long)i));
         }
     }
     else if(table_type == 2)
@@ -299,12 +302,12 @@ vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tab
         fields.push_back(table_name + "_" + "label");
         for(int i = 0; i < table_feature_num; i ++)
         {
-            fields.push_back(table_name + "_" + "x" + "_t" + to_string(i));
+            fields.push_back(table_name + "_" + "x" + "_t" + to_string((unsigned long long)i));
         }
     }
     else
     {
-        cerr<<"Error Message: "<<"Invalid table type: the information file is invalid"<<endl;
+        errorMessage("Invalid table type: the information file is invalid");
         exit(1);
     }
     
@@ -313,8 +316,10 @@ vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tab
 }
 
 /*
+ 
  @ table_name1: suppose to be entity table S
  @ table_name2: suppose to be attribute table R (More generalized version will be handled later)
+ @ joinTable: The join
  */
 void DataManagement::join(string table_name1, string table_name2, string joinTable)
 {
@@ -361,13 +366,13 @@ void DataManagement::join(string table_name1, string table_name2, string joinTab
     for(int i = 2; i < 2+table1_feature_num; i ++)
     {
         //t_columns[i] = joinTable + "_" + "x_t" + to_string(i-2) + "(x_s" + to_string(i-2) + ")";
-        t_columns[i] = joinTable + "_" + "x_t" + to_string(i-2);
+        t_columns[i] = joinTable + "_" + "x_t" + to_string((unsigned long long)i-2);
     }
     //Columns corresponding to x_r[]
     for(int k = 2+table1_feature_num; k < t_column_num; k ++)
     {
         //t_columns[k] = joinTable + "_" + "x_t" + to_string(k-2) + "(x_r" + to_string(k-2-table1_feature_num) + ")";
-        t_columns[k] = joinTable + "_" + "x_t" + to_string(k-2);
+        t_columns[k] = joinTable + "_" + "x_t" + to_string((unsigned long long)k-2);
     }
     cout<<"Finish fetching the column names for materialized (join) table T"<<endl;
     
@@ -476,10 +481,12 @@ void DataManagement::join(string table_name1, string table_name2, string joinTab
 }
 
 
-
+/**
+ Function: Output the table in text format, could be used to validate the correctless of data loading
+ **/
 void DataManagement::readTable(string tableName)
 {
-    cout<<"Start reading the table"<<endl;
+    message("Start reading the table");
     vector<long> tableInfo(3);
     vector<string> fields = getFieldNames(tableName,tableInfo);
     int col_num = (int)fields.size();
@@ -488,7 +495,7 @@ void DataManagement::readTable(string tableName)
     // Input buffer
     double *read =  new double[1];
     
-    cout<<"Start loading the table: "<<tableName;
+    message("Start loading the table: ");
     for(int i = 0; i < col_num; i ++)
     {
        
@@ -497,7 +504,7 @@ void DataManagement::readTable(string tableName)
         inFile[i].open(column, ios::in | ios::binary);
         if(!inFile[i].is_open())
         {
-            cerr<<"Error Message: "<<"Cannot read the given table, the table may not exist."<<endl;
+            errorMessage("Cannot read the given table, the table may not exist.");
             exit(1);
         }
     }
@@ -536,5 +543,58 @@ vector<string> DataManagement::split(const string&s, char delim)
         tokens.push_back(item);
     }
     return tokens;
+}
+
+void DataManagement::message(string str)
+{
+    cout<<str<<endl;
+}
+
+void DataManagement::errorMessage(string str)
+{
+    cerr<<"Error Message: "<<str<<endl;
+}
+
+
+//Row Store (Initially for Machine Learning Project: SGD, BGD)
+vector< vector<double> > DataManagement::rowStore(string fileName)
+{
+    vector< vector<double> > data;
+    
+    ifstream infile;
+    infile.open(fileName);
+    
+    if(!infile.is_open())
+    {
+        errorMessage("Cannot open the file: the name of the file might be wrong or the file might be broken");
+        exit(1);
+    }
+    
+    char delim = ' ';
+    while(!infile.eof())
+    {
+        string s;
+        getline(infile,s);
+        vector<string> tuple;
+        tuple = split(s, delim);
+        
+        vector<string> tokens = split(s,delim);
+        int size = (int)tuple.size();
+        if(tuple.size() == 0)
+        {
+            continue;
+        }
+        
+        vector<double> temp;
+        for(int i = 0; i < size; i ++)
+        {
+            double cur_entry = atof(tuple.at(i).c_str());
+            temp.push_back(cur_entry);
+        }
+        
+        data.push_back(temp);
+    }
+    
+    return data;
 }
 

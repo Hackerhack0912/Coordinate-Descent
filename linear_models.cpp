@@ -16,7 +16,7 @@ linear_models::linear_models(){};
 double linear_models::Fe_lr(double a, double b)
 {
     double power = -(a*b);
-    return log(1+pow(exp(1.0), power));
+    return log(1+pow(exp(1.00), power));
 }
 
 double linear_models::Fe_lsr(double a, double b)
@@ -43,6 +43,18 @@ double linear_models::G_lsr(double a, double b)
 
 double linear_models::G_svm(double a, double b)
 {
-    
+    if(a*b > 1)
+    {
+        return -1;
+    }
+    else
+    {
+        return 0;
+    }
     return 0;
+}
+
+double linear_models::C_lr(double a)
+{
+    return 1.00/(double)(1+pow(exp(1.00),-a));
 }

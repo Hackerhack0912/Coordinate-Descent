@@ -1,0 +1,7 @@
+1 2 3 4
+
+task: column 3 as label
+
+permutation:
+
+1 3 2 4

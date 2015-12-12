@@ -1,7 +1,7 @@
-all: coordinate_descent
+all: DB
 
-coordinate_descent: learning.o DataManagement.o techniques.o linear_models.o
-	g++ learning.o DataManagement.o techniques.o linear_models.o -o coordinate_descent
+DB: learning.o DataManagement.o techniques.o linear_models.o
+	g++ learning.o DataManagement.o techniques.o linear_models.o -o DB
 
 learning.o: Learning.cpp DataManagement.h techniques.h
 	g++ -c Learning.cpp

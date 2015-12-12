@@ -12,6 +12,7 @@
 using namespace std;
 #include <stdio.h>
 #include <string>
+#include <vector>
 
 struct setting
 {
@@ -28,6 +29,12 @@ public:
     void stream(string table_S, string table_R, setting _setting, double *model);
     void factorize(string table_S, string table_R, setting _setting, double *model);
     bool stop(int k, double r_prev, double r_curr, setting &setting);
+    void SGD(vector< vector<double> > data, setting _setting, double *&model, int feature_num);
+    void BGD(vector< vector<double> > data, setting _setting, double *&model, int feature_num);
+    void classify(vector< vector<double> > data, vector<double> model);
+private:
+    vector<int> shuffle(vector<int> &index_set, unsigned seed);
+    vector<long> shuffle(vector<long> &index_set, unsigned seed);
 };
 
 

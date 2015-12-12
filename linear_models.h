@@ -20,6 +20,7 @@ public:
     double G_lr(double a, double b);
     double G_lsr(double a, double b);
     double G_svm(double a, double b);
+    double C_lr(double a);
 };
 
 
