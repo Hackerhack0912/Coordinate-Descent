@@ -16,4 +16,4 @@ linear_models.o: linear_models.cpp linear_models.h
 	g++ -c linear_models.cpp
 
 clean:
-	rm -f *.o coordinate_descent *~ #*
+	rm -f *.o DB *~ #*

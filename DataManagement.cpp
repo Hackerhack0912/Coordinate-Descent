@@ -20,7 +20,6 @@
  minor revision: key should be kept int, however, use double here first for convenience
  */
 
-
 DataManagement::DataManagement(){};
 
 /**
@@ -30,20 +29,19 @@ DataManagement::DataManagement(){};
  **/
 
 /**
- Function to be added:
+ Function to be added (Not for research purpose):
  (Simple)
  1. Read the "actual table name" 
  2. Read the "actual name" of features from the table and store in the information file
  3. Read the "actual id" of features from the table and store in the information file
- 
  **/
 
 /**
- Function:Store the each coloumn in the the file to be a "binary array" (table in column store)
- *Note: Table type, number of features and number of rows need to be figured out ahead
+ Function:Store each coloumn in the the file to be a "binary array" (table in column store)
+ *Note: Table type, number of features and number of rows need to be known ahead
  @param fileName:the name of the file storing the table to be stored
  @param featurenum: number of features in the table
- @param table_type: 0 if the table to be stored is entity table S; 1 if the table to be stored is attribute table R; 2 if the table to be stored is a "Full table" (tid,label,t_1,t_2,t_3 ...)
+ @param table_type: 0 if the table to be stored is entity table S; 1 if the table to be stored is attribute table R; 2 if the table to be stored is  "Full table" T (tid,label,t_1,t_2,t_3 ...)
  @param row_num: the number of rows in the table (number of lines in the input file)
  @corresponding file format for table S: sid,fk,y(label),x_s[](feature vector)
  @corresponding file format for table R: rid,x_r[](feature vector)
@@ -57,7 +55,7 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
     //Decide the number of fields according to the table type and store the corresponding name of each field
     if(table_type == 0)
     {
-        printf("The table to be stored is entity table S\n");
+        message("The table to be stored is entity table S");
         //sid + label + fk + x_s[]
         col_num = 1 + 1 + 1 + feature_num;
         table_name = "S";
@@ -67,7 +65,7 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
         table_field->at(2) = "fk";
         for(int i = 0; i < feature_num; i ++)
         {
-            table_field->at(3+i) = "x_s" + to_string((unsigned long long)i);
+            table_field->at(3+i) = "x_s" + to_string((unsigned int)i);
         }
     }
     else if(table_type == 1){
@@ -79,24 +77,24 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
         table_field->at(0) = "rid";
         for(int i = 0; i < feature_num; i ++)
         {
-            table_field->at(1+i) = "x_r" + to_string((unsigned long long)i);
+            table_field->at(1+i) = "x_r" + to_string((unsigned int)i);
         }
     }
     else if(table_type == 2)
     {
         message("The table to be stores is Full table T");
-        message("Appoint the index of label column: ");
-        int label_index = 0;
-        cin>>label_index;
+        //message("Appoint the index of label column: ");
+        //int label_index = 0;
+        //cin>>label_index;
         //tid, label, x_t[]
         col_num = 2 + feature_num;
         table_name = "T";
         table_field = new vector<string>(col_num);
         table_field->at(0) = "tid";
-        table_field->at(1) = "T_label";
+        table_field->at(1) = "label";
         for(int i = 0; i < feature_num; i ++)
         {
-            table_field->at(2+i) = "x_t" + to_string((unsigned long long)i);
+            table_field->at(2+i) = "x_t" + to_string((unsigned int)i);
         }
     }
     else{
@@ -142,7 +140,7 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
         vector<string> tuple;
         tuple = split(s,delim);
         //Skip the empty line
-        if(tuple.size() < col_num)
+        if(tuple.size() == 0)
         {
             continue;
         }
@@ -165,6 +163,12 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
     
     // Write the table information to a single file
     ofstream info(table_name + "_" + "info", ios::out | ios::app);
+    if(!info.is_open())
+    {
+        errorMessage("Cannot create info file.");
+        exit(1);
+    }
+
     info<<"table name: "<<table_name<<endl;
     info<<"table type: "<<table_type<<endl;
     info<<"feature num: " <<feature_num<<endl;
@@ -173,11 +177,10 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
     
    
     message("Finish loading");
+    
     // Close all writing files
-    //int result;
     for(int i = 0; i < col_num; i ++)
     {
-      
         outFile[i].close();
     }
     
@@ -203,10 +206,12 @@ void DataManagement::readColumn(string fileName, long row_num)
     }
     inFile.read((char *) col, row_num * (sizeof(double)));
     inFile.close();
+    
     for(int i = 0; i < row_num; i ++)
     {
-        cout<<col[i]<<endl;
+        printf("%f\n", col[i]);
     }
+    
     delete col;
 }
 
@@ -250,7 +255,7 @@ vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tab
         getline(info,s);
         char delim = ' ';
         vector<string> tokens = split(s,delim);
-        //Skip the white line
+        //Skip the empty line
         if(tokens.size() == 0)
         {
             continue;
@@ -283,7 +288,7 @@ vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tab
         fields.push_back(table_name+"_"+"fk");
         for(int i = 0; i < table_feature_num; i ++)
         {
-            fields.push_back(table_name+"_"+"x"+"_s"+to_string((unsigned long long)i));
+            fields.push_back(table_name+"_"+"x"+"_s"+to_string((unsigned int)i));
         }
     }
     else if(table_type == 1)
@@ -292,7 +297,7 @@ vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tab
         fields.push_back(table_name+"_"+"rid");
         for(int i = 0; i < table_feature_num; i ++)
         {
-            fields.push_back(table_name+"_"+"x"+"_r"+to_string((unsigned long long)i));
+            fields.push_back(table_name+"_"+"x"+"_r"+to_string((unsigned int)i));
         }
     }
     else if(table_type == 2)
@@ -302,7 +307,7 @@ vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tab
         fields.push_back(table_name + "_" + "label");
         for(int i = 0; i < table_feature_num; i ++)
         {
-            fields.push_back(table_name + "_" + "x" + "_t" + to_string((unsigned long long)i));
+            fields.push_back(table_name + "_" + "x" + "_t" + to_string((unsigned int)i));
         }
     }
     else
@@ -316,7 +321,6 @@ vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tab
 }
 
 /*
- 
  @ table_name1: suppose to be entity table S
  @ table_name2: suppose to be attribute table R (More generalized version will be handled later)
  @ joinTable: The join
