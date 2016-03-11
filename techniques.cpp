@@ -30,7 +30,6 @@ techniques::techniques(){};
 #pragma mark - Stochastic Coordiante Descent
 void techniques::materialize(string table_T, setting _setting, double *&model, long avail_mem)
 {
-    
     DataManagement DM;
     DM.message("Start materialize");
     linear_models lm;
@@ -851,7 +850,8 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                 model[cur_index] = model[cur_index] - step_size * F_partial;
                 
                 double diff = model[cur_index] - W_j;
-                //Update the intermediate variable
+                
+		//Update the intermediate variable
                 //H = H + (Wj - old_Wj)* X(,j)
                 if(cur_index < avail_col_S)
                 {
@@ -876,6 +876,9 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                 cout<<"col_index_R: "<<col_index_R<<endl;
                 
                 //Compute the factorized factor
+		for(long k = 0; k < row_num_R; k ++){
+			X_R_f[k] = 0.00;
+		}
                 for(long m = 0; m < row_num_S; m ++)
                 {
                     long fk = KKMR[m];
