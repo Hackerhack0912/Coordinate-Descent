@@ -46,7 +46,7 @@ DataManagement::DataManagement(){};
  @corresponding file format for table S: sid,fk,y(label),x_s[](feature vector)
  @corresponding file format for table R: rid,x_r[](feature vector)
  Note: All entries in the tables are assumed to be numeric
- **/
+ */
 void DataManagement::store(string fileName, int feature_num, int table_type, long row_num)
 {
     string table_name;
@@ -104,7 +104,7 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
     
     //Reading the file and load the data to the corresponding columns (binary array)
     message("Open the input file");
-    message("File Name: "+fileName);
+    printf("File Name: %s", fileName.c_str());
     ifstream infile;
     infile.open(fileName);
     
@@ -263,7 +263,7 @@ vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tab
         table_info.push_back(tokens[2]);
     }
    
-    cout<<"size of table info: "<<table_info.size()<<endl;
+    printf("size of table info: %d\n", (int)table_info.size());
     table_name = table_info[0];
     table_type = atoi(table_info[1].c_str());
     table_feature_num = atoi(table_info[2].c_str());
@@ -356,9 +356,9 @@ void DataManagement::join(string table_name1, string table_name2, string joinTab
     }
     fk.read((char *)KKMR, table1_row_num*(sizeof(double)));
     fk.close();
-    cout<<"Finish fetchig KKMR reference"<<endl;
+    message("Finish fetchig KKMR reference");
     
-    cout<<"Start fetching the column names for materialized (join) table T"<<endl;
+    message("Start fetching the column names for materialized (join) table T");
     //Get the features for table T: sid, label, x_s[], x_r[]
     int t_column_num = 1 + 1 + table1_feature_num + table2_feature_num;
     //Store the name of every column of table T
@@ -378,9 +378,9 @@ void DataManagement::join(string table_name1, string table_name2, string joinTab
         //t_columns[k] = joinTable + "_" + "x_t" + to_string(k-2) + "(x_r" + to_string(k-2-table1_feature_num) + ")";
         t_columns[k] = joinTable + "_" + "x_t" + to_string((unsigned long long)k-2);
     }
-    cout<<"Finish fetching the column names for materialized (join) table T"<<endl;
+    message("Finish fetching the column names for materialized (join) table T");
     
-    cout<<"Open the output file for T"<<endl;
+    message("Open the output file for T");
     // Open the corresponding number of files (representing columns) for T
     ofstream *T = new ofstream[t_column_num];
     for(int i = 0; i < t_column_num; i ++)
@@ -400,7 +400,7 @@ void DataManagement::join(string table_name1, string table_name2, string joinTab
     sid.open(table1_fields[0], ios::in | ios::binary);
     if(!sid.is_open())
     {
-        cerr<<"Error Message: "<<"Cannot open file."<<endl;
+        errorMessage("Error Message: Cannot open file.");
         exit(1);
     }
     sid.read((char *)buffer, table1_row_num*(sizeof(double)));
@@ -437,9 +437,9 @@ void DataManagement::join(string table_name1, string table_name2, string joinTab
         T[i-1].write((char *)buffer, table1_row_num*(sizeof(double)));
         T[i-1].close();
     }
-    cout<<"Finish writing x_s[] to T"<<endl;
+    message("Finish writing x_s[] to T");
     
-    cout<<"Start writing x_r[] to T"<<endl;
+    message("Start writing x_r[] to T");
     //Then write corresponding columns x_r[] in R using KKMR as reference
     //Buffer for reading and probing
     double *read = new double[table2_row_num];
@@ -466,7 +466,7 @@ void DataManagement::join(string table_name1, string table_name2, string joinTab
         T[1+table1_feature_num+k].write((char *)buffer,table1_row_num*(sizeof(double)));
         T[1+table1_feature_num+k].close();
     }
-    cout<<"Finish writing x_r[] to T"<<endl;
+    message("Finish writing x_r[] to T");
     
     cout<<"Start writing the infomation file for table T"<<endl;
     // Write the table information to a single file
@@ -549,14 +549,14 @@ vector<string> DataManagement::split(const string&s, char delim)
     return tokens;
 }
 
-void DataManagement::message(string str)
+void DataManagement::message(const char *message)
 {
-    cout<<str<<endl;
+    printf("%s\n",message);
 }
 
-void DataManagement::errorMessage(string str)
+void DataManagement::errorMessage(const char *errorMessage)
 {
-    cerr<<"Error Message: "<<str<<endl;
+    fprintf(stderr, "%s\n", errorMessage);
 }
 
 
