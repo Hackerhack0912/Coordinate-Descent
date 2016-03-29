@@ -560,6 +560,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
     delete [] H;
     delete [] X_S;
     delete [] KKMR;
+    
     if(avail_col_R < feature_num_R)
     {
         delete [] X_R;
@@ -620,7 +621,6 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     double *X_R;
     //Buffer to store factorized factor when considering column R
     double *X_R_f;
-    
     //OID-OID Mapping (Key Foreign-Key Mapping Reference, to be kept in memory)
     double *KKMR;
     
@@ -870,10 +870,13 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
             }
             else
             {
+                //Clear X_R_f
+                for(long i = 0; i < row_num_R; i ++){
+                    X_R_f[i] = 0.00;
+                }
                 
                 //Check cache for R
                 int col_index_R = cur_index - feature_num_S;
-                cout<<"col_index_R: "<<col_index_R<<endl;
                 
                 //Compute the factorized factor
                 for(long m = 0; m < row_num_S; m ++)
@@ -914,15 +917,6 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                     {
                         X_R_f[k] = diff*cache_R[col_index_R][k];
                     }
-                    
-                    //Update the intermediate variable
-                    //H = H + (Wj - old_Wj)* X(,j)
-                    for(long m = 0; m < row_num_S; m ++ )
-                    {
-                        long fk = KKMR[m];
-                        H[m] = H[m] + X_R_f[fk-1];
-                    }
-                    
                 }
                 else
                 {
@@ -931,14 +925,16 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                         X_R_f[k] = diff*X_R[k];
                     }
                     
-                    //Update the intermediate variable
-                    //H = H + (Wj - old_Wj)* X(,j)
-                    for(long m = 0; m < row_num_S; m ++ )
-                    {
-                        long fk = KKMR[m];
-                        H[m] = H[m] + X_R_f[fk-1];
-                    }
                 }
+                
+                //Update the intermediate variable
+                //H = H + (Wj - old_Wj)* X(,j)
+                for(long m = 0; m < row_num_S; m ++ )
+                {
+                    long fk = KKMR[m];
+                    H[m] = H[m] + X_R_f[fk-1];
+                }
+
                 
             }
             
