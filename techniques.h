@@ -36,7 +36,7 @@ public:
     void materialize(string table_T, setting _setting, double *&model, long avail_mem);
     void stream(string table_S, string table_R, setting _setting, double *&model, long avail_mem);
     void factorize(string table_S, string table_R, setting _setting, double *&model, long avail_mem);
-    void materializeBCD(string table_T, setting _setting, double *&model, int block_size);
+    void materializeBCD(string table_T, setting _setting, double *&model, int block_size, long avavail_mem);
     void factorizeBCD(string table_S, string table_R, setting _setting, double *&model, int block_size);
     bool stop(int k, double r_prev, double r_curr, setting &setting);
     void SGD(vector< vector<double> > data, setting _setting, double *&model, int feature_num);

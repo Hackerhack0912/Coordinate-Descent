@@ -990,7 +990,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
 }
 
 #pragma mark - Block Coordinate Descent
-void techniques::materializeBCD(string table_T, setting _setting, double *&model, int block_size)
+void techniques::materializeBCD(string table_T, setting _setting, double *&model, int block_size, avail_mem)
 {
     DataManagement DM;
     DM.message("Start materializeBCD");
