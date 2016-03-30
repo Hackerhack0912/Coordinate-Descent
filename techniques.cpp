@@ -108,6 +108,10 @@ void techniques::materialize(string table_T, setting _setting, double *&model, l
     for(int i = 0; i < feature_num; i ++)
     {
         model[i] = 0.00;
+    }
+    
+    for(long i = 0; i < row_num; i ++)
+    {
         H[i] = 0.00;
     }
     
@@ -397,7 +401,6 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
     for(int i = 0; i < feature_num; i ++)
     {
         model[i] = 0.00;
-        
     }
     
     for(int i = 0; i < row_num_S; i ++)
@@ -990,7 +993,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
 }
 
 #pragma mark - Block Coordinate Descent
-void techniques::materializeBCD(string table_T, setting _setting, double *&model, int block_size, avail_mem)
+void techniques::materializeBCD(string table_T, setting _setting, double *&model, int block_size, long avail_mem)
 {
     DataManagement DM;
     DM.message("Start materializeBCD");
@@ -1003,36 +1006,80 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
     int block_residual = feature_num%block_size;
     block_num = block_residual > 0 ? (block_num + 1) : block_num;
     
+    //For cache
+    int avail_col = 0;
+    int avail_cache = 0;
+    double **cache;
+    
+    // Label Array
     double *Y;
+    // Residual Vector
     double *H;
+    // Buffer for column reading
     double *X;
-    //Additional column space reserved for gradient computation
+    // Additional columns space reserved for gradient computation
     double *G;
     double *difference;
     
-    //setting
+    // Setting
     double step_size = _setting.step_size;
     
-    //Allocate the memory to the model
+    // Calculate the available memory measured by size of each column
+    avail_col = avail_mem/(sizeof(double)*row_num);
+    
+    // Calculate the available remaining space for cache
+    avail_cache = avail_col - 5;
+    
+    if(avail_cache < 0)
+    {
+        DM.errorMessage("Insufficient memory space");
+        exit(1);
+    }
+    else if (avail_cache == 0)
+    {
+        DM.message("No space for caching");
+    }
+    else
+    {
+        if( avail_cache >= feature_num - 1 )
+        {
+            cache = new double*[feature_num];
+            for(int i = 0; i < feature_num; i ++)
+            {
+                cache[i] = new double[row_num];
+            }
+            //No need to reserve the X buffer to read single column
+            avail_cache = feature_num;
+        }
+        else
+        {
+            //Allocate the memory to X
+            X = new double[row_num];
+            cache = new double*[avail_cache];
+            for(int i = 0; i < avail_cache; i ++)
+            {
+                cache[i] = new double[row_num];
+            }
+        }
+    }
+
+    
+    // Dynamic memory allocation
     model = new double[feature_num];
-    //Allocate the memory to the label Array
     Y = new double[row_num];
-    //Allocate the memory to H
     H = new double[row_num];
-    //Allocate the memory to X
-    X = new double[row_num];
-    //Allocate the memory of G
     G = new double[row_num];
-    //Allocate the memory of difference
     difference = new double[row_num];
     
     double F = 0.00;
     double F_partial[block_size];
+    
     //Initialize the partial graident for every block
     for(int i = 0; i < block_size; i ++)
     {
         F_partial[i] = 0.00;
     }
+    
     double r_curr = 0.00;
     double r_prev = 0.00;
     int k = 0;
@@ -1040,6 +1087,10 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
     for(int i = 0; i < feature_num; i ++)
     {
         model[i] = 0.00;
+    }
+    
+    for(long i = 0; i < row_num; i ++)
+    {
         H[i] = 0.00;
         G[i] = 0.00;
         difference[i] = 0.00;
@@ -1129,16 +1180,35 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
                 cout<<"Current feature index: "<<cur_index<<endl;
                 
                 F_partial[b] = 0.00;
-                //Fetch the each column and store the current column into X
-                DM.fetchColumn(fields[cur_index+2], row_num, X);
                 
-                //Compute the partial gradient
-                for(long i = 0; i < row_num ; i ++)
+                
+                // Check for Cache
+                if(cur_index < avail_cache)
                 {
-                    F_partial[b] += G[i]*X[i];
+                    // Compute the partial gradient from cache
+                    for(long i = 0; i < row_num ; i ++)
+                    {
+                        F_partial[b] += G[i]*cache[cur_index][i];
+                    }
                 }
-                
-                
+                else
+                {
+                    //Fetch the column and store the current column into X
+                    DM.fetchColumn(fields[cur_index+2], row_num, X);
+                    
+                    //Compute the partial gradient
+                    for(long i = 0; i < row_num ; i ++)
+                    {
+                        F_partial[b] += G[i]*X[i];
+                    }
+                    
+                    //Compute the partial gradient
+                    for(long i = 0; i < row_num ; i ++)
+                    {
+                        F_partial[b] += G[i]*X[i];
+                    }
+                }
+              
                 //Store the old W(j)
                 int cur_model_index = cur_index;
                 double diff = model[cur_model_index];
@@ -1147,11 +1217,25 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
                 
                 //Compute the difference on current coordinate
                 diff = model[cur_model_index] - diff;
-                //Update the cumulative difference
-                for(long m = 0; m < row_num; m ++)
+                
+                 //Update the cumulative difference
+                if(cur_index < avail_cache)
                 {
-                    difference[m] += diff*X[m];
+                    for(long m = 0; m < row_num; m ++)
+                    {
+                        difference[m] += diff*cache[cur_index][m];
+                    }
+
                 }
+                else
+                {
+                    for(long m = 0; m < row_num; m ++)
+                    {
+                        difference[m] += diff*X[m];
+                    }
+
+                }
+               
             }
             
             for(long m = 0; m < row_num; m ++ )
@@ -1178,10 +1262,25 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
     while(!stop(k,r_prev,r_curr,_setting));
     
     delete [] Y;
-    delete [] X;
     delete [] H;
     delete [] G;
     delete [] difference;
+    
+    if(avail_cache < feature_num)
+    {
+        delete [] X;
+    }
+    
+    // Clear the cache
+    if(avail_cache > 0)
+    {
+        for(int i = 0; i < avail_cache; i ++)
+        {
+            delete [] cache[i];
+        }
+        
+        delete [] cache;
+    }
     
     printf("The final loss: %lf\n",r_curr);
     printf("Number of iteration: %d\n",k);

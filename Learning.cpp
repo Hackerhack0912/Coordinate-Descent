@@ -99,6 +99,7 @@ int main(int argc, const char * argv[])
                 scanf("%d", &block_size);
                 t.materializeBCD(tableName, _setting, model, block_size, avail_mem);
             }
+  
             delete [] model;
         }
         
