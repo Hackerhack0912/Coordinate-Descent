@@ -189,7 +189,7 @@ int main(int argc, const char * argv[])
             int block_size;
             printf("Setting number of block size: \n");
             scanf("%d", &block_size);
-            t.factorizeBCD(tableName_S, tableName_R, _setting, model, block_size);
+            t.factorizeBCD(tableName_S, tableName_R, _setting, model, block_size, avail_mem);
         }
         else
         {

@@ -212,7 +212,7 @@ void DataManagement::readColumn(string fileName, long row_num)
         printf("%f\n", col[i]);
     }
     
-    delete col;
+    delete [] col;
 }
 
 void DataManagement::fetchColumn(string fileName, long row_num, double *col )
@@ -533,7 +533,7 @@ void DataManagement::readTable(string tableName)
     }
     
     delete [] inFile;
-    delete read;
+    delete [] read;
 
 }
 
