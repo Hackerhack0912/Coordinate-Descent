@@ -26,7 +26,6 @@ techniques::techniques(){};
  (SGD/BGD)
  Materialize only
 */
-//Just Logistic Regression by now
 #pragma mark - Stochastic Coordiante Descent
 void techniques::materialize(string table_T, setting _setting, double *&model, long avail_mem)
 {
@@ -39,27 +38,27 @@ void techniques::materialize(string table_T, setting _setting, double *&model, l
     int feature_num = (int)tableInfo[1];
     long row_num = tableInfo[2];
     
-    //For cache
+    // For cache
     int avail_col = 0;
     int avail_cache = 0;
     double **cache;
    
-    //Primary main memory space: three columns
+    // Primary main memory space: three columns
     
-    //Label array
+    // Label array
     double *Y;
-    //Residual vector
+    // Residual vector
     double *H;
-    //Buffer for column reading
+    // Buffer for column reading
     double *X;
     
-    //setting
+    // Setting
     double step_size = _setting.step_size;
     
-    //Calculate the available memory measured by size of each column
+    // Calculate the available memory measured by size of a single column
     avail_col = avail_mem/(sizeof(double)*row_num);
     
-    //Calculate the available remaining space for cache
+    // Calculate the available remaining space measured by size of a single column for cache
     avail_cache = avail_col - 3;
     if(avail_cache < 0)
     {
@@ -69,8 +68,6 @@ void techniques::materialize(string table_T, setting _setting, double *&model, l
     else if (avail_cache == 0)
     {
         DM.message("No space for caching");
-        //Allocate the memory to X
-        X = new double[row_num];
     }
     else
     {
@@ -81,13 +78,11 @@ void techniques::materialize(string table_T, setting _setting, double *&model, l
             {
                 cache[i] = new double[row_num];
             }
-            //No need to reserve the X buffer to read single column
+            // No need to reserve the X buffer to read single column
             avail_cache = feature_num;
         }
         else
         {
-            //Allocate the memory to X
-            X = new double[row_num];
             cache = new double*[avail_cache];
             for(int i = 0; i < avail_cache; i ++)
             {
@@ -96,56 +91,65 @@ void techniques::materialize(string table_T, setting _setting, double *&model, l
         }
     }
     
-    //Dynamic memory allocation
-    model = new double[feature_num];
+    // Dynamic memory allocation
+    if(avail_cache < feature_num)
+    {
+        // Allocate the memory to X
+        X = new double[row_num];
+    }
     Y = new double[row_num];
     H = new double[row_num];
+    model = new double[feature_num];
     
+    // Initialization of variables for loss and gradient
     double F = 0.00;
     double F_partial = 0.00;
     double r_curr = 0.00;
     double r_prev = 0.00;
     int k = 0;
     
+    // Initialization
     for(int i = 0; i < feature_num; i ++)
     {
         model[i] = 0.00;
     }
-    
     for(long i = 0; i < row_num; i ++)
     {
         H[i] = 0.00;
     }
-    
     DM.fetchColumn(fields[1], row_num, Y);
     
+    // Shuffling process
     vector<int> original_index_set;
     vector<int> shuffling_index;
-    //Initialize the original_index_set
+    // Initialize the original_index_set
     for(long i = 0; i < feature_num; i ++)
     {
         original_index_set.push_back(i);
     }
-    
-    //Shuffling
     shuffling_index = shuffle(original_index_set, (unsigned)time(NULL));
     
-    //Caching
+    // Caching
+    printf("\n");
+    printf("Avail_col: %d\n", avail_cache);
     for(int i = 0; i < avail_cache; i ++)
     {
-        DM.fetchColumn(fields[i+2],row_num, cache[i]);
+        printf("Cache %d th column\n", i);
+        DM.fetchColumn(fields[i+2], row_num, cache[i]);
     }
     
-    //First do Logistic Regression
+    // First do Logistic Regression
     do
     {
-        //Update one coordinate each time
+        // Update one coordinate each time
         for(int j = 0; j < feature_num; j ++)
         {
             int cur_index = shuffling_index.at(j);
+            printf("Current feature index: %d\n", cur_index);
+            
             F_partial = 0.00;
             
-            //If the column corresponding to the current updating coordinate is in the cache, no extra I/O is needed
+            // If the column corresponding to the current updating coordinate is in the cache, no extra I/O is needed
             if( cur_index < avail_cache)
             {
                 for(long i = 0; i < row_num ; i ++)
@@ -155,26 +159,25 @@ void techniques::materialize(string table_T, setting _setting, double *&model, l
             }
             else
             {
-                //Fetch the column and store the current column into X
+                // Fetch the column and store the current column into X
                 DM.fetchColumn(fields[cur_index+2], row_num, X);
-                //Compute the partial gradient
+                // Compute the partial gradient
                 for(long i = 0; i < row_num ; i ++)
                 {
                     F_partial += lm.G_lr(Y[i],H[i])*X[i];
                 }
             }
 
-            //Store the old W(j)
+            // Store the old W(j)
             double W_j = model[cur_index];
             
-            //Update the current coordinate
+            // Update the current coordinate
             model[cur_index] = model[cur_index] - step_size * F_partial;
             
             double diff = model[cur_index] - W_j;
     
-            
-            //Update the intermediate variable
-            //H = H + (Wj - old_Wj)* X(,j)
+            // Update the intermediate variable
+            // H = H + (Wj - old_Wj)* X(,j)
             if( cur_index < avail_cache)
             {
                 for(long m = 0; m < row_num; m ++ )
@@ -193,55 +196,49 @@ void techniques::materialize(string table_T, setting _setting, double *&model, l
         }
         
         r_prev = F;
-        
-        //Caculate F
+        // Caculate F
         F = 0.00;
         for(long i = 0; i < row_num ; i ++)
         {
             double tmp = lm.Fe_lr(Y[i],H[i]);
             F += tmp;
         }
-        
         r_curr = F;
         k++;
-        
     }
     while(!stop(k,r_prev,r_curr,_setting));
     
     delete [] Y;
     delete [] H;
     
-    if( avail_cache < feature_num - 1 ){
+    if( avail_cache < feature_num ){
         delete [] X;
     }
     
-    printf("The final loss: %lf\n",r_curr);
-    printf("Number of iteration: %d\n",k);
-    printf("Model: ");
-    for(int i = 0; i < feature_num; i ++)
+    // Clear the cache
+    if( avail_cache > 0)
     {
-        if(i == feature_num - 1)
+        for(int i = 0; i < avail_cache; i ++)
         {
-            printf("%.20f\n",model[i]);
+            delete [] cache[i];
         }
-        else
-        {
-             printf("%.20f, ",model[i]);
-        }
+        delete [] cache;
     }
     
-    DM.message("Finish materialize");
+    printf("\n");
+    outputResults(r_curr, feature_num, k, model);
     
+    DM.message("Finish materialize");
 }
 
-/* Should not store oid-oid mapping here */
+/* oid-oid mapping is Not stored in memory */
 void techniques::stream(string table_S, string table_R, setting _setting, double *&model, long avail_mem)
 {
     DataManagement DM;
     DM.message("Start stream");
     linear_models lm;
     
-    //Get the table information and column names
+    // Get the table information and column names
     vector<long> tableInfo_S(3);
     vector<long> tableInfo_R(3);
     vector<string> fields_S = DM.getFieldNames(table_S, tableInfo_S);
@@ -252,7 +249,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
     long row_num_S = tableInfo_S[2];
     long row_num_R = tableInfo_R[2];
     
-    //for Cache
+    // For Cache
     long avail_mem_total = avail_mem;
     long avail_cache;
     int avail_col_S = 0;
@@ -260,42 +257,40 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
     double **cache_R;
     double **cache_S;
     
-    //Label array
+    // Label array
     double *Y;
-    //Residual vector
+    // Residual vector
     double *H;
-    //Buffer for column reading in S
+    // Buffer for column reading in S
     double *X_S;
-    //Buffer for column reading in R
+    // Buffer for column reading in R
     double *X_R;
-    
-    //OID-OID Mapping (Key Foreign-Key Mapping Reference)
+    // OID-OID Mapping (Key Foreign-Key Mapping Reference)
     double *KKMR;
     
-    //setting
+    // Setting
     double step_size = _setting.step_size;
 
-    //Calculate the available memory measured by size of each column in R and S
+    // Calculate the available memory measured by size of each column in R and S
     avail_cache = avail_mem_total - sizeof(double)*(4*row_num_S + row_num_R);
 
     if(avail_cache < 0)
     {
     	DM.errorMessage("Insufficient memory space");
-	exit(1);
+	    exit(1);
     }
     else if(avail_cache == 0)
     {
     	DM.message("No space for caching");
-        X_R = new double[row_num_R];
     }
     else
     {
-    	//first consider caching columns in S
+    	// First consider caching columns in S
         avail_col_S = avail_cache/(sizeof(double)*row_num_S);
         if(avail_col_S == 0)
         {
             DM.message("No space for caching S");
-            //Then consider caching columns in R
+            // Then consider caching columns in R
             avail_col_R = avail_cache/(sizeof(double)*row_num_R);
             if(avail_col_R == 0)
             {
@@ -310,13 +305,11 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
                     {
                         cache_R[i] = new double[row_num_R];
                     }
-                    //No need to reserve the X_R buffer to read a single column in R
+                    // No need to reserve the X_R buffer to read a single column in R
                     avail_col_R = feature_num_R;
                 }
                 else
                 {
-                    //Allocate the memory to X_R
-                    X_R = new double[row_num_R];
                     cache_R = new double*[avail_col_R];
                     for(int i = 0; i < avail_col_R; i ++)
                     {
@@ -327,16 +320,15 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
         }
         else
         {
-	    if(avail_col_S >= feature_num_S)
+            if(avail_col_S >= feature_num_S)
             {
                 cache_S = new double*[feature_num_S];
                 for(int i = 0; i < feature_num_S; i ++)
                 {
                     cache_S[i] = new double[row_num_S];
                 }
-                //X_S is still needed to "reconstruct" the complete column from single column fetched from R
+                // X_S is still needed to "reconstruct" the complete column from single column fetched from R
                 avail_col_S = feature_num_S;
-		
             }
             else
             {
@@ -347,15 +339,8 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
                 }
             }
 		
-            //Then consider the caching for R using the remaining caching space
-            if(avail_col_S == feature_num_S)
-            {
-                avail_cache = avail_cache - (avail_col_S - 1)*sizeof(double)*row_num_S;
-            }
-            else
-            {
-                avail_cache = avail_cache - avail_col_S*sizeof(double)*row_num_S;
-            }
+            // Then consider the caching for R using the remaining caching space
+            avail_cache = avail_cache - avail_col_S*sizeof(double)*row_num_S;
             avail_col_R = avail_cache/(sizeof(double)*row_num_R);
             if(avail_col_R == 0)
             {
@@ -370,13 +355,11 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
                     {
                         cache_R[i] = new double[row_num_R];
                     }
-                    //No need to reserve the X_R buffer to read a single column in R
+                    // No need to reserve the X_R buffer to read a single column in R
                     avail_col_R = feature_num_R;
                 }
                 else
                 {
-                    //Allocate the memory to X_R
-                    X_R = new double[row_num_R];
                     cache_R = new double*[avail_col_R];
                     for(int i = 0; i < avail_col_R; i ++)
                     {
@@ -388,89 +371,95 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
         
     }
     
-    //Dynamic memory allocation
-    model = new double[feature_num];
+    // Dynamic memory allocation
+    if(avail_col_R < feature_num_R)
+    {
+         X_R = new double[row_num_R];
+    }
+    X_S = new double[row_num_S];
     Y = new double[row_num_S];
     H = new double[row_num_S];
-    X_S = new double[row_num_S];
     KKMR = new double[row_num_S];
+    model = new double[feature_num];
    
+    // Initialization of variables for loss and gradient
     double F = 0.00;
     double F_partial = 0.00;
     double r_curr = 0.00;
     double r_prev = 0.00;
     int k = 0;
     
+    // Initialization
     for(int i = 0; i < feature_num; i ++)
     {
         model[i] = 0.00;
     }
-    
     for(int i = 0; i < row_num_S; i ++)
     {
         H[i] = 0.00;
     }
-    
     DM.fetchColumn(fields_S[1], row_num_S, Y);
     
+    // Shuffling process
     vector<int> original_index_set;
     vector<int> shuffling_index;
-    //Initialize the original_index_set
+    // Initialize the original_index_set
     for(int i = 0; i < feature_num; i ++)
     {
         original_index_set.push_back(i);
     }
-    
-    //Shuffling
     shuffling_index = shuffle(original_index_set, (unsigned)time(NULL));
     
-    //Caching S
-    cout<<"Avail_col_S: "<<avail_col_S<<endl;
+    // Caching S
+    printf("\n");
+    printf("Avail_col_S: %d\n", avail_col_S);
     for(int i = 0; i < avail_col_S; i ++)
     {
-        cout<<"Cache "<<i<<" th column in S"<<endl;
+        printf("Cache %d th column in S\n", i);
         DM.fetchColumn(fields_S[3+i], row_num_S, cache_S[i]);
     }
-    
-    //Caching R
-    cout<<"Avail_col_R: "<<avail_col_R<<endl;
+   
+    // Caching R
+    printf("\n");
+    printf("Avail_col_R: %d\n", avail_col_R);
     for(int k = 0; k < avail_col_R; k ++)
     {
-        cout<<"Cache "<<k<<" th column in R"<<endl;
+        printf("Cache %d th column in R\n", k);
         DM.fetchColumn(fields_R[1+k],row_num_R, cache_R[k]);
     }
 
-    //First do Logistic Regression
     do
     {
-        printf("Start fetching KKMR reference\n");
-        //Read the fk column(referred rid in R) in table S, rid column in R
+        printf("\n");
+        DM.message("Start fetching KKMR reference\n");
+        // Read the fk column(referred rid in R) in table S, rid column in R
         ifstream fk;
-        //Load the fk to KKMR
+        // Load the fk to KKMR
         fk.open(fields_S[2], ios::in | ios::binary);
-        //rid.open(table2_fields[0], ios::in | ios::binary);
+        // rid.open(table2_fields[0], ios::in | ios::binary);
         if(!fk.is_open())
         {
-            cerr<<"Error Message: "<<"Cannot load the fk column."<<endl;
+            DM.errorMessage("Error Message: Cannot load the fk column.");
             exit(1);
         }
         fk.read((char *)KKMR, row_num_S*(sizeof(double)));
         fk.close();
-        printf("Finish fetchig KKMR reference\n");
+        DM.message("Finish fetchig KKMR reference\n");
         
-        //Update one coordinate each time
+        // Update one coordinate each time
         for(int j = 0; j < feature_num; j ++)
         {
             int cur_index = shuffling_index.at(j);
+            printf("Current feature index: %d\n", cur_index);
             
             F_partial = 0.00;
          
             if(cur_index < feature_num_S)
             {
-                //Check cache for S
+                // Check cache for S
                 if(cur_index < avail_col_S)
                 {
-                    //Compute the partial gradient
+                    // Compute the partial gradient
                     for(long i = 0; i < row_num_S; i ++)
                     {
                         F_partial += lm.G_lr(Y[i],H[i])*cache_S[cur_index][i];
@@ -478,9 +467,9 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
                 }
                 else
                 {
-                    //Fetch the corresponding column in S and store in X_S
+                    // Fetch the corresponding column in S and store in X_S
                     DM.fetchColumn(fields_S[3+cur_index], row_num_S, X_S);
-                    //Compute the partial gradient
+                    // Compute the partial gradient
                     for(long i = 0; i < row_num_S; i ++)
                     {
                         F_partial += lm.G_lr(Y[i],H[i])*X_S[i];
@@ -489,9 +478,9 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
             }
             else
             {
-                //Check cache for R
+                // Check cache for R
                 int col_index_R = cur_index - feature_num_S;
-                cout<<"col_index_R: "<<col_index_R<<endl;
+                printf("col_index_R: %d\n", col_index_R);
                 if(col_index_R < avail_col_R)
                 {
                     for(long m = 0; m < row_num_S; m ++)
@@ -510,7 +499,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
                     }
                 }
                 
-                //Compute the partial gradient
+                // Compute the partial gradient
                 for(long i = 0; i < row_num_S; i ++)
                 {
                     F_partial += lm.G_lr(Y[i],H[i])*X_S[i];
@@ -519,11 +508,10 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
                 
             }
             
-            
-            //Store the old W(j)
+            // Store the old W(j)
             double W_j = model[cur_index];
             
-            //Update the current coordinate
+            // Update the current coordinate
             model[cur_index] = model[cur_index] - step_size * F_partial;
             
             double diff = model[cur_index] - W_j;
@@ -548,7 +536,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
         }
         
         r_prev = F;
-        //Caculate F
+        // Caculate F
         F = 0.00;
         for(long i = 0; i < row_num_S; i ++)
         {
@@ -572,21 +560,23 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
         delete [] X_R;
     }
     
-    printf("The final loss: %lf\n",r_curr);
-    printf("Number of iteration: %d\n",k);
-    printf("Model: ");
-    for(int i = 0; i < feature_num; i ++)
+    if(avail_col_S > 0)
     {
-        if(i == feature_num - 1)
+        for(int i  = 0; i < avail_col_S; i ++)
         {
-            printf("%.20f\n",model[i]);
+            delete [] cache_S[i];
         }
-        else
-        {
-            printf("%.20f, ",model[i]);
-        }
-        
     }
+    if(avail_col_R > 0)
+    {
+        for(int i  = 0; i < avail_col_R; i ++)
+        {
+            delete [] cache_R[i];
+        }
+    }
+    
+    printf("\n");
+    outputResults(r_curr, feature_num, k, model);
     
     DM.message("Finish stream");
 }
@@ -598,7 +588,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     DM.message("Start factorize");
     linear_models lm;
     
-    //Get the table information and column names
+    // Get the table information and column names
     vector<long> tableInfo_S(3);
     vector<long> tableInfo_R(3);
     vector<string> fields_S = DM.getFieldNames(table_S, tableInfo_S);
@@ -609,7 +599,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     long row_num_S = tableInfo_S[2];
     long row_num_R = tableInfo_R[2];
     
-    //for Cache
+    // For Cache
     long avail_mem_total = avail_mem;
     long avail_cache;
     int avail_col_S = 0;
@@ -617,23 +607,23 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     double **cache_R;
     double **cache_S;
     
-    //Label array
+    // Label array
     double *Y;
-    //Residual vector
+    // Residual vector
     double *H;
-    //Buffer for column reading in S
+    // Buffer for column reading in S
     double *X_S;
-    //Buffer for column reading in R
+    // Buffer for column reading in R
     double *X_R;
-    //Buffer to store factorized factor when considering column R
+    // Buffer to store factorized factor when considering column R
     double *X_R_f;
-    //OID-OID Mapping (Key Foreign-Key Mapping Reference, to be kept in memory)
+    // OID-OID Mapping (Key Foreign-Key Mapping Reference, to be kept in memory)
     double *KKMR;
     
-    //setting
+    // Setting
     double step_size = _setting.step_size;
     
-    //Calculate the available memory measured by size of each column in R and S
+    // Calculate the available memory measured by size of each column in R and S
     avail_cache = avail_mem_total - sizeof(double)*(4*row_num_S + 2*row_num_R);
     
     if(avail_cache < 0)
@@ -644,18 +634,16 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     else if(avail_cache == 0)
     {
         DM.message("No space for caching");
-        X_S = new double[row_num_S];
-        X_R = new double[row_num_R];
     }
     else
     {
-        //first consider caching columns in S
+        // First consider caching columns in S
         avail_col_S = avail_cache/(sizeof(double)*row_num_S);
         if(avail_col_S == 0)
         {
             DM.message("No space for caching S");
             X_S = new double[row_num_S];
-            //Then consider caching columns in R
+            // Then consider caching columns in R
             avail_col_R = avail_cache/(sizeof(double)*row_num_R);
             if(avail_col_R == 0)
             {
@@ -670,13 +658,11 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                     {
                         cache_R[i] = new double[row_num_R];
                     }
-                    //No need to reserve the X_R buffer to read a single column in R
+                    // No need to reserve the X_R buffer to read a single column in R
                     avail_col_R = feature_num_R;
                 }
                 else
                 {
-                    //Allocate the memory to X_R
-                    X_R = new double[row_num_R];
                     cache_R = new double*[avail_col_R];
                     for(int i = 0; i < avail_col_R; i ++)
                     {
@@ -687,7 +673,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
         }
         else
         {
-            if(avail_col_S >= feature_num_S)
+            if(avail_col_S >= (feature_num_S - 1))
             {
                 cache_S = new double*[feature_num_S];
                 for(int i = 0; i < feature_num_S; i ++)
@@ -696,11 +682,9 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                 }
                 //No need to reserve X_S for single column reading
                 avail_col_S = feature_num_S;
-                
             }
             else
             {
-                X_S = new double[row_num_S];
                 cache_S = new double*[avail_col_S];
                 for(int i = 0; i < avail_col_S; i ++)
                 {
@@ -731,13 +715,11 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                     {
                         cache_R[i] = new double[row_num_R];
                     }
-                    //No need to reserve the X_R buffer to read a single column in R
+                    // No need to reserve the X_R buffer to read a single column in R
                     avail_col_R = feature_num_R;
                 }
                 else
                 {
-                    //Allocate the memory to X_R
-                    X_R = new double[row_num_R];
                     cache_R = new double*[avail_col_R];
                     for(int i = 0; i < avail_col_R; i ++)
                     {
@@ -751,72 +733,82 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     
     
     //Dynamic memory alloaction
+    if(avail_col_S < feature_num_S)
+    {
+        X_S = new double[row_num_S];
+    }
+    if(avail_col_R < feature_num_R)
+    {
+        X_R = new double[row_num_R];
+    }
     model = new double[feature_num];
     Y = new double[row_num_S];
     H = new double[row_num_S];
     X_R_f = new double[row_num_R];
     KKMR = new double[row_num_S];
     
+    // Initialization of variables for loss and gradient
     double F = 0.00;
     double F_partial = 0.00;
     double r_curr = 0.00;
     double r_prev = 0.00;
     int k = 0;
     
+    // Initialization
     for(int i = 0; i < feature_num_S; i ++)
     {
         model[i] = 0.00;
         
     }
-    
     for(int i = 0; i < row_num_S; i ++)
     {
         H[i] = 0.00;
     }
-    
     DM.fetchColumn(fields_S[1], row_num_S, Y);
-    
-    vector<int> original_index_set;
-    vector<int> shuffling_index;
-    //Initialize the original_index_set
-    for(int i = 0; i < feature_num; i ++)
-    {
-        original_index_set.push_back(i);
-    }
-    
-    //Shuffling
-    shuffling_index = shuffle(original_index_set, (unsigned)time(NULL));
-    
-    //Caching S
-    cout<<"Avail_col_S: "<<avail_col_S<<endl;
-    for(int i = 0; i < avail_col_S; i ++)
-    {
-        cout<<"Cache "<<i<<" th column in S"<<endl;
-        DM.fetchColumn(fields_S[3+i], row_num_S, cache_S[i]);
-    }
-    
-    //Caching R
-    cout<<"Avail_col_R: "<<avail_col_R<<endl;
-    for(int k = 0; k < avail_col_R; k ++)
-    {
-        cout<<"Cache "<<k<<" th column in R"<<endl;
-        DM.fetchColumn(fields_R[1+k],row_num_R, cache_R[k]);
-    }
-    
+    printf("\n");
     DM.message("Start fetching KKMR reference\n");
-    //Read the fk column(referred rid in R) in table S, rid column in R
+    // Read the fk column(referred rid in R) in table S, rid column in R
     ifstream fk;
-    //Load the fk to KKMR
+    // Load the fk to KKMR
     fk.open(fields_S[2], ios::in | ios::binary);
-    //rid.open(table2_fields[0], ios::in | ios::binary);
+    // rid.open(table2_fields[0], ios::in | ios::binary);
     if(!fk.is_open())
     {
-        cerr<<"Error Message: "<<"Cannot load the fk column."<<endl;
+        DM.errorMessage("Error Message: Cannot load the fk column.");
         exit(1);
     }
     fk.read((char *)KKMR, row_num_S*(sizeof(double)));
     fk.close();
     DM.message("Finished fetching KKMR reference\n");
+    
+    vector<int> original_index_set;
+    vector<int> shuffling_index;
+    // Initialize the original_index_set
+    for(int i = 0; i < feature_num; i ++)
+    {
+        original_index_set.push_back(i);
+    }
+    // Shuffling
+    shuffling_index = shuffle(original_index_set, (unsigned)time(NULL));
+       
+    // Caching S
+    printf("\n");
+    printf("Avail_col_S: %d\n", avail_col_S);
+    for(int i = 0; i < avail_col_S; i ++)
+    {
+        printf("Cache %d th column in S\n", i);
+        DM.fetchColumn(fields_S[3+i], row_num_S, cache_S[i]);
+    }
+    
+    // Caching R
+    printf("\n");
+    printf("Avail_col_R: %d\n", avail_col_R);
+    for(int k = 0; k < avail_col_R; k ++)
+    {
+        printf("Cache %d th column in R\n", k);
+        DM.fetchColumn(fields_R[1+k],row_num_R, cache_R[k]);
+    }
+
     
     //First do Logistic Regression
     do
@@ -2119,6 +2111,26 @@ bool techniques::stop(int k, double r_prev, double r_curr, setting &setting)
         return false;
     }
 }
+
+#pragma mark - print the final result
+void techniques::outputResults(double r_curr, int feature_num, int k, double *&model)
+{
+    printf("The final loss: %lf\n", r_curr);
+    printf("Number of iteration: %d\n", k);
+    printf("Model: ");
+    for(int i = 0; i < feature_num; i ++)
+    {
+        if(i == feature_num - 1)
+        {
+            printf("%.20f\n",model[i]);
+        }
+        else
+        {
+            printf("%.20f, ",model[i]);
+        }
+    }
+}
+
 
 
 

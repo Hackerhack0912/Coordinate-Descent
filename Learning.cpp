@@ -23,7 +23,7 @@
  8. Stochastic Gradient Descent: DB SGD train_file_name test_file_name
  9. Batch Gradient Descent:DB BGD train_file_name test_file_name
  10. Block Coordinate Descent(materialize): DB BCD table_name
- 11. Block Coordinate Descent(factorize): DB BCD table_name_S table_name_R
+ 11. Block Coordinate Descent(factorize): DB fBCD table_name_S table_name_R
  */
 int main(int argc, const char * argv[])
 {

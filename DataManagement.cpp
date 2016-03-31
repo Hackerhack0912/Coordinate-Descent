@@ -104,7 +104,7 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
     
     //Reading the file and load the data to the corresponding columns (binary array)
     message("Open the input file");
-    message("File Name: "+fileName);
+    printf("File Name: %s", fileName.c_str());
     ifstream infile;
     infile.open(fileName);
     
@@ -549,14 +549,14 @@ vector<string> DataManagement::split(const string&s, char delim)
     return tokens;
 }
 
-void DataManagement::message(string str)
+void DataManagement::message(const char *message)
 {
-    cout<<str<<endl;
+    printf("%s\n",message);
 }
 
-void DataManagement::errorMessage(string str)
+void DataManagement::errorMessage(const char *error)
 {
-    cerr<<"Error Message: "<<str<<endl;
+    fprintf(stderr, "%s\n", error);
 }
 
 

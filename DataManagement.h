@@ -13,6 +13,7 @@ using namespace std;
 #include <vector>
 #include <stdio.h>
 #include <string>
+
 //Read data from table stored in text file and loaded into the DB
 class DataManagement
 {
@@ -25,8 +26,8 @@ public:
     void join(string table_name1, string table_name2, string joinTable);
     vector<string> getFieldNames(string tableName,vector<long> &tableInfo);
     void readTable(string tableName);
-    static void message(string str);
-    static void errorMessage(string str);
+    static void message(const char *message);
+    static void errorMessage(const char *error);
     vector< vector<double> > rowStore(string fileName);
 private:
     vector<string> split(const string &s, char delim);

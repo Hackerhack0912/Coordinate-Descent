@@ -45,6 +45,7 @@ public:
 private:
     vector<int> shuffle(vector<int> &index_set, unsigned seed);
     vector<long> shuffle(vector<long> &index_set, unsigned seed);
+    void outputResults(double r_curr, int feature_num, int k, double *&model);
 };
 
 
