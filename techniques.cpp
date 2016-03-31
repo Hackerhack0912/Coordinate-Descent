@@ -33,6 +33,8 @@ void techniques::materialize(string table_T, setting _setting, double *&model, l
     DataManagement DM;
     DM.message("Start materialize");
     linear_models lm;
+    
+    // Get the table information and column names
     vector<long> tableInfo(3);
     vector<string> fields = DM.getFieldNames(table_T, tableInfo);
     int feature_num = (int)tableInfo[1];
@@ -431,7 +433,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
     do
     {
         printf("\n");
-        DM.message("Start fetching KKMR reference\n");
+        DM.message("Start fetching KKMR reference");
         // Read the fk column(referred rid in R) in table S, rid column in R
         ifstream fk;
         // Load the fk to KKMR
@@ -444,7 +446,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
         }
         fk.read((char *)KKMR, row_num_S*(sizeof(double)));
         fk.close();
-        DM.message("Finish fetchig KKMR reference\n");
+        DM.message("Finish fetchig KKMR reference");
         
         // Update one coordinate each time
         for(int j = 0; j < feature_num; j ++)
@@ -560,12 +562,14 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
         delete [] X_R;
     }
     
+    // Clear the cache
     if(avail_col_S > 0)
     {
         for(int i  = 0; i < avail_col_S; i ++)
         {
             delete [] cache_S[i];
         }
+        delete [] cache_S;
     }
     if(avail_col_R > 0)
     {
@@ -573,6 +577,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
         {
             delete [] cache_R[i];
         }
+        delete [] cache_R;
     }
     
     printf("\n");
@@ -766,7 +771,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     }
     DM.fetchColumn(fields_S[1], row_num_S, Y);
     printf("\n");
-    DM.message("Start fetching KKMR reference\n");
+    DM.message("Start fetching KKMR reference");
     // Read the fk column(referred rid in R) in table S, rid column in R
     ifstream fk;
     // Load the fk to KKMR
@@ -779,7 +784,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     }
     fk.read((char *)KKMR, row_num_S*(sizeof(double)));
     fk.close();
-    DM.message("Finished fetching KKMR reference\n");
+    DM.message("Finished fetching KKMR reference");
     
     vector<int> original_index_set;
     vector<int> shuffling_index;
@@ -809,24 +814,22 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
         DM.fetchColumn(fields_R[1+k],row_num_R, cache_R[k]);
     }
 
-    
-    //First do Logistic Regression
     do
     {
-        //Update one coordinate each time
+        // Update one coordinate each time
         for(int j = 0; j < feature_num; j ++)
         {
-            
             int cur_index = shuffling_index.at(j);
+            printf("Current feature index: %d\n", cur_index);
             
             F_partial = 0.00;
-            //Fetch each column in table S and store the current column into X
+       
             if(cur_index < feature_num_S)
             {
-                //Check cache for S
+                // Check cache for S
                 if(cur_index < avail_col_S)
                 {
-                    //Compute the partial gradient
+                    // Compute the partial gradient
                     for(long i = 0; i < row_num_S; i ++)
                     {
                         F_partial += lm.G_lr(Y[i],H[i])*cache_S[cur_index][i];
@@ -834,9 +837,9 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                 }
                 else
                 {
-                    //Fetch the corresponding column in S and store in X_S
+                    // Fetch the corresponding column in S and store in X_S
                     DM.fetchColumn(fields_S[3+cur_index], row_num_S, X_S);
-                    //Compute the partial gradient
+                    // Compute the partial gradient
                     for(int i = 0; i < row_num_S; i ++)
                     {
                         F_partial += lm.G_lr(Y[i],H[i])*X_S[i];
@@ -844,15 +847,16 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                     
                 }
                 
-                //Store the old W(j)
+                // Store the old W(j)
                 double W_j = model[cur_index];
                 
-                //Update the current coordinate
+                // Update the current coordinate
                 model[cur_index] = model[cur_index] - step_size * F_partial;
                 
                 double diff = model[cur_index] - W_j;
-                //Update the intermediate variable
-                //H = H + (Wj - old_Wj)* X(,j)
+                
+                // Update the intermediate variable
+                // H = H + (Wj - old_Wj)* X(,j)
                 if(cur_index < avail_col_S)
                 {
                     for(long m = 0; m < row_num_S; m ++ )
@@ -870,15 +874,15 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
             }
             else
             {
-                //Clear X_R_f
+                // Clear X_R_f
                 for(long i = 0; i < row_num_R; i ++){
                     X_R_f[i] = 0.00;
                 }
                 
-                //Check cache for R
+                // Check cache for R
                 int col_index_R = cur_index - feature_num_S;
                 
-                //Compute the factorized factor
+                // Compute the factorized factor
                 for(long m = 0; m < row_num_S; m ++)
                 {
                     long fk = KKMR[m];
@@ -887,7 +891,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                 
                 if(col_index_R < avail_col_R)
                 {
-                    //Compute the partial gradient
+                    // Compute the partial gradient
                     for(long k = 0; k < row_num_R; k ++)
                     {
                         F_partial += cache_R[col_index_R][k]*X_R_f[k];
@@ -902,15 +906,15 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                     }
                 }
                 
-                //Store the old W(j)
+                // Store the old W(j)
                 double W_j = model[cur_index];
                 
-                //Update the current coordinate
+                // Update the current coordinate
                 model[cur_index] = model[cur_index] - step_size * F_partial;
                 
                 double diff = model[cur_index] - W_j;
                 
-                //Factorized computation
+                // Factorized computation
                 if(col_index_R < avail_col_R)
                 {
                     for(long k = 0; k < row_num_R; k ++)
@@ -927,8 +931,8 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                     
                 }
                 
-                //Update the intermediate variable
-                //H = H + (Wj - old_Wj)* X(,j)
+                // Update the intermediate variable
+                // H = H + (Wj - old_Wj)* X(,j)
                 for(long m = 0; m < row_num_S; m ++ )
                 {
                     long fk = KKMR[m];
@@ -941,7 +945,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
         }
         
         r_prev = F;
-        //Caculate F
+        // Caculate F
         F = 0.00;
         for(int i = 0; i < row_num_S; i ++)
         {
@@ -968,25 +972,28 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
         delete [] X_R;
     }
     
-    
-    printf("The final loss: %lf\n",r_curr);
-    printf("Number of iteration: %d\n",k);
-    printf("Model: ");
-    for(int i = 0; i < feature_num; i ++)
+    // Clear the cache
+    if(avail_col_S > 0)
     {
-        if(i == feature_num - 1)
+        for(int i  = 0; i < avail_col_S; i ++)
         {
-            printf("%.20f\n",model[i]);
+            delete [] cache_S[i];
         }
-        else
+        delete [] cache_S;
+    }
+    if(avail_col_R > 0)
+    {
+        for(int i  = 0; i < avail_col_R; i ++)
         {
-            printf("%.20f, ",model[i]);
+            delete [] cache_R[i];
         }
-        
+        delete [] cache_R;
     }
     
-    DM.message("Finish factorize");
+    printf("\n");
+    outputResults(r_curr, feature_num, k, model);
     
+    DM.message("Finish factorize");
 }
 
 #pragma mark - Block Coordinate Descent
@@ -995,15 +1002,19 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
     DataManagement DM;
     DM.message("Start materializeBCD");
     linear_models lm;
+    
+    // Get the table information and column names
     vector<long> tableInfo(3);
     vector<string> fields = DM.getFieldNames(table_T, tableInfo);
     int feature_num = (int)tableInfo[1];
     long row_num = tableInfo[2];
+    
+    // Block Info
     int block_num = feature_num/block_size;
     int block_residual = feature_num%block_size;
     block_num = block_residual > 0 ? (block_num + 1) : block_num;
     
-    //For cache
+    // For cache
     int avail_col = 0;
     int avail_cache = 0;
     double **cache;
@@ -1035,8 +1046,6 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
     else if (avail_cache == 0)
     {
         DM.message("No space for caching");
-        //Allocate the memory to X
-        X = new double[row_num];
     }
     else
     {
@@ -1052,8 +1061,6 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
         }
         else
         {
-            //Allocate the memory to X
-            X = new double[row_num];
             cache = new double*[avail_cache];
             for(int i = 0; i < avail_cache; i ++)
             {
@@ -1062,23 +1069,23 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
         }
     }
     
-    // Caching
-    for(int i = 0; i < avail_cache; i ++)
+    // Dynamic memory allocation
+    if(avail_cache < feature_num)
     {
-        DM.fetchColumn(fields[i+2],row_num, cache[i]);
+        // Allocate the memory to X
+        X = new double[row_num];
     }
     
-    // Dynamic memory allocation
-    model = new double[feature_num];
     Y = new double[row_num];
     H = new double[row_num];
     G = new double[row_num];
     difference = new double[row_num];
-    
+    model = new double[feature_num];
+   
+    // Initialization of variables for loss and gradient
     double F = 0.00;
     double F_partial[block_size];
-    
-    //Initialize the partial graident for every block
+    // Initialize the partial graident for every block
     for(int i = 0; i < block_size; i ++)
     {
         F_partial[i] = 0.00;
@@ -1124,27 +1131,35 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
     shuffling_block_index = shuffle(original_block_index, (unsigned)time(NULL));
     
     //Print the shuffling_index and shuffling_block_index
-    cout<<"After shuffling, the feature indexes: "<<endl;
+    printf("After shuffling, the feature indexes:\n");
     for(int i = 0; i < feature_num; i ++)
     {
-        cout<<"["<<shuffling_index.at(i)<<"] "<<endl;
+        printf("[%d]\n",shuffling_index.at(i));
     }
     
-    cout<<"After shuffling, the block indexes: "<<endl;
+    printf("After shuffling, the block indexes:\n");
     for(int i = 0; i < block_num; i ++)
     {
-        cout<<"["<<shuffling_block_index.at(i)<<"] "<<endl;
+        printf("[%d]\n",shuffling_block_index.at(i));
     }
     
-    //First do Logistic Regression
+    // Caching
+    printf("\n");
+    printf("Avail_col: %d\n", avail_cache);
+    for(int i = 0; i < avail_cache; i ++)
+    {
+        printf("Cache %d th column\n", i);
+        DM.fetchColumn(fields[i+2],row_num, cache[i]);
+    }
+    
     do
     {
-        //Update one "block" each time
-        //"Cumulative" difference in H caused by block
+        // Update one "block" each time
+        // "Cumulative" difference in H caused by block
         for(int j = 0; j < block_num; j ++)
         {
             int cur_block_index = shuffling_block_index.at(j);
-            cout<<"Current_block_index: "<<cur_block_index<<endl;
+            printf("Current_block_index: %d\n",cur_block_index);
             
             int cur_block_size = 0;
             
@@ -1163,16 +1178,16 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
                 difference[d] = 0.00;
             }
             
-            //Start with "first level" block index
+            // Start with "first level" block index
             int block_start_index= 0;
             
-            //Double indexing: here, the index is the "index" of the "real index"
-            //Update each 'block' by starting with getting the block index
+            // Double indexing: here, the index is the "index" of the "real index"
+            // Update each 'block' by starting with getting the block index
             block_start_index = cur_block_index*block_size;
             
-            cout<<"Block_start_index: "<<shuffling_index.at(block_start_index)<<endl;
+            printf("Block_start_index: %d\n",shuffling_index.at(block_start_index));
             
-            //First calculate the statistics used for gradient
+            // First calculate the statistics used for gradient
             for(long g = 0; g < row_num; g ++)
             {
                 G[g] = lm.G_lr(Y[g],H[g]);
@@ -1181,7 +1196,7 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
             for(int b = 0; b < cur_block_size; b ++)
             {
                 int cur_index = shuffling_index.at(block_start_index+b);
-                cout<<"Current feature index: "<<cur_index<<endl;
+                printf("Current feature index: %d\n", cur_index);
                 
                 F_partial[b] = 0.00;
                 
@@ -1196,26 +1211,28 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
                 }
                 else
                 {
-                    //Fetch the column and store the current column into X
+                    // Fetch the column and store the current column into X
                     DM.fetchColumn(fields[cur_index+2], row_num, X);
                 
-                    //Compute the partial gradient
+                    // Compute the partial gradient
                     for(long i = 0; i < row_num ; i ++)
                     {
                         F_partial[b] += G[i]*X[i];
                     }
                 }
               
-                //Store the old W(j)
+                // Store the old W(j)
                 int cur_model_index = cur_index;
+                
                 double diff = model[cur_model_index];
-                //Update the current coordinate
+                
+                // Update the current coordinate
                 model[cur_model_index] = model[cur_model_index] - step_size * F_partial[b];
                 
-                //Compute the difference on current coordinate
+                // Compute the difference on current coordinate
                 diff = model[cur_model_index] - diff;
                 
-                 //Update the cumulative difference
+                // Update the cumulative difference
                 if(cur_index < avail_cache)
                 {
                     for(long m = 0; m < row_num; m ++)
@@ -1244,7 +1261,7 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
         
         
         r_prev = F;
-        //Caculate F
+        // Caculate F
         F = 0.00;
         for(long i = 0; i < row_num ; i ++)
         {
@@ -1279,21 +1296,8 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
         delete [] cache;
     }
     
-    printf("The final loss: %lf\n",r_curr);
-    printf("Number of iteration: %d\n",k);
-    printf("Model: ");
-    for(int i = 0; i < feature_num; i ++)
-    {
-        if(i == feature_num - 1)
-        {
-            printf("%.20f\n",model[i]);
-        }
-        else
-        {
-            printf("%.20f, ",model[i]);
-        }
-        
-    }
+    printf("\n");
+    outputResults(r_curr, feature_num, k, model);
    
     DM.message("Finish materializeBCD");
     
@@ -1305,7 +1309,7 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
     DM.message("Start factorizeBCD");
     linear_models lm;
     
-    //Get the table information and column names
+    // Get the table information and column names
     vector<long> tableInfo_S(3);
     vector<long> tableInfo_R(3);
     vector<string> fields_S = DM.getFieldNames(table_S, tableInfo_S);
@@ -1316,14 +1320,14 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
     int row_num_S = tableInfo_S[2];
     int row_num_R = tableInfo_R[2];
     
-    //Block Info
+    // Block Info
     int block_num = feature_num/block_size;
     int block_residual = feature_num%block_size;
     block_num = block_residual > 0 ? (block_num + 1) : block_num;
     
-    //for Cache
+    // For Cache
     long avail_mem_total = avail_mem;
-    long avail_cache;
+    long avail_cache = 0;
     int avail_col_S = 0;
     int avail_col_R = 0;
     double **cache_R;
@@ -1348,16 +1352,7 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
     // Setting
     double step_size = _setting.step_size;
     
-    // Dynamic memory allocation
-    model = new double[feature_num];
-    Y = new double[row_num_S];
-    H = new double[row_num_S];
-    X_R_f = new double[row_num_S];
-    KKMR = new double[row_num_S];
-    G = new double[row_num_S];
-    difference = new double[row_num_S];
-    
-    //Calculate the available memory measured by size of each column in R and S
+    // Calculate the available memory measured by size of each column in R and S
     avail_cache = avail_mem_total - sizeof(double)*(6*row_num_S + 2*row_num_R);
     
     if(avail_cache < 0)
@@ -1368,23 +1363,19 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
     else if(avail_cache == 0)
     {
         DM.message("No space for caching");
-        X_R = new double[row_num_R];
-        X_S = new double[row_num_S];
     }
     else
     {
-        //first consider caching columns in S
+        // First consider caching columns in S
         avail_col_S = avail_cache/(sizeof(double)*row_num_S);
         if(avail_col_S == 0)
         {
             DM.message("No space for caching S");
-            X_S = new double[row_num_S];
-            //Then consider caching columns in R
+            // Then consider caching columns in R
             avail_col_R = avail_cache/(sizeof(double)*row_num_R);
             if(avail_col_R == 0)
             {
                 DM.message("No space for caching R");
-                X_R = new double[row_num_R];
             }
             else
             {
@@ -1395,13 +1386,11 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
                     {
                         cache_R[i] = new double[row_num_R];
                     }
-                    //No need to reserve the X_R buffer to read a single column in R
+                    // No need to reserve the X_R buffer to read a single column in R
                     avail_col_R = feature_num_R;
                 }
                 else
                 {
-                    //Allocate the memory to X_R
-                    X_R = new double[row_num_R];
                     cache_R = new double*[avail_col_R];
                     for(int i = 0; i < avail_col_R; i ++)
                     {
@@ -1419,7 +1408,7 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
                 {
                     cache_S[i] = new double[row_num_S];
                 }
-                //No need to reserve X_S for single column reading
+                // No need to reserve X_S for single column reading
                 avail_col_S = feature_num_S;
                 
             }
@@ -1433,7 +1422,7 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
                 }
             }
             
-            //Then consider the caching for R using the remaining caching space
+            // Then consider the caching for R using the remaining caching space
             if(avail_col_S == feature_num_S)
             {
                 avail_cache = avail_cache - (avail_col_S - 1)*sizeof(double)*row_num_S;
@@ -1446,7 +1435,6 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
             if(avail_col_R == 0)
             {
                 DM.message("No space for caching R");
-                X_R = new double[row_num_R];
             }
             else
             {
@@ -1462,8 +1450,6 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
                 }
                 else
                 {
-                    //Allocate the memory to X_R
-                    X_R = new double[row_num_R];
                     cache_R = new double*[avail_col_R];
                     for(int i = 0; i < avail_col_R; i ++)
                     {
@@ -1474,73 +1460,75 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
         }
         
     }
-
     
+    // Dynamic memory allocation
+    if(avail_col_S < feature_num_S)
+    {
+        X_S = new double[row_num_S];
+    }
+    if(avail_col_R < feature_num_R)
+    {
+        X_R = new double[row_num_R];
+    }
+    Y = new double[row_num_S];
+    H = new double[row_num_S];
+    X_R_f = new double[row_num_R];
+    G = new double[row_num_S];
+    difference = new double[row_num_S];
+    KKMR = new double[row_num_S];
+    model = new double[feature_num];
+    
+    // Initialization of variables for loss and gradient
     double F = 0.00;
     double F_partial[block_size];
     double r_curr = 0.00;
     double r_prev = 0.00;
     int k = 0;
-    
     // Initialize the partial graident for every block
     for(int i = 0; i < block_size; i ++)
     {
         F_partial[i] = 0.00;
     }
     
+    // Initialization
     for(int i = 0; i < feature_num; i ++)
     {
         model[i] = 0.00;
     }
-    
     for(long i = 0; i < row_num_S; i ++)
     {
         H[i] = 0.00;
         G[i] = 0.00;
         difference[i] = 0.00;
+    }
+    for(long i = 0; i < row_num_R; i ++)
+    {
         X_R_f[i] = 0.00;
     }
-    
     DM.fetchColumn(fields_S[1], row_num_S, Y);
-    
-    printf("Start fetching KKMR reference\n");
-    //Read the fk column(referred rid in R) in table S, rid column in R
+    printf("\n");
+    DM.message("Start fetching KKMR reference");
+    // Read the fk column(referred rid in R) in table S, rid column in R
     ifstream fk;
-    //Load the fk to KKMR
+    // Load the fk to KKMR
     fk.open(fields_S[2], ios::in | ios::binary);
-    //rid.open(table2_fields[0], ios::in | ios::binary);
+    // rid.open(table2_fields[0], ios::in | ios::binary);
     if(!fk.is_open())
     {
-        cerr<<"Error Message: "<<"Cannot load the fk column."<<endl;
+        DM.errorMessage("Error Message: Cannot load the fk column.");
         exit(1);
     }
     fk.read((char *)KKMR, row_num_S*(sizeof(double)));
     fk.close();
-    printf("Finish fetchig KKMR reference\n");
+    DM.message("Finished fetching KKMR reference");
     
-    //Caching S
-    cout<<"Avail_col_S: "<<avail_col_S<<endl;
-    for(int i = 0; i < avail_col_S; i ++)
-    {
-        cout<<"Cache "<<i<<" th column in S"<<endl;
-        DM.fetchColumn(fields_S[3+i], row_num_S, cache_S[i]);
-    }
-    
-    //Caching R
-    cout<<"Avail_col_R: "<<avail_col_R<<endl;
-    for(int k = 0; k < avail_col_R; k ++)
-    {
-        cout<<"Cache "<<k<<" th column in R"<<endl;
-        DM.fetchColumn(fields_R[1+k],row_num_R, cache_R[k]);
-    }
-
     //Two level shuffling: first shuffling all columns, then all blocks
     vector<int> original_index;
     vector<int> shuffling_index;
     vector<int> original_block_index;
     vector<int> shuffling_block_index;
     
-    //Initialize the original_index_set
+    // Initialize the original_index_set
     for(int i = 0; i < feature_num; i ++)
     {
         original_index.push_back(i);
@@ -1551,33 +1539,49 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
         original_block_index.push_back(i);
     }
     
-    //Shuffling
+    // Shuffling
     shuffling_index = shuffle(original_index, (unsigned)time(NULL));
     shuffling_block_index = shuffle(original_block_index, (unsigned)time(NULL));
     
-    //Print the shuffling_index and shuffling_block_index
-    cout<<"After shuffling, the feature indexes: "<<endl;
+    // Print the shuffling_index and shuffling_block_index
+    printf("After shuffling, the feature indexes:\n");
     for(int i = 0; i < feature_num; i ++)
     {
-        cout<<"["<<shuffling_index.at(i)<<"] "<<endl;
+        printf("[%d]\n",shuffling_index.at(i));
     }
     
-    cout<<"After shuffling, the block indexes: "<<endl;
+    printf("After shuffling, the block indexes:\n");
     for(int i = 0; i < block_num; i ++)
     {
-        cout<<"["<<shuffling_block_index.at(i)<<"] "<<endl;
+        printf("[%d]\n",shuffling_block_index.at(i));
     }
     
-    //First do Logistic Regression
+    // Caching S
+    printf("\n");
+    printf("Avail_col_S: %d\n", avail_col_S);
+    for(int i = 0; i < avail_col_S; i ++)
+    {
+        printf("Cache %d th column in S\n", i);
+        DM.fetchColumn(fields_S[3+i], row_num_S, cache_S[i]);
+    }
+    
+    // Caching R
+    printf("\n");
+    printf("Avail_col_R: %d\n", avail_col_R);
+    for(int k = 0; k < avail_col_R; k ++)
+    {
+        printf("Cache %d th column in R\n", k);
+        DM.fetchColumn(fields_R[1+k],row_num_R, cache_R[k]);
+    }
+
     do
     {
-        //Update one "block" each time
-        //"Cumulative" difference in H caused by block
-        
+        // Update one "block" each time
+        // "Cumulative" difference in H caused by block
         for(int j = 0; j < block_num; j ++)
         {
             int cur_block_index = shuffling_block_index.at(j);
-            cout<<"Current_block_index: "<<cur_block_index<<endl;
+            printf("Current_block_index: %d\n",cur_block_index);
             
             int cur_block_size = 0;
             
@@ -1596,35 +1600,34 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
                 difference[d] = 0.00;
             }
             
-            //Start with "first level" block index
+            // Start with "first level" block index
             int block_start_index= 0;
             
-            //Double indexing: here, the index is the "index" of the "real index"
-            //Update each 'block' by starting with getting the block index
+            // Double indexing: here, the index is the "index" of the "real index"
+            // Update each 'block' by starting with getting the block index
             block_start_index = cur_block_index*block_size;
             
-            cout<<"Block_start_index: "<<shuffling_index.at(block_start_index)<<endl;
+            printf("Block_start_index: %d\n", shuffling_index.at(block_start_index));
             
-            //First calculate the statistics used for gradient
+            // First calculate the statistics used for gradient
             for(long g = 0; g < row_num_S; g ++)
             {
                 G[g] = lm.G_lr(Y[g],H[g]);
             }
             
-            
             for(int b = 0; b < cur_block_size; b ++)
             {
                 int cur_index = shuffling_index.at(block_start_index + b);
-                cout<<"Current feature index: "<<cur_index<<endl;
+                printf("Current feature index: %d\n", cur_index);;
                 F_partial[b] = 0.00;
                 
-                //Check whether the column is in table R. If it is, applied factorized learning
+                // Check whether the column is in table R. If it is, applied factorized learning
                 if(cur_index < feature_num_S)
                 {
                     // Check cache for S
                     if(cur_index < avail_col_S)
                     {
-                        //Compute the partial gradient
+                        // Compute the partial gradient
                         for(long i = 0; i < row_num_S; i ++)
                         {
                             F_partial[b] += G[i]*cache_S[cur_index][i];
@@ -1632,9 +1635,9 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
                     }
                     else
                     {
-                        //Fetch each column and store the column into X
+                        // Fetch each column and store the column into X
                         DM.fetchColumn(fields_S[cur_index+3], row_num_S, X_S);
-                        //Compute the partial gradient
+                        // Compute the partial gradient
                         for(long i = 0; i < row_num_S; i ++)
                         {
                             F_partial[b] += G[i]*X_S[i];
@@ -1642,15 +1645,17 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
                     }
                     
                     
-                    //Store the old Wj
+                    // Store the old Wj
                     int cur_model_index = cur_index;
                     double W_j = model[cur_model_index];
-                    //Update the current coordinate
+                    
+                    // Update the current coordinate
                     model[cur_model_index] = model[cur_model_index] - step_size * F_partial[b];
-                    //Compute the difference
+                    
+                    // Compute the difference
                     double diff = model[cur_model_index] - W_j;
-                    cout<<"diff: "<<diff<<endl;
-                    //Update the cumulative difference
+             
+                    // Update the cumulative difference
                     if(cur_index < avail_col_S)
                     {
                         for(long m = 0; m < row_num_S; m ++)
@@ -1667,9 +1672,6 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
                         }
                         
                     }
-                    
-                 
-                    
                 }
                 else
                 {
@@ -1680,17 +1682,15 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
                     
                     // Check cache for R
                     int col_index_R = cur_index - feature_num_S;
-                    cout<<"col_index_R: "<<col_index_R<<endl;
+                    printf("col_index_R: %d\n",col_index_R);
 
-                    //Apply factorized learning to gradient computation
+                    // Apply factorized learning to gradient computation
                     for(long m = 0; m < row_num_S; m ++)
                     {
                         long fk = KKMR[m];
                         X_R_f[fk-1] += G[m];
                     }
                     
-                    
-                    cout<<"F_partial: "<< F_partial[b]<<endl;
                     if(col_index_R < avail_col_R)
                     {
                         for(long j = 0; j < row_num_R; j ++)
@@ -1700,7 +1700,7 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
                     }
                     else
                     {
-                        //Fetch the corresponding column in R
+                        // Fetch the corresponding column in R
                         DM.fetchColumn(fields_R[1+col_index_R],row_num_R, X_R);
                         for(long j = 0; j < row_num_R; j ++)
                         {
@@ -1710,10 +1710,12 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
                     
                     int cur_model_index = cur_index;
                     double W_j = model[cur_model_index];
+                   
                     model[cur_model_index] = model[cur_model_index] - step_size * F_partial[b];
+                   
                     double diff = model[cur_model_index] - W_j;
                     
-                    //Apply factorized learning to difference (of model/coordinate) computation
+                    // Apply factorized learning to difference (of model/coordinate) computation
                     if(col_index_R < avail_col_R)
                     {
                         for(int i = 0; i < row_num_R; i ++ )
@@ -1746,7 +1748,7 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
         
         
         r_prev = F;
-        //Caculate F
+        // Caculate F
         F = 0.00;
         for(long i = 0; i < row_num_S; i ++)
         {
@@ -1899,21 +1901,8 @@ void techniques::SGD(vector< vector<double> > data, setting _setting, double *&m
     }
     while(!stop(k,r_prev,r_curr,_setting));
     
-    printf("The final loss: %lf\n",r_curr);
-    printf("Number of iteration: %d\n",k);
-    printf("Model: ");
-    for(int i = 0; i < feature_num; i ++)
-    {
-        if(i == feature_num - 1)
-        {
-            printf("%.20f\n",model[i]);
-        }
-        else
-        {
-            printf("%.20f, ",model[i]);
-        }
-        
-    }
+    printf("\n");
+    outputResults(r_curr, feature_num, k, model);
     
     DataManagement::message("Finish SGD");
 
