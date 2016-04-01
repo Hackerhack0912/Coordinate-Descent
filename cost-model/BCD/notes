@@ -1,0 +1,17 @@
+Assume that we are considering block with m coordinates in kth iteration:
+
+The cost of BCD being operated on this single block in a single iteration (kth iteration) would be:
+n*Func_G+(MULT+ADD)*   // Calculate the partial gradient vector
+m*(MULT+ADD) // Update the coordinates in the block
+m*ADD // Calculate the change of the coordinates 
+n*m*(MULT+ADD) // Calculate the change of residual vector
+
+The cost of BCD being operated on this single block in a single iteration APPLYING FL would be:
+
+
+H = W'X_R + W'X_S
+
+H = W'X_R_m + W'X_R_(n-m) + W'X_S
+
+Improvement on single coordinate:
+

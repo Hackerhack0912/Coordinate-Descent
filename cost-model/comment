@@ -1,0 +1,99 @@
+I/O:
+Materialization:
+Read S and R
+Output table T
+Read Y once and keep in memory
+Iter*(
+ Read T every time except for sid,fk,Y(label)
+)
+-Cache(memory reserved at least 4 column space for H,Y,X,oid-oid mapping and hashash table for R for the first time)
+-(Iter - 1)*Cache(memory reserved at least 3 column space for H,Y,X)
+
+Stream:
+Read Y once and keep in memory
+Iters*(
+  Read R and S // without reading sid,Y (read fk, rid for oid-oid mapping)
+)
+-Iter*Cache(memory reserved at least 4 column space for H,Y,X,oid-oid mapping and has hash table for R)
+
+Factorize:
+Read fk,rid once for oid-oid mapping and keep oid-oid mapping in memory
+Read Y once and keep in memory
+Iters*(
+  Read R and S // without reading sid,Y,fk,rid
+)
+-Cache(memory reserved at least 4 column space for H,Y,X,oid-oid mapping and has hash table for the first iteration)
+-(Iter-1)*Cache(emory reserved at least 4 column space for H,Y,X,oid-oid mapping)
+
+
+
+Factorize:
+Iters*(
+  Read R and S
+)
+
+
+CPU:
+Materialization:
+
+Hash*(number of tupels in R)//Hash on oid column in R (build hash table with key (rid, entry oid))
+COPY*(number of tuples in R)//Just copy oid  
+Hash*(number of tupels in S)//Hash on oid column in S (build oid-oid mapping)
+COPY*(number of tuples in S)//Build oid-oid mapping
+COPY*(number of tuples in S)*dR//Output T (just reconstruct columns in R)
+in every iteration:
+	iterate on every feature (for features in S):
+		Cost(Func_g)*(number of tuples in S)//Calculate the partial gradient
+        	(mult+add)*(number of tuples in S)//Calculate the whole partial gradient
+        	(mult+add)//Calculate the update of one coordinate on current feature
+        	(add) //Calculate the difference of the updated coordinate and the old coordinate
+        	(mult+add)*(number of tuples in S) //Update the residual
+Cost(Func)*(number of tupels S)
+(add)*(number of tuples in S) //Sum up the whole loss
+ 
+Stream:
+
+in every iteration:
+	Hash*(number of tupels in R)//Hash on oid column in R (build hash table with key (rid, entry oid))
+	COPY*(number of tuples in R)//Just copy oid 
+   	Hash*(number of tupels in S)//Hash on oid column in S (build oid-oid mapping)
+   	COPY*(number of tuples in S)//Build oid-oid mapping
+   	iterate on every feature (for features in R):
+ 		COPY*(number of tupels in S) to construct the complete column
+		Cost(Func_g)*(number of tuples in S)
+        	(mult+add)*(number of tuples in S) calculate the whole partial gradient
+        	(mult+add)//Calculate the update of one coordinate on current feature
+        	(add) //Calculate the difference of the updated coordinate and the old coordinate
+        	(mult+add)*(number of tuples in S) //Update the residual
+	iterate on every feature (for features in S):
+   		Cost(Func_g)*(number of tuples in S)
+        	(mult+add)*(number of tuples in S) calculate the whole partial gradient
+        	(mult+add) to calculate the update of one coordinate on current feature
+        	(add) to calculate the difference of the updated coordinate and the old coordinate
+        	(mult+add)*(number of tuples in S) //Update the residual 
+Cost(Func)*(number of tupels in S)//Loss function calculation
+(add)*(number of tuples in S)//Sum up the total loss
+
+Factorize:
+
+Hash*(number of tupels in R)//Hash on oid column in R (build hash table with key (rid, entry oid))
+COPY*(number of tuples in R)//Just copy oid  
+Hash*(number of tupels in S)//Hash on oid column in S (build oid-oid mapping)
+COPY*(number of tuples in S)//Build oid-oid mapping
+in every iteration:
+	iterate on every feature (for features in R):
+		Cost(Func_g)*(number of tuples in S)
+                mult*(number of tuples in R)
+     		add*(number of tupels in S)//Sum up the whole partial graident
+                (mult+add)//Calculate the update of one coordinate on curren feature
+ 		(add)//Calculate the difference of the updated coordinate and the old coordinate
+	        mult*(number of tuples in R)  
+                add*(number of tuples in S)    
+         iterate on every feature (for features in S):
+                Cost(Func_g)*(number of tuples in S)
+                (mult+add)*(number of tuples in S) calculate the whole partial gradient
+                (mult+add) to calculate the update of one coordinate on current feature
+                (add) to calculate the difference of the updated coordinate and the old coordinate
+                (mult+add)*(number of tuples in S) //Update the residual 
+         Cost(Func)*(number of tuples in S)
+         (add)*(number of tuples in S)
