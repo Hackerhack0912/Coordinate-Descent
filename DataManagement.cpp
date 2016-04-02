@@ -102,13 +102,13 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
         exit(1);
     }
     
-    //Reading the file and load the data to the corresponding columns (binary array)
+    // Reading the file and load the data to the corresponding columns (binary array)
     message("Open the input file");
     printf("File Name: %s", fileName.c_str());
     ifstream infile;
     infile.open(fileName);
     
-    //Memory free case: all columns can fit in memory the same time
+    // Memory free case: all columns can fit in memory the same time
     if(!infile.is_open())
     {
         errorMessage("Cannot open the file: the name of the file might be wrong or the file might be broken");

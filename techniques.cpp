@@ -27,7 +27,7 @@ techniques::techniques(){};
  Materialize only
 */
 #pragma mark - Stochastic Coordiante Descent
-void techniques::materialize(string table_T, setting _setting, double *&model, long avail_mem)
+void techniques::materialize(string table_T, setting _setting, double *&model, double avail_mem)
 {
     
     DataManagement DM;
@@ -41,6 +41,7 @@ void techniques::materialize(string table_T, setting _setting, double *&model, l
     long row_num = tableInfo[2];
     
     // For cache
+    double avail_mem_total = 1024*1024*1024*avail_mem;
     int avail_col = 0;
     int avail_cache = 0;
     double **cache;
@@ -58,7 +59,7 @@ void techniques::materialize(string table_T, setting _setting, double *&model, l
     double step_size = _setting.step_size;
     
     // Calculate the available memory measured by size of a single column
-    avail_col = avail_mem/(sizeof(double)*row_num);
+    avail_col = avail_mem_total/(sizeof(double)*row_num);
     
     // Calculate the available remaining space measured by size of a single column for cache
     avail_cache = avail_col - 3;
@@ -234,7 +235,7 @@ void techniques::materialize(string table_T, setting _setting, double *&model, l
 }
 
 /* oid-oid mapping is Not stored in memory */
-void techniques::stream(string table_S, string table_R, setting _setting, double *&model, long avail_mem)
+void techniques::stream(string table_S, string table_R, setting _setting, double *&model, double avail_mem)
 {
     DataManagement DM;
     DM.message("Start stream");
@@ -252,7 +253,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
     long row_num_R = tableInfo_R[2];
     
     // For Cache
-    long avail_mem_total = avail_mem;
+    long avail_mem_total = 1024*1024*1024*avail_mem;
     long avail_cache;
     int avail_col_S = 0;
     int avail_col_R = 0;
@@ -587,7 +588,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
 }
 
 
-void techniques::factorize(string table_S, string table_R, setting _setting, double *&model, long avail_mem)
+void techniques::factorize(string table_S, string table_R, setting _setting, double *&model, double avail_mem)
 {
     DataManagement DM;
     DM.message("Start factorize");
@@ -605,7 +606,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     long row_num_R = tableInfo_R[2];
     
     // For Cache
-    long avail_mem_total = avail_mem;
+    long avail_mem_total = 1024*1024*1024*avail_mem;
     long avail_cache;
     int avail_col_S = 0;
     int avail_col_R = 0;
@@ -997,7 +998,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
 }
 
 #pragma mark - Block Coordinate Descent
-void techniques::materializeBCD(string table_T, setting _setting, double *&model, int block_size, long avail_mem)
+void techniques::materializeBCD(string table_T, setting _setting, double *&model, int block_size, double avail_mem)
 {
     DataManagement DM;
     DM.message("Start materializeBCD");
@@ -1015,6 +1016,7 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
     block_num = block_residual > 0 ? (block_num + 1) : block_num;
     
     // For cache
+    long avail_mem_total = 1024*1024*1024*avail_mem;
     int avail_col = 0;
     int avail_cache = 0;
     double **cache;
@@ -1033,7 +1035,7 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
     double step_size = _setting.step_size;
     
     // Calculate the available memory measured by size of each column
-    avail_col = avail_mem/(sizeof(double)*row_num);
+    avail_col = avail_mem_total/(sizeof(double)*row_num);
     
     // Calculate the available remaining space for cache
     avail_cache = avail_col - 5;
@@ -1303,7 +1305,7 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
     
 }
 
-void techniques::factorizeBCD(string table_S, string table_R, setting _setting, double *&model, int block_size, long avail_mem)
+void techniques::factorizeBCD(string table_S, string table_R, setting _setting, double *&model, int block_size, double avail_mem)
 {
     DataManagement DM;
     DM.message("Start factorizeBCD");
@@ -1326,7 +1328,7 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
     block_num = block_residual > 0 ? (block_num + 1) : block_num;
     
     // For Cache
-    long avail_mem_total = avail_mem;
+    long avail_mem_total = 1024*1024*1024*avail_mem;;
     long avail_cache = 0;
     int avail_col_S = 0;
     int avail_col_R = 0;
@@ -1823,8 +1825,8 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
  Logistic Regression for now
  */
 
-//Specific techniques selection: flag (for generalization purpose)
-//Stochastic Gradient Descent
+// Specific techniques selection: flag (for generalization purpose)
+// Stochastic Gradient Descent
 void techniques::SGD(vector< vector<double> > data, setting _setting, double *&model, int feature_num)
 {
     DataManagement::message("Start SGD");
@@ -1837,14 +1839,14 @@ void techniques::SGD(vector< vector<double> > data, setting _setting, double *&m
         original_index_set.push_back(i);
     }
     
-    //Shuffling
+    // Shuffling
     shuffling_index = shuffle(original_index_set, (unsigned)time(NULL));
-    
     linear_models lm;
-    //setting
+    
+    // Setting
     double step_size = _setting.step_size;
     
-    //Allocate the memory to model
+    // Allocate the memory to model
     model = new double[feature_num];
     
     for(int i = 0; i < feature_num; i ++)
@@ -1853,7 +1855,7 @@ void techniques::SGD(vector< vector<double> > data, setting _setting, double *&m
         
     }
     
-    //Loss Function
+    // Loss Function
     double F = 0.00;
     double r_curr = 0.00;
     double r_prev = 0.00;
@@ -1869,7 +1871,7 @@ void techniques::SGD(vector< vector<double> > data, setting _setting, double *&m
         {
             long cur_index = shuffling_index[j];
             
-            //Update the model
+            // Update the model
             double output = 0.00;
             for(int k = 0; k < feature_num; k ++)
             {
@@ -1884,7 +1886,7 @@ void techniques::SGD(vector< vector<double> > data, setting _setting, double *&m
             
         }
         
-        //Calculate F
+        // Calculate F
         for(long j = 0; j < data_size; j ++)
         {
             double output = 0.00;
@@ -1909,17 +1911,17 @@ void techniques::SGD(vector< vector<double> > data, setting _setting, double *&m
 }
 
 #pragma mark - Batch Gradient Descent
-//Batch Gradient Descent
+// Batch Gradient Descent
 void techniques::BGD(vector< vector<double> > data, setting _setting, double *&model, int feature_num)
 {
     DataManagement::message("Start BGD");
     long data_size = data.size();
     
     linear_models lm;
-    //setting
+    // Setting
     double step_size = _setting.step_size;
     
-    //Allocate the memory to the model
+    // Allocate the memory to the model
     model = new double[feature_num];
     
     for(int i = 0; i < feature_num; i ++)
@@ -1928,7 +1930,7 @@ void techniques::BGD(vector< vector<double> > data, setting _setting, double *&m
         
     }
     
-    //Loss Function
+    // Loss Function
     double F = 0.00;
     double r_curr = 0.00;
     double r_prev = 0.00;
@@ -1943,7 +1945,7 @@ void techniques::BGD(vector< vector<double> > data, setting _setting, double *&m
         for(long j = 0; j < data_size; j ++)
         {
             
-            //Update the model
+            // Update the model
             double output = 0.00;
             for(int k = 0; k < feature_num; k ++)
             {
@@ -1971,7 +1973,7 @@ void techniques::BGD(vector< vector<double> > data, setting _setting, double *&m
                 output += model[k]*data[j][2+k];
             }
             double tmp = lm.Fe_lr(data[j][1], output);
-            cout<<"tmp loss: "<<tmp<<endl;
+            printf("tmp loss: %f\n", tmp);
             F += tmp;
         }
         
@@ -2024,7 +2026,7 @@ void techniques::classify(vector< vector<double> > data, vector<double> model)
         {
             output += model[j]*data[i][2+j];
         }
-        cout<<"W^TX: "<<output<<endl;
+        printf("W^TX: %f\n", output);
         confidence = lm.C_lr(output);
         if(confidence > 0.5)
         {
@@ -2036,17 +2038,17 @@ void techniques::classify(vector< vector<double> > data, vector<double> model)
         }
         if(actual_label == predicted_label)
         {
-            cout<<"Prediction Correct"<<endl;
+            printf("Prediction Correct\n");
             count++;
         }
         else
         {
-            cout<<"Prediction Wrong"<<endl;
+            printf("Prediction Wrong\n");
         }
-        cout<<"Confidence: "<<confidence<<endl;
-        cout<<"Actual Label: "<<actual_label<<","<<"Predicted Label: "<<predicted_label<<endl;
+        printf("Confidence: %f\n", confidence);
+        printf("Actual Label: %f , Predicted Label: %f\n", actual_label, predicted_label);
     }
-    cout<<"Correcteness: "<<(double)count/(double)data_size<<endl;
+    printf("Correcteness: %f \n", (double)count/(double)data_size);
     
 }
 

@@ -1,0 +1,50 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BGD	techniques.cpp	/^void techniques::BGD(vector< vector<double> > data, setting _setting, double *&model, int feature_num)$/;"	f	class:techniques
+C_lr	linear_models.cpp	/^double linear_models::C_lr(double a)$/;"	f	class:linear_models
+DataManagement	DataManagement.cpp	/^DataManagement::DataManagement(){};$/;"	f	class:DataManagement
+DataManagement	DataManagement.h	/^class DataManagement$/;"	c
+Fe_lr	linear_models.cpp	/^double linear_models::Fe_lr(double a, double b)$/;"	f	class:linear_models
+Fe_lsr	linear_models.cpp	/^double linear_models::Fe_lsr(double a, double b)$/;"	f	class:linear_models
+Fe_lsvm	linear_models.cpp	/^double linear_models::Fe_lsvm(double a, double b)$/;"	f	class:linear_models
+G_lr	linear_models.cpp	/^double linear_models::G_lr(double a, double b)$/;"	f	class:linear_models
+G_lsr	linear_models.cpp	/^double linear_models::G_lsr(double a, double b)$/;"	f	class:linear_models
+G_svm	linear_models.cpp	/^double linear_models::G_svm(double a, double b)$/;"	f	class:linear_models
+MAX	linear_models.cpp	/^#define MAX(/;"	d	file:
+SGD	techniques.cpp	/^void techniques::SGD(vector< vector<double> > data, setting _setting, double *&model, int feature_num)$/;"	f	class:techniques
+__Coordinate_descent__DataManagement__	DataManagement.h	/^#define __Coordinate_descent__DataManagement__$/;"	d
+_linear_models_	linear_models.h	/^#define _linear_models_$/;"	d
+_techniques_	techniques.h	/^#define _techniques_$/;"	d
+classify	techniques.cpp	/^void techniques::classify(vector< vector<double> > data, vector<double> model)$/;"	f	class:techniques
+error	techniques.h	/^    double error;$/;"	m	struct:setting
+errorMessage	DataManagement.cpp	/^void DataManagement::errorMessage(string str)$/;"	f	class:DataManagement
+factorize	techniques.cpp	/^void techniques::factorize(string table_S, string table_R, setting _setting, double *&model, long avail_mem)$/;"	f	class:techniques
+factorizeBCD	techniques.cpp	/^void techniques::factorizeBCD(string table_S, string table_R, setting _setting, double *&model, int block_size)$/;"	f	class:techniques
+fetchColumn	DataManagement.cpp	/^void DataManagement::fetchColumn(string fileName, long row_num, double *col )$/;"	f	class:DataManagement
+getFieldNames	DataManagement.cpp	/^vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tableInfo)$/;"	f	class:DataManagement
+iter_num	techniques.h	/^    int iter_num;$/;"	m	struct:setting
+join	DataManagement.cpp	/^void DataManagement::join(string table_name1, string table_name2, string joinTable)$/;"	f	class:DataManagement
+linear_models	linear_models.cpp	/^linear_models::linear_models(){};$/;"	f	class:linear_models
+linear_models	linear_models.h	/^class linear_models{$/;"	c
+main	Learning.cpp	/^int main(int argc, const char * argv[])$/;"	f
+main	menu.cpp	/^int main()$/;"	f
+materialize	techniques.cpp	/^void techniques::materialize(string table_T, setting _setting, double *&model, long avail_mem)$/;"	f	class:techniques
+materializeBCD	techniques.cpp	/^void techniques::materializeBCD(string table_T, setting _setting, double *&model, int block_size, long avail_mem)$/;"	f	class:techniques
+message	DataManagement.cpp	/^void DataManagement::message(string str)$/;"	f	class:DataManagement
+readColumn	DataManagement.cpp	/^void DataManagement::readColumn(string fileName, long row_num)$/;"	f	class:DataManagement
+readTable	DataManagement.cpp	/^void DataManagement::readTable(string tableName)$/;"	f	class:DataManagement
+rowStore	DataManagement.cpp	/^vector< vector<double> > DataManagement::rowStore(string fileName)$/;"	f	class:DataManagement
+setting	techniques.h	/^struct setting$/;"	s
+shuffle	techniques.cpp	/^vector<int> techniques::shuffle(vector<int> &index_set, unsigned seed)$/;"	f	class:techniques
+shuffle	techniques.cpp	/^vector<long> techniques::shuffle(vector<long> &index_set, unsigned seed)$/;"	f	class:techniques
+split	DataManagement.cpp	/^vector<string> DataManagement::split(const string&s, char delim)$/;"	f	class:DataManagement
+step_size	techniques.h	/^    double step_size;$/;"	m	struct:setting
+stop	techniques.cpp	/^bool techniques::stop(int k, double r_prev, double r_curr, setting &setting)$/;"	f	class:techniques
+store	DataManagement.cpp	/^void DataManagement::store(string fileName, int feature_num, int table_type, long row_num)$/;"	f	class:DataManagement
+stream	techniques.cpp	/^void techniques::stream(string table_S, string table_R, setting _setting, double *&model, long avail_mem)$/;"	f	class:techniques
+techniques	techniques.cpp	/^techniques::techniques(){};$/;"	f	class:techniques
+techniques	techniques.h	/^class techniques$/;"	c

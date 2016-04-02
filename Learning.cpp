@@ -71,12 +71,13 @@ int main(int argc, const char * argv[])
         }
         else
         {
-            long avail_mem;
+            double avail_mem;
             string tableName = argv[2];
             double *model;
             setting _setting;
-            printf("Setting the available memory\n");
-            scanf("%lu",&avail_mem);
+            printf("Setting the available memory: \n");
+            scanf("%lf",&avail_mem);
+            printf("avail_mem: %lf\n",avail_mem);
             printf("Setting stepSize: \n");
             scanf("%lf",&_setting.step_size);
             //_setting.step_size = 0.01;
@@ -146,8 +147,6 @@ int main(int argc, const char * argv[])
             DataManagement::message("Invalid option");
         }
         
-        
-        
         vector< vector<double> > testData = dM.rowStore(testTable);
         for(int i = 0; i < feature_num; i ++)
         {
@@ -160,13 +159,13 @@ int main(int argc, const char * argv[])
     }
     else if(argc == 4)
     {
-        long avail_mem;
+        double avail_mem;
         string tableName_S = argv[2];
         string tableName_R = argv[3];
         double *model;
         setting _setting;
-        printf("Setting the available memory\n");
-        scanf("%lu",&avail_mem);
+        printf("Setting the available memory: \n");
+        scanf("%lf",&avail_mem);
         printf("Setting stepSize: \n");
         scanf("%lf",&_setting.step_size);
         //_setting.step_size = 0.01;
