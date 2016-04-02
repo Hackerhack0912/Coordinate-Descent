@@ -14,7 +14,7 @@ using namespace std;
 #include <stdio.h>
 #include <string>
 
-//Read data from table stored in text file and loaded into the DB
+// Read data from table stored in text file and loaded into the DB
 class DataManagement
 {
 public:
