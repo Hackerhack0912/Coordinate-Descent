@@ -25,19 +25,12 @@ class techniques
 {
 public:
     techniques();
-    /**
-     Stochastic Coordinate Descent - Materialize
-     
-     @param table_T The output table results from the join of the "entity" table S and the "attribute" table R
-     @param _setting 
-     @param model
-     @param avail_mem The available memory measured by "sizeof(double)"
-     */
-    void materialize(string table_T, setting _setting, double *&model, double avail_mem);
-    void stream(string table_S, string table_R, setting _setting, double *&model, double avail_mem);
-    void factorize(string table_S, string table_R, setting _setting, double *&model, double avail_mem);
-    void materializeBCD(string table_T, setting _setting, double *&model, int block_size, double avail_mem);
-    void factorizeBCD(string table_S, string table_R, setting _setting, double *&model, int block_size, double avail_mem);
+    
+    void materialize(string table_T, setting _setting, double *&model, double avail_mem, const char *lm);
+    void stream(string table_S, string table_R, setting _setting, double *&model, double avail_mem, const char *lm);
+    void factorize(string table_S, string table_R, setting _setting, double *&model, double avail_mem, const char *lm);
+    void materializeBCD(string table_T, setting _setting, double *&model, int block_size, double avail_mem, const char *lm);
+    void factorizeBCD(string table_S, string table_R, setting _setting, double *&model, int block_size, double avail_mem, const char *lm);
     bool stop(int k, double r_prev, double r_curr, setting &setting);
     void SGD(vector< vector<double> > data, setting _setting, double *&model, int feature_num);
     void BGD(vector< vector<double> > data, setting _setting, double *&model, int feature_num);

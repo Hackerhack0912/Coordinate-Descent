@@ -7,45 +7,29 @@
 //
 
 #include <iostream>
+#include <stdio.h>
 #include "DataManagement.h"
 #include "techniques.h"
 
-
-/*
- options:
- 1. create table: DB create file_name(table_name) type feature_num row_num
- 2. join table: DB join table_name1 table_name2 joinTable_name
- 3. read table: DB read table_name
- 4. materialize: DB m table_name
- 5. stream: DB s table_name_S table_name_R
- 6. factorize: DB f table_name_S table_name_R
- 7. readColumn: DB readColumn column_name row_num
- 8. Stochastic Gradient Descent: DB SGD train_file_name test_file_name
- 9. Batch Gradient Descent:DB BGD train_file_name test_file_name
- 10. Block Coordinate Descent(materialize): DB BCD table_name
- 11. Block Coordinate Descent(factorize): DB fBCD table_name_S table_name_R
- */
 int main(int argc, const char * argv[])
 {
-    
-    
     DataManagement dM;
     techniques t;
     string option1 = "create";
     string option2 = "join";
     string option3 = "read";
-    string option4 = "m";
-    string option5 = "s";
-    string option6 = "f";
-    string option7 = "readColumn";
-    string option8 = "SGD";
-    string option9 = "BGD";
-    string option10 = "BCD";
-    string option11 = "fBCD";
-    
+    string option4 = "readColumn";
+    string option5 = "m";
+    string option6 = "s";
+    string option7 = "f";
+    string option8 = "BCD";
+    string option9 = "fBCD";
+    string option10 = "SGD";
+    string option11 = "BGD";
+   
     if(argc == 6 && argv[1] == option1)
     {
-        //option 1
+        // option 1: create table from the corresponding textfile
         string fileName = argv[2];
         int tableType = atoi(argv[3]);
         int featureNum = atoi(argv[4]);
@@ -54,153 +38,188 @@ int main(int argc, const char * argv[])
     }
     else if(argc == 5 && argv[1] == option2)
     {
-        //option 2
-        string tableName1 = argv[2];
-        string tableName2 = argv[3];
+        // option 2: join two tables S and R -> table T
+        string tableName_S = argv[2];
+        string tableName_R = argv[3];
         string joinTableName = argv[4];
-        dM.join(tableName1, tableName2, joinTableName);
+        dM.join(tableName_S, tableName_R, joinTableName);
     }
-    else if(argc == 3)
+    else if(argc == 3 && argv[1] == option3)
     {
-        
-        string option = argv[1];
+        // option 3: read table
         string tableName = argv[2];
-        if(option == option3)
-        {
-            dM.readTable(tableName);
-        }
-        else
-        {
-            double avail_mem;
-            string tableName = argv[2];
-            double *model;
-            setting _setting;
-            printf("Setting the available memory: \n");
-            scanf("%lf",&avail_mem);
-            printf("avail_mem: %lf\n",avail_mem);
-            printf("Setting stepSize: \n");
-            scanf("%lf",&_setting.step_size);
-            //_setting.step_size = 0.01;
-            printf("Setting error tolearence: \n");
-            //_setting.error = 0.00005;
-            scanf("%lf",&_setting.error);
-            printf("Setting number of iterations: \n");
-            _setting.iter_num = 10;
-            scanf("%d",&_setting.iter_num);
-            
-            if(option == option4)
-            {
-                //Feature Number to be dealt with it later
-                t.materialize(tableName, _setting, model, avail_mem);
-            }
-            else if(option == option10)
-            {
-                int block_size;
-                printf("Setting number of block size: \n");
-                scanf("%d", &block_size);
-                t.materializeBCD(tableName, _setting, model, block_size, avail_mem);
-            }
-  
-            delete [] model;
-        }
-        
-        
-    }
-    else if(argc == 4 && (argv[1] == option8 || argv[1] == option9) )
-    {
-       
-        string tableName = argv[2];
-        string testTable = argv[3];
-        string option = argv[1];
-        
-        double *model;
-        int feature_num = 0;
-        vector<double> model_vector;
-        setting _setting;
-        printf("Setting stepSize: \n");
-        scanf("%lf",&_setting.step_size);
-        //_setting.step_size = 0.01;
-        printf("Setting error tolearence: \n");
-        //_setting.error = 0.00005;
-        scanf("%lf",&_setting.error);
-        printf("Setting number of iterations: \n");
-        //_setting.iter_num = 10;
-        scanf("%d",&_setting.iter_num);
-        
-    
-        if(option == option8)
-        {
-            vector< vector<double> > data = dM.rowStore(tableName);
-            int featureNum = (int)(data.at(0).size()-2);
-            feature_num = featureNum;
-            t.SGD(data, _setting, model, featureNum);
-        }
-        else if(option == option9)
-        {
-            vector< vector<double> > data = dM.rowStore(tableName);
-            int featureNum = (int)(data.at(0).size()-2);
-            feature_num = featureNum;
-            t.BGD(data, _setting, model, featureNum);
-        }
-        else
-        {
-            DataManagement::message("Invalid option");
-        }
-        
-        vector< vector<double> > testData = dM.rowStore(testTable);
-        for(int i = 0; i < feature_num; i ++)
-        {
-            model_vector.push_back(model[i]);
-        }
-        t.classify(testData, model_vector);
-        
-
-        delete [] model;
+        dM.readTable(tableName);
     }
     else if(argc == 4)
     {
-        double avail_mem;
-        string tableName_S = argv[2];
-        string tableName_R = argv[3];
-        double *model;
-        setting _setting;
-        printf("Setting the available memory: \n");
-        scanf("%lf",&avail_mem);
-        printf("Setting stepSize: \n");
-        scanf("%lf",&_setting.step_size);
-        //_setting.step_size = 0.01;
-        printf("Setting error tolearence: \n");
-        //_setting.error = 0.00005;
-        scanf("%lf",&_setting.error);
-        printf("Setting number of iterations: \n");
-        scanf("%d",&_setting.iter_num);
-
-        if(argv[1] == option5)
+        string option = argv[1];
+        if(option == option4)
         {
-            t.stream(tableName_S, tableName_R, _setting, model, avail_mem);
-        }
-        else if(argv[1] == option6)
-        {
-            t.factorize(tableName_S, tableName_R, _setting, model, avail_mem);
-        }
-        else if(argv[1] == option11)
-        {
-            int block_size;
-            printf("Setting number of block size: \n");
-            scanf("%d", &block_size);
-            t.factorizeBCD(tableName_S, tableName_R, _setting, model, block_size, avail_mem);
+            // option 4: read column
+            string column_name = argv[2];
+            long row_num = atol(argv[3]);
+            dM.readColumn(column_name, row_num);
         }
         else
         {
-            DataManagement::message("Invalid option");
+            if( (option != option10) && (option != option11))
+            {
+                dM.errorMessage("Invalid option or wrong arguments");
+                exit(1);
+            }
+            else
+            {
+                string tableName = argv[2];
+                string testTable = argv[3];
+                double *model;
+                int feature_num = 0;
+                vector<double> model_vector;
+                setting _setting;
+                printf("Setting stepSize: \n");
+                scanf("%lf",&_setting.step_size);
+                printf("Setting error tolearence: \n");
+                scanf("%lf",&_setting.error);
+                printf("Setting number of iterations: \n");
+                scanf("%d",&_setting.iter_num);
+                   
+                if(option == option10)
+                {
+                    // option 10: SGD
+                    vector< vector<double> > data = dM.rowStore(tableName);
+                    int featureNum = (int)(data.at(0).size()-2);
+                    feature_num = featureNum;
+                    t.SGD(data, _setting, model, featureNum);
+                }
+                else
+                {
+                    // option 11: BGD
+                    vector< vector<double> > data = dM.rowStore(tableName);
+                    int featureNum = (int)(data.at(0).size()-2);
+                    feature_num = featureNum;
+                    t.BGD(data, _setting, model, featureNum);
+                }
+                   
+                vector< vector<double> > testData = dM.rowStore(testTable);
+                for(int i = 0; i < feature_num; i ++)
+                {
+                    model_vector.push_back(model[i]);
+                }
+                t.classify(testData, model_vector);
+                   
+                delete [] model;
+            }
         }
+    }
+    else if(argc == 8 && argv[1] == option5)
+    {
+      
+        // option 5: Materialize SCD
+        string tableName = argv[2];
+        double step_size = atof(argv[3]);
+        double error_tolerance = atof(argv[4]);
+        int iter_num = atoi(argv[5]);
+        const char *lm = argv[6];
+        double avail_mem = atof(argv[7]);
+        double *model;
         
-        //Print the model
+        // Setting
+        setting _setting;
+        _setting.step_size = step_size;
+        _setting.error = error_tolerance;
+        _setting.iter_num = iter_num;
+
+        t.materialize(tableName, _setting, model, avail_mem, lm);
         delete [] model;
+    }
+    else if(argc == 9)
+    {
+        string option = argv[1];
+        
+        if(option == option6 || option == option7)
+        {
+            string tableName_S = argv[2];
+            string tableName_R = argv[3];
+            double step_size = atof(argv[4]);
+            double error_tolerance = atof(argv[5]);
+            int iter_num = atoi(argv[6]);
+            const char *lm = argv[7];
+            double avail_mem = atof(argv[8]);
+            double *model;
+            
+            // Setting
+            setting _setting;
+            _setting.step_size = step_size;
+            _setting.error = error_tolerance;
+            _setting.iter_num = iter_num;
+            
+            if(option == option6)
+            {
+                // option 6: Stream SCD
+                t.stream(tableName_S, tableName_R, _setting, model, avail_mem, lm);
+            }
+            else
+            {
+                // option 7: Factorize SCD
+                t.stream(tableName_S, tableName_R, _setting, model, avail_mem, lm);
+            }
+            
+            delete [] model;
+        }
+        else if(option == option8)
+        {
+            // option 8: Materialize BCD
+            string tableName = argv[2];
+            int block_size = atoi(argv[3]);
+            double step_size = atof(argv[4]);
+            double error_tolerance = atof(argv[5]);
+            int iter_num = atoi(argv[6]);
+            const char *lm = argv[7];
+            double avail_mem = atof(argv[8]);
+            double *model;
+            
+            // Setting
+            setting _setting;
+            _setting.step_size = step_size;
+            _setting.error = error_tolerance;
+            _setting.iter_num = iter_num;
+            
+            t.materializeBCD(tableName, _setting, model, block_size, avail_mem, lm);
+            
+            delete [] model;
+        }
+        else
+        {
+            dM.errorMessage("Invalid command: wrong number of arguments or invalid option");
+            exit(1);
+        }
+    }
+    else if(argc == 10 && argv[1] == option9)
+    {
+        // option 9: Factorize BCD
+        string tableName_S = argv[2];
+        string tableName_R = argv[3];
+        int block_size = atoi(argv[4]);
+        double step_size = atof(argv[5]);
+        double error_tolerance = atof(argv[6]);
+        int iter_num = atoi(argv[7]);
+        const char *lm = argv[8];
+        double avail_mem = atof(argv[9]);
+        double *model;
+        
+        // Setting
+        setting _setting;
+        _setting.step_size = step_size;
+        _setting.error = error_tolerance;
+        _setting.iter_num = iter_num;
+        
+        t.factorizeBCD(tableName_S, tableName_R, _setting, model, block_size, avail_mem, lm);
+        
+        delete [] model;
+
     }
     else
     {
-        cerr<<"Invalid command: wrong number of arguments or invalid option"<<endl;
+        dM.errorMessage("Invalid command: wrong number of arguments or invalid option");
         exit(1);
     }
   

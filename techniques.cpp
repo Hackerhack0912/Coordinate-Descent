@@ -26,13 +26,21 @@ techniques::techniques(){};
  (SGD/BGD)
  Materialize only
 */
+
 #pragma mark - Stochastic Coordiante Descent
-void techniques::materialize(string table_T, setting _setting, double *&model, double avail_mem)
+/**
+ Stochastic Coordinate Descent - Materialize
+ 
+ @param table_T The output table results from the join of the "entity" table S and the "attribute" table R
+ @param _setting
+ @param model
+ @param avail_mem The available memory measured by "sizeof(double)"
+ */
+void techniques::materialize(string table_T, setting _setting, double *&model, double avail_mem, const char *lm)
 {
     
     DataManagement DM;
     DM.message("Start materialize");
-    linear_models lm;
     
     // Get the table information and column names
     vector<long> tableInfo(3);
@@ -157,7 +165,7 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
             {
                 for(long i = 0; i < row_num ; i ++)
                 {
-                    F_partial += lm.G_lr(Y[i],H[i])*cache[cur_index][i];
+                    F_partial += gradientCompute(Y[i],H[i],lm)*cache[cur_index][i];
                 }
             }
             else
@@ -167,7 +175,7 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
                 // Compute the partial gradient
                 for(long i = 0; i < row_num ; i ++)
                 {
-                    F_partial += lm.G_lr(Y[i],H[i])*X[i];
+                    F_partial += gradientCompute(Y[i],H[i], lm)*X[i];
                 }
             }
 
@@ -203,7 +211,7 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
         F = 0.00;
         for(long i = 0; i < row_num ; i ++)
         {
-            double tmp = lm.Fe_lr(Y[i],H[i]);
+            double tmp = lossCompute(Y[i],H[i],lm);
             F += tmp;
         }
         r_curr = F;
@@ -235,11 +243,10 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
 }
 
 /* oid-oid mapping is Not stored in memory */
-void techniques::stream(string table_S, string table_R, setting _setting, double *&model, double avail_mem)
+void techniques::stream(string table_S, string table_R, setting _setting, double *&model, double avail_mem, const char *lm)
 {
     DataManagement DM;
     DM.message("Start stream");
-    linear_models lm;
     
     // Get the table information and column names
     vector<long> tableInfo_S(3);
@@ -465,7 +472,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
                     // Compute the partial gradient
                     for(long i = 0; i < row_num_S; i ++)
                     {
-                        F_partial += lm.G_lr(Y[i],H[i])*cache_S[cur_index][i];
+                        F_partial += gradientCompute(Y[i],H[i],lm)*cache_S[cur_index][i];
                     }
                 }
                 else
@@ -475,7 +482,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
                     // Compute the partial gradient
                     for(long i = 0; i < row_num_S; i ++)
                     {
-                        F_partial += lm.G_lr(Y[i],H[i])*X_S[i];
+                        F_partial += gradientCompute(Y[i],H[i], lm)*X_S[i];
                     }
                 }
             }
@@ -505,7 +512,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
                 // Compute the partial gradient
                 for(long i = 0; i < row_num_S; i ++)
                 {
-                    F_partial += lm.G_lr(Y[i],H[i])*X_S[i];
+                    F_partial += gradientCompute(Y[i],H[i],lm)*X_S[i];
                 }
 
                 
@@ -543,7 +550,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
         F = 0.00;
         for(long i = 0; i < row_num_S; i ++)
         {
-            double tmp = lm.Fe_lr(Y[i],H[i]);
+            double tmp = lossCompute(Y[i],H[i],lm);
             F += tmp;
         }
         
@@ -588,11 +595,10 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
 }
 
 
-void techniques::factorize(string table_S, string table_R, setting _setting, double *&model, double avail_mem)
+void techniques::factorize(string table_S, string table_R, setting _setting, double *&model, double avail_mem, const char *lm)
 {
     DataManagement DM;
     DM.message("Start factorize");
-    linear_models lm;
     
     // Get the table information and column names
     vector<long> tableInfo_S(3);
@@ -833,7 +839,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                     // Compute the partial gradient
                     for(long i = 0; i < row_num_S; i ++)
                     {
-                        F_partial += lm.G_lr(Y[i],H[i])*cache_S[cur_index][i];
+                        F_partial += gradientCompute(Y[i],H[i],lm)*cache_S[cur_index][i];
                     }
                 }
                 else
@@ -843,7 +849,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                     // Compute the partial gradient
                     for(int i = 0; i < row_num_S; i ++)
                     {
-                        F_partial += lm.G_lr(Y[i],H[i])*X_S[i];
+                        F_partial += gradientCompute(Y[i],H[i],lm)*X_S[i];
                     }
                     
                 }
@@ -887,7 +893,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                 for(long m = 0; m < row_num_S; m ++)
                 {
                     long fk = KKMR[m];
-                    X_R_f[fk-1] += lm.G_lr(Y[m],H[m]);
+                    X_R_f[fk-1] += gradientCompute(Y[m],H[m],lm);
                 }
                 
                 if(col_index_R < avail_col_R)
@@ -950,7 +956,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
         F = 0.00;
         for(int i = 0; i < row_num_S; i ++)
         {
-            double tmp = lm.Fe_lr(Y[i],H[i]);
+            double tmp = lossCompute(Y[i],H[i],lm);
             F += tmp;
         }
         
@@ -998,11 +1004,10 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
 }
 
 #pragma mark - Block Coordinate Descent
-void techniques::materializeBCD(string table_T, setting _setting, double *&model, int block_size, double avail_mem)
+void techniques::materializeBCD(string table_T, setting _setting, double *&model, int block_size, double avail_mem, const char *lm)
 {
     DataManagement DM;
     DM.message("Start materializeBCD");
-    linear_models lm;
     
     // Get the table information and column names
     vector<long> tableInfo(3);
@@ -1192,7 +1197,7 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
             // First calculate the statistics used for gradient
             for(long g = 0; g < row_num; g ++)
             {
-                G[g] = lm.G_lr(Y[g],H[g]);
+                G[g] = gradientCompute(Y[g],H[g],lm);
             }
             
             for(int b = 0; b < cur_block_size; b ++)
@@ -1267,7 +1272,7 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
         F = 0.00;
         for(long i = 0; i < row_num ; i ++)
         {
-            double tmp = lm.Fe_lr(Y[i],H[i]);
+            double tmp = lossCompute(Y[i],H[i], lm);
             F += tmp;
         }
         
@@ -1305,11 +1310,10 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
     
 }
 
-void techniques::factorizeBCD(string table_S, string table_R, setting _setting, double *&model, int block_size, double avail_mem)
+void techniques::factorizeBCD(string table_S, string table_R, setting _setting, double *&model, int block_size, double avail_mem, const char *lm)
 {
     DataManagement DM;
     DM.message("Start factorizeBCD");
-    linear_models lm;
     
     // Get the table information and column names
     vector<long> tableInfo_S(3);
@@ -1614,7 +1618,7 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
             // First calculate the statistics used for gradient
             for(long g = 0; g < row_num_S; g ++)
             {
-                G[g] = lm.G_lr(Y[g],H[g]);
+                G[g] = gradientCompute(Y[g],H[g],lm);
             }
             
             for(int b = 0; b < cur_block_size; b ++)
@@ -1754,7 +1758,7 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
         F = 0.00;
         for(long i = 0; i < row_num_S; i ++)
         {
-            double tmp = lm.Fe_lr(Y[i],H[i]);
+            double tmp = lossCompute(Y[i],H[i],lm);
             F += tmp;
         }
         
@@ -1841,7 +1845,6 @@ void techniques::SGD(vector< vector<double> > data, setting _setting, double *&m
     
     // Shuffling
     shuffling_index = shuffle(original_index_set, (unsigned)time(NULL));
-    linear_models lm;
     
     // Setting
     double step_size = _setting.step_size;
@@ -1880,7 +1883,7 @@ void techniques::SGD(vector< vector<double> > data, setting _setting, double *&m
             
             for(int k = 0; k < feature_num; k ++)
             {
-                gradient[k] = lm.G_lr(data[cur_index][1],output)*data[cur_index][2+k];
+                gradient[k] = gradientCompute(data[cur_index][1],output, "lr")*data[cur_index][2+k];
                 model[k] = model[k]-step_size*gradient[k];
             }
             
@@ -1894,7 +1897,7 @@ void techniques::SGD(vector< vector<double> > data, setting _setting, double *&m
             {
                 output += model[k]*data[j][k+2];
             }
-            double tmp = lm.Fe_lr(data[j][1], output);
+            double tmp = lossCompute(data[j][1], output, "lr");
             F += tmp;
         }
         
@@ -1917,7 +1920,6 @@ void techniques::BGD(vector< vector<double> > data, setting _setting, double *&m
     DataManagement::message("Start BGD");
     long data_size = data.size();
     
-    linear_models lm;
     // Setting
     double step_size = _setting.step_size;
     
@@ -1927,7 +1929,6 @@ void techniques::BGD(vector< vector<double> > data, setting _setting, double *&m
     for(int i = 0; i < feature_num; i ++)
     {
         model[i] = 0.00;
-        
     }
     
     // Loss Function
@@ -1954,7 +1955,7 @@ void techniques::BGD(vector< vector<double> > data, setting _setting, double *&m
             
             for(int k = 0; k < feature_num; k ++)
             {
-                gradient[k] += lm.G_lr(data[j][1],output)*data[j][2+k];
+                gradient[k] += gradientCompute(data[j][1],output, "lm")*data[j][2+k];
             }
             
         }
@@ -1972,7 +1973,7 @@ void techniques::BGD(vector< vector<double> > data, setting _setting, double *&m
             {
                 output += model[k]*data[j][2+k];
             }
-            double tmp = lm.Fe_lr(data[j][1], output);
+            double tmp = lossCompute(data[j][1], output, "lm");
             printf("tmp loss: %f\n", tmp);
             F += tmp;
         }
@@ -2006,7 +2007,6 @@ void techniques::BGD(vector< vector<double> > data, setting _setting, double *&m
 
 void techniques::classify(vector< vector<double> > data, vector<double> model)
 {
-    linear_models lm;
     // Count the number of correct classifcation
     long count = 0;
     long data_size =  data.size();
@@ -2027,7 +2027,7 @@ void techniques::classify(vector< vector<double> > data, vector<double> model)
             output += model[j]*data[i][2+j];
         }
         printf("W^TX: %f\n", output);
-        confidence = lm.C_lr(output);
+        confidence = C_lr(output);
         if(confidence > 0.5)
         {
             predicted_label = 1.00;
