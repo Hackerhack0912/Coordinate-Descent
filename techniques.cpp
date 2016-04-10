@@ -514,8 +514,6 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
                 {
                     F_partial += gradientCompute(Y[i],H[i],lm)*X_S[i];
                 }
-
-                
             }
             
             // Store the old W(j)
@@ -542,7 +540,6 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
                     H[m] = H[m] + diff*X_S[m];
                 }
             }
-
         }
         
         r_prev = F;
@@ -851,7 +848,6 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                     {
                         F_partial += gradientCompute(Y[i],H[i],lm)*X_S[i];
                     }
-                    
                 }
                 
                 // Store the old W(j)
@@ -877,7 +873,6 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                         H[m] = H[m] + diff*X_S[m];
                     }
                 }
-                
             }
             else
             {
@@ -935,7 +930,6 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                     {
                         X_R_f[k] = diff*X_R[k];
                     }
-                    
                 }
                 
                 // Update the intermediate variable
@@ -945,10 +939,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                     long fk = KKMR[m];
                     H[m] = H[m] + X_R_f[fk-1];
                 }
-
-                
             }
-            
         }
         
         r_prev = F;
@@ -1650,7 +1641,6 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
                         }
                     }
                     
-                    
                     // Store the old Wj
                     int cur_model_index = cur_index;
                     double W_j = model[cur_model_index];
@@ -1671,7 +1661,6 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
                     }
                     else
                     {
-                        
                         for(long m = 0; m < row_num_S; m ++)
                         {
                             difference[m] += diff*X_S[m];
@@ -1749,9 +1738,7 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
             {
                 H[m] = H[m] + difference[m];
             }
-            
         }
-        
         
         r_prev = F;
         // Caculate F
@@ -1815,7 +1802,6 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
         {
             printf("%.20f, ",model[i]);
         }
-        
     }
     
     DM.message("Finish factorizeBCD");
@@ -1855,7 +1841,6 @@ void techniques::SGD(vector< vector<double> > data, setting _setting, double *&m
     for(int i = 0; i < feature_num; i ++)
     {
         model[i] = 0.00;
-        
     }
     
     // Loss Function
@@ -1886,7 +1871,6 @@ void techniques::SGD(vector< vector<double> > data, setting _setting, double *&m
                 gradient[k] = gradientCompute(data[cur_index][1],output, "lr")*data[cur_index][2+k];
                 model[k] = model[k]-step_size*gradient[k];
             }
-            
         }
         
         // Calculate F
@@ -1957,7 +1941,6 @@ void techniques::BGD(vector< vector<double> > data, setting _setting, double *&m
             {
                 gradient[k] += gradientCompute(data[j][1],output, "lm")*data[j][2+k];
             }
-            
         }
         
         
@@ -1998,7 +1981,6 @@ void techniques::BGD(vector< vector<double> > data, setting _setting, double *&m
         {
             printf("%.20f, ",model[i]);
         }
-        
     }
     
     DataManagement::message("Finish BGD");

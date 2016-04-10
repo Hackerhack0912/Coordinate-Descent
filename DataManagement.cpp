@@ -516,8 +516,15 @@ void DataManagement::readTable(string tableName)
     {
         for(int k = 0; k < col_num; k ++)
         {
-            inFile[k].read((char *)read, (sizeof (double)));
-            printf("%lf \n",read[0]);
+	    inFile[k].read((char *)read, (sizeof (double)));
+            if(k == 0)	
+	    {
+            	printf("%d ", (int)read[0]);
+	    }
+	    else
+	    {
+		printf("%lf ",read[0]);
+	    }
         }
         printf("\n");
     }

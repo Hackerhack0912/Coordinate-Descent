@@ -1,0 +1,88 @@
+Total experiments:
+SCD:
+times*methosds(m,s,fl)*(TR,FR,iters)*(number of methods:lr,lsr) =
+4 * 3 * 12 * 2 = 288
+
+BCD:
+times*methods(s,fl)*(TR,FR,iters)*(number of methods:lr, lsr)*(varies in block size) = 
+4 * 2 * 12 * 2 * 3 = 576
+
+
+Minimum memory requirements:
+SCD:
+materialize: 3 columns
+stream:  4 S_columns, 1 R_column
+factorize: 4 S_columns, 2 R_columns
+
+BCD:
+materialize: 5 columns 
+factorize: 6 S_columns, 2 R_columns
+
+Experiments settings:
+SCD:
+1st node: materialize
+2nd node: stream
+3nd node: factorize
+
+BCD:
+******************
+To be decided
+******************
+
+Data Sets to be generated:
+nS for nS/nR (1, 5, 10 , 15):
+RSM: nR = 5e6, dS = 40, dR = 60, iters = 20 
+1: 
+5:
+10:
+15:
+  
+RMM: nR = 1e6, dS = 40, dR = 60, iters = 20
+1:
+5:
+10:
+15:
+
+RLM: nR = 5e6, dS = 6, dR = 9, iters = 20
+1:
+5:
+10:
+15:
+
+dR for dR/dS (0.5, 1.5, 3, 4.5):
+RSM: nS = 5e7, nR = 5e6, dS = 40, iters = 20
+0.5:
+1.5:
+3:
+4.5:
+
+RMM: nS = 1e7, nR = 1e6, dS = 40, iters = 20
+0.5:
+1.5:
+3:
+4.5:
+
+RLM: nS = 5e6, nR = 5e5, dS = 6, iters = 20
+0.5:
+1.5:
+3:
+4.5:
+
+Iters(5, 10, 20, 40):
+RSM: nS = 5e7, nR = 5e6, dS = 40, dR = 60
+5:
+10:
+20:
+40:
+
+RMM: nS = 1e7, nR = 1e6, dS = 40, dR = 60
+5:
+10:
+20:
+40:
+
+RLM: nS = 5e7, nR = 5e6, dS = 6, dR = 9
+5:
+10:
+20:
+40:    
