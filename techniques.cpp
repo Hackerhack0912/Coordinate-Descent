@@ -117,7 +117,7 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
     double F_partial = 0.00;
     double r_curr = 0.00;
     double r_prev = 0.00;
-    int k = 0;
+    int iters = 0;
     
     // Initialization
     for(int i = 0; i < feature_num; i ++)
@@ -215,9 +215,9 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
             F += tmp;
         }
         r_curr = F;
-        k++;
+        iters ++;
     }
-    while(!stop(k,r_prev,r_curr,_setting));
+    while(!stop(iters , r_prev, r_curr, _setting));
     
     delete [] Y;
     delete [] H;
@@ -237,7 +237,7 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
     }
     
     printf("\n");
-    outputResults(r_curr, feature_num, k, model);
+    outputResults(r_curr, feature_num, iters, model);
     
     DM.message("Finish materialize");
 }
@@ -397,7 +397,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
     double F_partial = 0.00;
     double r_curr = 0.00;
     double r_prev = 0.00;
-    int k = 0;
+    int iters = 0;
     
     // Initialization
     for(int i = 0; i < feature_num; i ++)
@@ -552,10 +552,10 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
         }
         
         r_curr = F;
-        k++;
+        iters ++;
         
     }
-    while(!stop(k,r_prev,r_curr,_setting));
+    while(!stop(iters , r_prev, r_curr, _setting));
     
     delete [] Y;
     delete [] H;
@@ -586,7 +586,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
     }
     
     printf("\n");
-    outputResults(r_curr, feature_num, k, model);
+    outputResults(r_curr, feature_num, iters, model);
     
     DM.message("Finish stream");
 }
@@ -761,7 +761,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     double F_partial = 0.00;
     double r_curr = 0.00;
     double r_prev = 0.00;
-    int k = 0;
+    int iters = 0;
     
     // Initialization
     for(int i = 0; i < feature_num_S; i ++)
@@ -952,9 +952,9 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
         }
         
         r_curr = F;
-        k++;
+        iters ++;
     }
-    while(!stop(k,r_prev,r_curr,_setting));
+    while(!stop(iters, r_prev, r_curr, _setting));
     
     delete [] Y;
     delete [] H;
@@ -989,7 +989,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     }
     
     printf("\n");
-    outputResults(r_curr, feature_num, k, model);
+    outputResults(r_curr, feature_num, iters, model);
     
     DM.message("Finish factorize");
 }
@@ -1091,7 +1091,7 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
     
     double r_curr = 0.00;
     double r_prev = 0.00;
-    int k = 0;
+    int iters = 0;
     
     for(int i = 0; i < feature_num; i ++)
     {
@@ -1107,13 +1107,13 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
     
     DM.fetchColumn(fields[1], row_num, Y);
     
-    //Two level shuffling: first shuffling all columns, then all blocks
+    // Two level shuffling: first shuffling all columns, then all blocks
     vector<int> original_index;
     vector<int> shuffling_index;
     vector<int> original_block_index;
     vector<int> shuffling_block_index;
     
-    //Initialize the original_index_set
+    // Initialize the original_index_set
     for(int i = 0; i < feature_num; i ++)
     {
         original_index.push_back(i);
@@ -1124,11 +1124,11 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
         original_block_index.push_back(i);
     }
     
-    //Shuffling
+    // Shuffling
     shuffling_index = shuffle(original_index, (unsigned)time(NULL));
     shuffling_block_index = shuffle(original_block_index, (unsigned)time(NULL));
     
-    //Print the shuffling_index and shuffling_block_index
+    // Print the shuffling_index and shuffling_block_index
     printf("After shuffling, the feature indexes:\n");
     for(int i = 0; i < feature_num; i ++)
     {
@@ -1268,10 +1268,10 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
         }
         
         r_curr = F;
-        k++;
+        iters ++;
         
     }
-    while(!stop(k,r_prev,r_curr,_setting));
+    while(!stop(iters, r_prev, r_curr, _setting));
     
     delete [] Y;
     delete [] H;
@@ -1295,7 +1295,7 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
     }
     
     printf("\n");
-    outputResults(r_curr, feature_num, k, model);
+    outputResults(r_curr, feature_num, iters, model);
    
     DM.message("Finish materializeBCD");
     
@@ -1480,7 +1480,7 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
     double F_partial[block_size];
     double r_curr = 0.00;
     double r_prev = 0.00;
-    int k = 0;
+    int iters = 0;
     // Initialize the partial graident for every block
     for(int i = 0; i < block_size; i ++)
     {
@@ -1750,10 +1750,10 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
         }
         
         r_curr = F;
-        k++;
+        iters ++;
     
     }
-    while(!stop(k,r_prev,r_curr,_setting));
+    while(!stop(iters, r_prev, r_curr, _setting));
     
     delete [] Y;
     delete [] H;
@@ -1789,20 +1789,8 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
         delete [] cache_S;
     }
     
-    printf("The final loss: %lf\n",r_curr);
-    printf("Number of iteration: %d\n",k);
-    printf("Model: ");
-    for(int i = 0; i < feature_num; i ++)
-    {
-        if(i == feature_num - 1)
-        {
-            printf("%.20f\n",model[i]);
-        }
-        else
-        {
-            printf("%.20f, ",model[i]);
-        }
-    }
+    printf("\n");
+    outputResults(r_curr, feature_num, iters, model);
     
     DM.message("Finish factorizeBCD");
 }
@@ -1847,7 +1835,7 @@ void techniques::SGD(vector< vector<double> > data, setting _setting, double *&m
     double F = 0.00;
     double r_curr = 0.00;
     double r_prev = 0.00;
-    int k = 0;
+    int iters = 0;
     
     do
     {
@@ -1886,12 +1874,12 @@ void techniques::SGD(vector< vector<double> > data, setting _setting, double *&m
         }
         
         r_curr = F;
-        k ++;
+        iters ++;
     }
-    while(!stop(k,r_prev,r_curr,_setting));
+    while(!stop(iters ,r_prev,r_curr,_setting));
     
     printf("\n");
-    outputResults(r_curr, feature_num, k, model);
+    outputResults(r_curr, feature_num, iters, model);
     
     DataManagement::message("Finish SGD");
 
@@ -1919,7 +1907,7 @@ void techniques::BGD(vector< vector<double> > data, setting _setting, double *&m
     double F = 0.00;
     double r_curr = 0.00;
     double r_prev = 0.00;
-    int k = 0;
+    int iters = 0;
     
     do
     {
@@ -1964,24 +1952,12 @@ void techniques::BGD(vector< vector<double> > data, setting _setting, double *&m
         
         r_curr = F;
         printf("The loss: %lf\n",F);
-        k ++;
+        iters ++;
     }
-    while(!stop(k,r_prev,r_curr,_setting));
+    while(!stop(iters ,r_prev,r_curr,_setting));
     
-    printf("The final loss: %lf\n",r_curr);
-    printf("Number of iteration: %d\n",k);
-    printf("Model: ");
-    for(int i = 0; i < feature_num; i ++)
-    {
-        if(i == feature_num - 1)
-        {
-            printf("%.20f\n",model[i]);
-        }
-        else
-        {
-            printf("%.20f, ",model[i]);
-        }
-    }
+    printf("\n");
+    outputResults(r_curr, feature_num, iters, model);
     
     DataManagement::message("Finish BGD");
 

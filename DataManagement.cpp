@@ -11,9 +11,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <string>
-#include <stdio.h>
-#include <stdlib.h>
+
 
 /*
  Notes for later work:
@@ -66,7 +64,7 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
         table_field->at(2) = "fk";
         for(int i = 0; i < feature_num; i ++)
         {
-            table_field->at(3+i) = "x_s" + to_string((unsigned int)i);
+            table_field->at(3+i) = "x_s" + to_string((long long unsigned int)i);
         }
     }
     else if(table_type == 1){
@@ -78,7 +76,7 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
         table_field->at(0) = "rid";
         for(int i = 0; i < feature_num; i ++)
         {
-            table_field->at(1+i) = "x_r" + to_string((unsigned int)i);
+            table_field->at(1+i) = "x_r" + to_string((long long unsigned int)i);
         }
     }
     else if(table_type == 2)
@@ -91,7 +89,7 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
         table_field->at(1) = "label";
         for(int i = 0; i < feature_num; i ++)
         {
-            table_field->at(2+i) = "x_t" + to_string((unsigned int)i);
+            table_field->at(2+i) = "x_t" + to_string((long long unsigned int)i);
         }
     }
     else{
@@ -286,7 +284,7 @@ vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tab
         fields.push_back(table_name+"_"+"fk");
         for(int i = 0; i < table_feature_num; i ++)
         {
-            fields.push_back(table_name+"_"+"x"+"_s"+to_string((unsigned int)i));
+            fields.push_back(table_name+"_"+"x"+"_s"+to_string((long long unsigned int)i));
         }
     }
     else if(table_type == 1)
@@ -295,7 +293,7 @@ vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tab
         fields.push_back(table_name+"_"+"rid");
         for(int i = 0; i < table_feature_num; i ++)
         {
-            fields.push_back(table_name+"_"+"x"+"_r"+to_string((unsigned int)i));
+            fields.push_back(table_name+"_"+"x"+"_r"+to_string((long long unsigned int)i));
         }
     }
     else if(table_type == 2)
@@ -305,7 +303,7 @@ vector<string> DataManagement::getFieldNames(string tableName, vector<long> &tab
         fields.push_back(table_name + "_" + "label");
         for(int i = 0; i < table_feature_num; i ++)
         {
-            fields.push_back(table_name + "_" + "x" + "_t" + to_string((unsigned int)i));
+            fields.push_back(table_name + "_" + "x" + "_t" + to_string((long long unsigned int)i));
         }
     }
     else

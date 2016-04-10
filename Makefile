@@ -1,9 +1,9 @@
 all: DB
 
-DB: learning.o DataManagement.o techniques.o
-	g++ learning.o DataManagement.o techniques.o  -o DB
+DB: Learning.o DataManagement.o techniques.o
+	g++ Learning.o DataManagement.o techniques.o -o DB
 
-learning.o: Learning.cpp DataManagement.h techniques.h
+Learning.o: Learning.cpp DataManagement.h techniques.h
 	g++ -c Learning.cpp
 
 DataManagement.o: DataManagement.cpp DataManagement.h

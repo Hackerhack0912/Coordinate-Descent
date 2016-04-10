@@ -12,6 +12,7 @@
 using namespace std;
 #include <vector>
 #include <stdio.h>
+#include <cstdlib>
 #include <string>
 
 // Read data from table stored in text file and loaded into the DB
