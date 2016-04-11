@@ -11,7 +11,6 @@ int main(int argc, const char* argv[])
 {
    // 0: tuple_ratio; 1: feature_ratio; 2: iters__num
    // compute_mem option function(...)
-    printf("%f\n", DIVISOR);
     if(argc != 7)
     {
         fprintf(stderr, "Invalid number of paramters\n");

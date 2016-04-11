@@ -1,12 +1,11 @@
 Total experiments:
 SCD:
-times*methosds(m,s,fl)*(TR,FR,iters)*(number of methods:lr,lsr) =
-4 * 3 * 12 * 2 = 288
+times*methosds(m,s,fl)*(TR,FR,iters)*(number of methods:lr,lsr)*(memory variance) =
+4 * 3 * 12 * 2 * 3 = 864
 
 BCD:
-times*methods(s,fl)*(TR,FR,iters)*(number of methods:lr, lsr)*(varies in block size) = 
-4 * 2 * 12 * 2 * 3 = 576
-
+times*methods(s,fl)*(TR,FR,iters)*(number of methods:lr, lsr)*(varies in block size)*(memory variance) = 
+4 * 2 * 12 * 2 * 3 * 3 = 1728
 
 Minimum memory requirements:
 SCD:
@@ -20,41 +19,45 @@ factorize: 6 S_columns, 2 R_columns
 
 Experiments settings:
 SCD:
-1st node: materialize
-2nd node: stream
-3nd node: factorize
+1st node: tuple ratio (nS/nR)
+2nd node: feature ratio (dR/dS)
+3nd node: iteration number 
 
 BCD:
 ******************
 To be decided
 ******************
 
+******************
+RMM is put on hold 
+******************
+
 Data Sets to be generated:
 nS for nS/nR (1, 5, 10 , 15):
 RSM: nR = 5e6, dS = 40, dR = 60, iters = 20 
-1: 
-5:
-10:
-15:
+1:   0.25 GB
+5:   1.00 GB
+10:  1.80 GB
+15:  2.50 GB
   
 RMM: nR = 1e6, dS = 40, dR = 60, iters = 20
-1:
+1:   
 5:
 10:
 15:
 
-RLM: nR = 5e6, dS = 6, dR = 9, iters = 20
-1:
-5:
-10:
-15:
+RLM: nR = 5e5, dS = 6, dR = 9, iters = 20
+1:   1.00 GB
+5:   1.00 GB
+10:  1.00 GB
+15:  1.00 GB
 
 dR for dR/dS (0.5, 1.5, 3, 4.5):
 RSM: nS = 5e7, nR = 5e6, dS = 40, iters = 20
-0.5:
-1.5:
-3:
-4.5:
+0.5: 1.80 GB
+1.5: 1.80 GB
+3:   1.80 GB
+4.5: 1.80 GB
 
 RMM: nS = 1e7, nR = 1e6, dS = 40, iters = 20
 0.5:
@@ -63,17 +66,17 @@ RMM: nS = 1e7, nR = 1e6, dS = 40, iters = 20
 4.5:
 
 RLM: nS = 5e6, nR = 5e5, dS = 6, iters = 20
-0.5:
-1.5:
-3:
-4.5:
+0.5: 2.00 GB
+1.5: 2.00 GB
+3:   2.00 GB
+4.5: 2.00 GB
 
 Iters(5, 10, 20, 40):
 RSM: nS = 5e7, nR = 5e6, dS = 40, dR = 60
-5:
-10:
-20:
-40:
+5:   1.80 GB
+10:  1.80 GB
+20:  1.80 GB
+40:  1.80 GB
 
 RMM: nS = 1e7, nR = 1e6, dS = 40, dR = 60
 5:
@@ -81,8 +84,8 @@ RMM: nS = 1e7, nR = 1e6, dS = 40, dR = 60
 20:
 40:
 
-RLM: nS = 5e7, nR = 5e6, dS = 6, dR = 9
-5:
-10:
-20:
-40:    
+RLM: nS = 5e6, nR = 5e5, dS = 6, dR = 9
+5:  1.00 GB
+10: 1.00 GB
+20: 1.00 GB
+40: 1.00 GB    

@@ -1,0 +1,122 @@
+tuple ratio(nS/nR)
+RSM
+S_MEM = 1.490116 GB; R_MEM = 2.235174 GB; T_MEM = 3.725290 GB
+Minimum memory required: 
+Materilaize: 0.111759 GB; Stream: 0.186265 GB; Factorize: 0.223517 GB 
+
+S_MEM = 7.450581 GB; R_MEM = 2.235174 GB; T_MEM = 18.626451 GB
+Minimum memory required: 
+Materilaize: 0.558794 GB; Stream: 0.782311 GB; Factorize: 0.819564 GB 
+
+S_MEM = 14.901161 GB; R_MEM = 2.235174 GB; T_MEM = 37.252903 GB
+Minimum memory required: 
+Materilaize: 1.117587 GB; Stream: 1.527369 GB; Factorize: 1.564622 GB 
+
+S_MEM = 22.351742 GB; R_MEM = 2.235174 GB; T_MEM = 55.879354 GB
+Minimum memory required: 
+Materilaize: 1.676381 GB; Stream: 2.272427 GB; Factorize: 2.309680 GB 
+
+RMM
+S_MEM = 0.298023 GB; R_MEM = 0.447035 GB; T_MEM = 0.745058 GB
+Minimum memory required: 
+Materilaize: 0.022352 GB; Stream: 0.037253 GB; Factorize: 0.044703 GB 
+
+S_MEM = 1.490116 GB; R_MEM = 0.447035 GB; T_MEM = 3.725290 GB
+Minimum memory required: 
+Materilaize: 0.111759 GB; Stream: 0.156462 GB; Factorize: 0.163913 GB 
+
+S_MEM = 2.980232 GB; R_MEM = 0.447035 GB; T_MEM = 7.450581 GB
+Minimum memory required: 
+Materilaize: 0.223517 GB; Stream: 0.305474 GB; Factorize: 0.312924 GB 
+
+S_MEM = 4.470348 GB; R_MEM = 0.447035 GB; T_MEM = 11.175871 GB
+Minimum memory required: 
+Materilaize: 0.335276 GB; Stream: 0.454485 GB; Factorize: 0.461936 GB 
+
+RLM
+S_MEM = 0.022352 GB; R_MEM = 0.033528 GB; T_MEM = 0.055879 GB
+Minimum memory required: 
+Materilaize: 0.011176 GB; Stream: 0.018626 GB; Factorize: 0.022352 GB 
+
+S_MEM = 0.111759 GB; R_MEM = 0.033528 GB; T_MEM = 0.279397 GB
+Minimum memory required: 
+Materilaize: 0.055879 GB; Stream: 0.078231 GB; Factorize: 0.081956 GB 
+
+S_MEM = 0.223517 GB; R_MEM = 0.033528 GB; T_MEM = 0.558794 GB
+Minimum memory required: 
+Materilaize: 0.111759 GB; Stream: 0.152737 GB; Factorize: 0.156462 GB 
+
+S_MEM = 0.335276 GB; R_MEM = 0.033528 GB; T_MEM = 0.838190 GB
+Minimum memory required: 
+Materilaize: 0.167638 GB; Stream: 0.227243 GB; Factorize: 0.230968 GB 
+
+ 
+feature ratio(dR/dS)
+RSM
+S_MEM = 14.901161 GB; R_MEM = 0.000000 GB; T_MEM = 14.901161 GB
+Minimum memory required: 
+Materilaize: 1.117587 GB; Stream: 1.527369 GB; Factorize: 1.564622 GB
+
+S_MEM = 14.901161 GB; R_MEM = 1.490116 GB; T_MEM = 29.802322 GB
+Minimum memory required: 
+Materilaize: 1.117587 GB; Stream: 1.527369 GB; Factorize: 1.564622 GB
+
+S_MEM = 14.901161 GB; R_MEM = 4.470348 GB; T_MEM = 59.604645 GB
+Minimum memory required: 
+Materilaize: 1.117587 GB; Stream: 1.527369 GB; Factorize: 1.564622 GB
+
+S_MEM = 14.901161 GB; R_MEM = 5.960464 GB; T_MEM = 74.505806 GB
+Minimum memory required: 
+Materilaize: 1.117587 GB; Stream: 1.527369 GB; Factorize: 1.564622 GB
+
+RMM
+S_MEM = 2.980232 GB; R_MEM = 0.000000 GB; T_MEM = 2.980232 GB
+Minimum memory required: 
+Materilaize: 0.223517 GB; Stream: 0.305474 GB; Factorize: 0.312924 GB
+
+S_MEM = 2.980232 GB; R_MEM = 0.298023 GB; T_MEM = 5.960464 GB
+Minimum memory required: 
+Materilaize: 0.223517 GB; Stream: 0.305474 GB; Factorize: 0.312924 GB
+
+S_MEM = 2.980232 GB; R_MEM = 0.894070 GB; T_MEM = 11.920929 GB
+Minimum memory required: 
+Materilaize: 0.223517 GB; Stream: 0.305474 GB; Factorize: 0.312924 GB
+
+S_MEM = 2.980232 GB; R_MEM = 1.192093 GB; T_MEM = 14.901161 GB
+Minimum memory required: 
+Materilaize: 0.223517 GB; Stream: 0.305474 GB; Factorize: 0.312924 GB
+
+RLM
+S_MEM = 0.223517 GB; R_MEM = 0.000000 GB; T_MEM = 0.223517 GB
+Minimum memory required: 
+Materilaize: 0.111759 GB; Stream: 0.152737 GB; Factorize: 0.156462 GB
+
+S_MEM = 0.223517 GB; R_MEM = 0.022352 GB; T_MEM = 0.447035 GB
+Minimum memory required: 
+Materilaize: 0.111759 GB; Stream: 0.152737 GB; Factorize: 0.156462 GB
+
+S_MEM = 0.223517 GB; R_MEM = 0.067055 GB; T_MEM = 0.894070 GB
+Minimum memory required: 
+Materilaize: 0.111759 GB; Stream: 0.152737 GB; Factorize: 0.156462 GB
+
+S_MEM = 0.223517 GB; R_MEM = 0.089407 GB; T_MEM = 1.117587 GB
+Minimum memory required: 
+Materilaize: 0.111759 GB; Stream: 0.152737 GB; Factorize: 0.156462 GB
+
+ 
+iteration number
+RSM
+S_MEM = 14.901161 GB; R_MEM = 2.235174 GB; T_MEM = 37.252903 GB
+Minimum memory required: 
+Materilaize: 1.117587 GB;Stream: 1.527369 GB; Factorize: 1.564622 GB 
+
+RMM
+S_MEM = 2.980232 GB; R_MEM = 0.447035 GB; T_MEM = 7.450581 GB
+Minimum memory required: 
+Materilaize: 0.223517 GB;Stream: 0.305474 GB; Factorize: 0.312924 GB 
+
+RLM
+S_MEM = 0.223517 GB; R_MEM = 0.033528 GB; T_MEM = 0.558794 GB
+Minimum memory required: 
+Materilaize: 0.111759 GB;Stream: 0.152737 GB; Factorize: 0.156462 GB 
+
