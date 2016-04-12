@@ -15,7 +15,7 @@ echo "RSM"
 # for different feature ratio
 for i in 0 1 2 3;do
     # generate data and create the corresponding table
-    ./gen_data 10 ${parameter_RSM[0]} ${parameter_RSM[1]} $((${parameter_RSM[1]}*${feature_ratio[$i]})) 1.00 s r >>scd_feature_ratio_RSM_log
+    ./gen_data 10 ${parameter_RSM[0]} ${parameter_RSM[1]} $(echo ${parameter_RSM[1]}*${feature_ratio[$i]} | bc) 1.00 s r >>scd_feature_ratio_RSM_log
     ./DB create s 0 $((${parameter_RSM[1]}-1)) $((${parameter_RSM[0]}*10)) >>scd_feature_ratio_RSM_log
     ./DB create r 1 $((${parameter_RSM[1]}*${feature_ratio[$i]})) ${parameter_RSM[0]} >>scd_feature_ratio_RSM_log
     echo "i"
@@ -49,7 +49,7 @@ echo "RLM"
 # for different feature ratio
 for i in 0 1 2 3;do
     # generate data and create the corresponding table
-    ./gen_data 10 ${parameter_RLM[0]} ${parameter_RLM[1]} $((${parameter_RLM[1]}*${feature_ratio[$i]})) 1.00 s r >>scd_feature_ratio_RLM_log
+    ./gen_data 10 ${parameter_RLM[0]} ${parameter_RLM[1]} $(echo ${parameter_RLM[1]}*${feature_ratio[$i]} | bc) 1.00 s r >>scd_feature_ratio_RLM_log
     ./DB create s 0 $((${parameter_RLM[1]}-1)) $((${parameter_RLM[0]}*10)) >>scd_feature_ratio_RLM_log
     ./DB create r 1 $((${parameter_RLM[1]}*${feature_ratio[$i]})) ${parameter_RLM[0]} >>scd_feature_ratio_RLM_log
     echo "i"
