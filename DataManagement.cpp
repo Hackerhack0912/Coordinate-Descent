@@ -99,7 +99,7 @@ void DataManagement::store(string fileName, int feature_num, int table_type, lon
     
     // Reading the file and load the data to the corresponding columns (binary array)
     message("Open the input file");
-    printf("File Name: %s", fileName.c_str());
+    printf("File Name: %s\n", fileName.c_str());
     ifstream infile;
     infile.open(fileName);
     

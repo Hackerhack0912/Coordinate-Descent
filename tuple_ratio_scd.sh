@@ -15,18 +15,18 @@ echo "RSM"
 # for different tuple ratio
 for i in 0 1 2 3;do
     # generate data and create the corresponding table
-    ./gen_data ${tuple_ratio[$i]} ${parameter_RSM[0]} ${parameter_RSM[1]} ${parameter_RSM[2]} 1 s r >>scd_tuple_ratio_RSM_log
+    ./gen_data ${tuple_ratio[$i]} ${parameter_RSM[0]} ${parameter_RSM[1]} ${parameter_RSM[2]} 1.00 s r >>scd_tuple_ratio_RSM_log
     ./DB create s 0 $((${parameter_RSM[1]}-1)) $((${parameter_RSM[0]}*${tuple_ratio[$i]})) >>scd_tuple_ratio_RSM_log
     ./DB create r 1 ${parameter_RSM[2]} ${parameter_RSM[0]} >>scd_tuple_ratio_RSM_log
-    echo "i"
+    echo "$i"
     # 4 experiments for each method (logistic regression and least square)
     for l in 0 1;do
         echo ${lm[$l]}
         echo "materialize"
         for k in 0 1 2 3; do
-            time ./DB join S R T >>tuple_RSM_log
+            time ./DB join S R T >>scd_tuple_ratio_RSM_log
             time ./DB m T ${lm_stepSize[$l]} 0 ${parameter_RSM[3]} ${lm[$l]} ${RSM[$i]} >>scd_tuple_ratio_RSM_log
-            rm T* >>scd_tuple_ratio_RSM_log
+            rm T*
         done
         echo "stream"
         for k in 0 1 2 3; do
@@ -40,7 +40,8 @@ for i in 0 1 2 3;do
     # clear the used data
     rm s
     rm r
-    ./clearTables.sh
+    rm S*
+    rm R*
 done
 
 # RLM 4*2*3*4 = 96
@@ -48,18 +49,18 @@ echo "RLM"
 # for different tuple ratio
 for i in 0 1 2 3;do
     # generate data and create the corresponding table
-    ./gen_data ${tuple_ratio[$i]} ${parameter_RLM[0]} ${parameter_RLM[1]} ${parameter_RLM[2]} 1 s r >>scd_tuple_ratio_RLM_log
+    ./gen_data ${tuple_ratio[$i]} ${parameter_RLM[0]} ${parameter_RLM[1]} ${parameter_RLM[2]} 1.00 s r >>scd_tuple_ratio_RLM_log
     ./DB create s 0 $((${parameter_RLM[1]}-1)) $((${parameter_RLM[0]}*${tuple_ratio[$i]})) >>scd_tuple_ratio_RLM_log
-    ./DB create r 1 ${parameter_RLM[2]} ${parameter_RLM[0]} >>tuple_RLM_log
-    echo "i"
+    ./DB create r 1 ${parameter_RLM[2]} ${parameter_RLM[0]} >>scd_tuple_ratio_RLM_log
+    echo "$i"
     # 4 experiments for each method (logistic regression and least square)
     for l in 0 1;do
         echo ${lm[$l]}
         echo "materialize"
         for k in 0 1 2 3; do
-            time ./DB join S R T >>log
+            time ./DB join S R T >>scd_tuple_ratio_RLM_log
             time ./DB m T ${lm_stepSize[$l]} 0 ${parameter_RLM[3]} ${lm[$l]} ${RLM[$i]} >>scd_tuple_ratio_RLM_log
-            rm T* >>scd_tuple_ratio_RLM_log
+            rm T*
         done
         echo "stream"
         for k in 0 1 2 3; do
@@ -73,5 +74,6 @@ for i in 0 1 2 3;do
     # clear the used data
     rm s
     rm r
-    ./clearTables.sh
+    rm S*
+    rm R*
 done
