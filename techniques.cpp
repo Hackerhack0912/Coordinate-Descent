@@ -38,6 +38,8 @@ techniques::techniques(){};
  */
 void techniques::materialize(string table_T, setting _setting, double *&model, double avail_mem, const char *lm)
 {
+    // Elapsed time measurement
+    clock_t start_t, end_t;
     
     DataManagement DM;
     DM.message("Start materialize");
@@ -140,7 +142,10 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
     }
     shuffling_index = shuffle(original_index_set, (unsigned)time(NULL));
     
+    
+    
     // Caching
+    start_t = clock();
     printf("\n");
     printf("Avail_col: %d\n", avail_cache);
     for(int i = 0; i < avail_cache; i ++)
@@ -148,15 +153,19 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
         printf("Cache %d th column\n", i);
         DM.fetchColumn(fields[i+2], row_num, cache[i]);
     }
+    end_t = clock();
+    printf("Caching Time: %f\n", (double)(end_t - start_t) / (double)CLOCKS_PER_SEC);
     
     // First do Logistic Regression
     do
     {
+        start_t = clock();
+        
         // Update one coordinate each time
         for(int j = 0; j < feature_num; j ++)
         {
             int cur_index = shuffling_index.at(j);
-            printf("Current feature index: %d\n", cur_index);
+            //printf("Current feature index: %d\n", cur_index);
             
             F_partial = 0.00;
             
@@ -216,6 +225,9 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
         }
         r_curr = F;
         iters ++;
+        
+        end_t = clock();
+        printf("Iter Time: %f\n", (double)(end_t - start_t)/(double)CLOCKS_PER_SEC);
     }
     while(!stop(iters , r_prev, r_curr, _setting));
     
@@ -460,7 +472,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
         for(int j = 0; j < feature_num; j ++)
         {
             int cur_index = shuffling_index.at(j);
-            printf("Current feature index: %d\n", cur_index);
+            //printf("Current feature index: %d\n", cur_index);
             
             F_partial = 0.00;
          
@@ -490,7 +502,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
             {
                 // Check cache for R
                 int col_index_R = cur_index - feature_num_S;
-                printf("col_index_R: %d\n", col_index_R);
+                //printf("col_index_R: %d\n", col_index_R);
                 if(col_index_R < avail_col_R)
                 {
                     for(long m = 0; m < row_num_S; m ++)
@@ -824,7 +836,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
         for(int j = 0; j < feature_num; j ++)
         {
             int cur_index = shuffling_index.at(j);
-            printf("Current feature index: %d\n", cur_index);
+            //printf("Current feature index: %d\n", cur_index);
             
             F_partial = 0.00;
        
@@ -1128,7 +1140,9 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
     shuffling_index = shuffle(original_index, (unsigned)time(NULL));
     shuffling_block_index = shuffle(original_block_index, (unsigned)time(NULL));
     
+    
     // Print the shuffling_index and shuffling_block_index
+    /**
     printf("After shuffling, the feature indexes:\n");
     for(int i = 0; i < feature_num; i ++)
     {
@@ -1149,6 +1163,7 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
         printf("Cache %d th column\n", i);
         DM.fetchColumn(fields[i+2],row_num, cache[i]);
     }
+    **/
     
     do
     {
@@ -1157,7 +1172,7 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
         for(int j = 0; j < block_num; j ++)
         {
             int cur_block_index = shuffling_block_index.at(j);
-            printf("Current_block_index: %d\n",cur_block_index);
+            //printf("Current_block_index: %d\n",cur_block_index);
             
             int cur_block_size = 0;
             
@@ -1183,7 +1198,7 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
             // Update each 'block' by starting with getting the block index
             block_start_index = cur_block_index*block_size;
             
-            printf("Block_start_index: %d\n",shuffling_index.at(block_start_index));
+            //printf("Block_start_index: %d\n",shuffling_index.at(block_start_index));
             
             // First calculate the statistics used for gradient
             for(long g = 0; g < row_num; g ++)
@@ -1194,7 +1209,7 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
             for(int b = 0; b < cur_block_size; b ++)
             {
                 int cur_index = shuffling_index.at(block_start_index+b);
-                printf("Current feature index: %d\n", cur_index);
+                //printf("Current feature index: %d\n", cur_index);
                 
                 F_partial[b] = 0.00;
                 
@@ -1541,17 +1556,19 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
     shuffling_block_index = shuffle(original_block_index, (unsigned)time(NULL));
     
     // Print the shuffling_index and shuffling_block_index
+    /**
     printf("After shuffling, the feature indexes:\n");
     for(int i = 0; i < feature_num; i ++)
     {
         printf("[%d]\n",shuffling_index.at(i));
     }
     
-    printf("After shuffling, the block indexes:\n");
+    //printf("After shuffling, the block indexes:\n");
     for(int i = 0; i < block_num; i ++)
     {
         printf("[%d]\n",shuffling_block_index.at(i));
     }
+    **/
     
     // Caching S
     printf("\n");
@@ -1578,7 +1595,7 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
         for(int j = 0; j < block_num; j ++)
         {
             int cur_block_index = shuffling_block_index.at(j);
-            printf("Current_block_index: %d\n",cur_block_index);
+            //printf("Current_block_index: %d\n",cur_block_index);
             
             int cur_block_size = 0;
             
@@ -1604,7 +1621,7 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
             // Update each 'block' by starting with getting the block index
             block_start_index = cur_block_index*block_size;
             
-            printf("Block_start_index: %d\n", shuffling_index.at(block_start_index));
+            //printf("Block_start_index: %d\n", shuffling_index.at(block_start_index));
             
             // First calculate the statistics used for gradient
             for(long g = 0; g < row_num_S; g ++)
@@ -1615,7 +1632,7 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
             for(int b = 0; b < cur_block_size; b ++)
             {
                 int cur_index = shuffling_index.at(block_start_index + b);
-                printf("Current feature index: %d\n", cur_index);;
+                //printf("Current feature index: %d\n", cur_index);;
                 F_partial[b] = 0.00;
                 
                 // Check whether the column is in table R. If it is, applied factorized learning
@@ -1677,7 +1694,7 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
                     
                     // Check cache for R
                     int col_index_R = cur_index - feature_num_S;
-                    printf("col_index_R: %d\n",col_index_R);
+                    //printf("col_index_R: %d\n",col_index_R);
 
                     // Apply factorized learning to gradient computation
                     for(long m = 0; m < row_num_S; m ++)

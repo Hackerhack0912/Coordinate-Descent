@@ -3,9 +3,9 @@
 MEM=("RSM" "RMM" "RLM")
 
 echo "tuple ratio(nS/nR)"
-nR=(5000000 1000000 500000)
-dS=(40 40 6)
-dR=(60 60 9)
+nR=(2000000 2000000 2000000)
+dS=(15 15 15)
+dR=(45 45 45)
 
 for i in 0 1 2;do
 	echo ${MEM[$i]}
@@ -17,23 +17,23 @@ echo " "
 
 
 echo "feature ratio(dR/dS)"
-nS=(50000000 10000000 5000000)
-nR=(5000000 1000000 500000)
-dS=(40 40 6)
+nS=(20000000 20000000 20000000)
+nR=(2000000 2000000 2000000)
+dS=(15 15 15)
 
 for i in 0 1 2; do 
 	echo ${MEM[$i]}
-	for j in 0.5 1.5 3 4.5;do
+	for j in 1 2 3 4 5;do
 		./compute_memory 1 $j ${nS[$i]} ${nR[$i]} ${dS[$i]} scd
 	done 
 done 
 echo " "
 
 echo "iteration number"
-nS=(50000000 10000000 5000000)
-nR=(5000000 1000000 500000)
-dS=(40 40 6)
-dR=(60 60 9)
+nS=(20000000 20000000 20000000)
+nR=(2000000 2000000 2000000)
+dS=(45 45 45)
+dR=(15 15 15)
 
 for i in 0 1 2; do
 	echo ${MEM[$i]}
