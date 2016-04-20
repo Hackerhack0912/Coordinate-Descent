@@ -788,7 +788,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     int iters = 0;
     
     // Initialization
-    for(int i = 0; i < feature_num_S; i ++)
+    for(int i = 0; i < feature_num; i ++)
     {
         model[i] = 0.00;
         

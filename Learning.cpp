@@ -160,7 +160,7 @@ int main(int argc, const char * argv[])
             else
             {
                 // option 7: Factorize SCD
-                t.stream(tableName_S, tableName_R, _setting, model, avail_mem, lm);
+                t.factorize(tableName_S, tableName_R, _setting, model, avail_mem, lm);
             }
             
             delete [] model;
