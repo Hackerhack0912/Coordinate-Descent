@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{BACKGROUND AND PRELIMINARIES}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Generalized Linear Models \(GLMs\)}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Coordinate Descent\(CD\)}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{MonetDB}{section.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Data Structure}{subsection.2.3}% 6
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Storing Relations in MonetDB}{subsection.2.3}% 7
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Examples of relational mapping}{subsection.2.3}% 8
+\BOOKMARK [1][-]{section.3}{SIMPLE APPROACHES}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{CD After a Join: Materialize \(M\)}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{CD Over a Join: Stream \(S\)}{section.3}% 11
+\BOOKMARK [1][-]{section.4}{FACTORIZED LEARNING \(FL\)}{}% 12
+\BOOKMARK [2][-]{subsection.4.1}{Mechanism of FL in Column-Store with CD}{section.4}% 13
+\BOOKMARK [1][-]{section.5}{Conclusions}{}% 14
+\BOOKMARK [1][-]{section.6}{Acknowledgments}{}% 15
+\BOOKMARK [2][-]{subsection.6.1}{References}{section.6}% 16
+\BOOKMARK [1][-]{appendix.A}{Final Thoughts on Good Layout}{}% 17
