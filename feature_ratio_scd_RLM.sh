@@ -3,7 +3,7 @@
 # feature ratio
 lm=("lr" "lsr")
 lm_stepSize=(0.01 0.00001)
-feature_ratio=(1 2 3 4 5) # tuple ratio setting
+feature_ratio=(1 2 3 4 5) # feature ratio setting
 RLM=48 # memory size setting
 parameter_RLM=(2000000 15 5) # parameters for RLM
 

@@ -7,7 +7,7 @@
 int main()
 {
     printf("options:\n");
-    printf("Type 0: S; Type 1: R\n");
+    printf("Type 0: S; Type 1: R; Type 2: T\n");
     // Argument number: 6
     printf("1. Create table: DB create file_name(table_name) type feature_num row_num\n");
     // Argument number: 5
