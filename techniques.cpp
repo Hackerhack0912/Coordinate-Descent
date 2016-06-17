@@ -1,4 +1,4 @@
-//
+    //
 //  techniques.cpp
 //  Coordinate_descent
 //
@@ -10,7 +10,6 @@
 #include <fstream>
 #include <cmath>
 #include <stdlib.h>
-#include <time.h>
 #include "techniques.h"
 #include "DataManagement.h"
 #include "linear_models.h"
@@ -38,8 +37,6 @@ techniques::techniques(){};
  */
 void techniques::materialize(string table_T, setting _setting, double *&model, double avail_mem, const char *lm)
 {
-    // Elapsed time measurement
-    clock_t start_t, end_t;
     
     DataManagement DM;
     DM.message("Start materialize");
@@ -145,7 +142,6 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
     
     
     // Caching
-    start_t = clock();
     printf("\n");
     printf("Avail_col: %d\n", avail_cache);
     for(int i = 0; i < avail_cache; i ++)
@@ -153,14 +149,10 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
         printf("Cache %d th column\n", i);
         DM.fetchColumn(fields[i+2], row_num, cache[i]);
     }
-    end_t = clock();
-    printf("Caching Time: %f\n", (double)(end_t - start_t) / (double)CLOCKS_PER_SEC);
     
     // First do Logistic Regression
     do
     {
-        start_t = clock();
-        
         // Update one coordinate each time
         for(int j = 0; j < feature_num; j ++)
         {
@@ -226,8 +218,6 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
         r_curr = F;
         iters ++;
         
-        end_t = clock();
-        printf("Iter Time: %f\n", (double)(end_t - start_t)/(double)CLOCKS_PER_SEC);
     }
     while(!stop(iters , r_prev, r_curr, _setting));
     
@@ -257,9 +247,6 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
 /* oid-oid mapping is Not stored in memory */
 void techniques::stream(string table_S, string table_R, setting _setting, double *&model, double avail_mem, const char *lm)
 {
-    // Elapsed time measurement
-    clock_t start_t, end_t;
-    
     DataManagement DM;
     DM.message("Start stream");
     
@@ -435,7 +422,6 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
     }
     shuffling_index = shuffle(original_index_set, (unsigned)time(NULL));
     
-    start_t = clock();
     // Caching S
     printf("\n");
     printf("Avail_col_S: %d\n", avail_col_S);
@@ -453,12 +439,9 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
         printf("Cache %d th column in R\n", k);
         DM.fetchColumn(fields_R[1+k],row_num_R, cache_R[k]);
     }
-    end_t = clock();
-    printf("Caching Time: %f\n", (double)(end_t - start_t) / (double)CLOCKS_PER_SEC);
 
     do
     {
-        start_t = clock();
         printf("\n");
         DM.message("Start fetching KKMR reference");
         // Read the fk column(referred rid in R) in table S, rid column in R
@@ -572,9 +555,6 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
         
         r_curr = F;
         iters ++;
-        
-        end_t = clock();
-        printf("Iter Time: %f\n", (double)(end_t - start_t) / (double)CLOCKS_PER_SEC);
     }
     while(!stop(iters , r_prev, r_curr, _setting));
     
@@ -615,9 +595,6 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
 
 void techniques::factorize(string table_S, string table_R, setting _setting, double *&model, double avail_mem, const char *lm)
 {
-    // Elapsed time measurement
-    clock_t start_t, end_t;
-    
     DataManagement DM;
     DM.message("Start factorize");
     
@@ -824,7 +801,6 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     // Shuffling
     shuffling_index = shuffle(original_index_set, (unsigned)time(NULL));
     
-    start_t = clock();
     // Caching S
     printf("\n");
     printf("Avail_col_S: %d\n", avail_col_S);
@@ -842,12 +818,9 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
         printf("Cache %d th column in R\n", k);
         DM.fetchColumn(fields_R[1+k],row_num_R, cache_R[k]);
     }
-    end_t = clock();
-    printf("Caching Time: %f\n", (double)(end_t - start_t) / (double)CLOCKS_PER_SEC);
 
     do
     {
-        start_t = clock();
         // Update one coordinate each time
         for(int j = 0; j < feature_num; j ++)
         {
@@ -981,8 +954,6 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
         
         r_curr = F;
         iters ++;
-        end_t = clock();
-        printf("Iter Time: %f\n", (double)(end_t - start_t) / (double)CLOCKS_PER_SEC);
     }
     while(!stop(iters, r_prev, r_curr, _setting));
     
@@ -1027,9 +998,6 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
 #pragma mark - Block Coordinate Descent
 void techniques::materializeBCD(string table_T, setting _setting, double *&model, int block_size, double avail_mem, const char *lm)
 {
-    // Elapsed time measurement
-    clock_t start_t, end_t;
-    
     DataManagement DM;
     DM.message("Start materializeBCD");
     
@@ -1176,8 +1144,7 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
         printf("[%d]\n",shuffling_block_index.at(i));
     }
     **/
-     
-    start_t = clock();
+    
     // Caching
     printf("\n");
     printf("Avail_col: %d\n", avail_cache);
@@ -1186,13 +1153,10 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
         printf("Cache %d th column\n", i);
         DM.fetchColumn(fields[i+2],row_num, cache[i]);
     }
-    end_t = clock();
-    printf("Caching Time: %f\n", (double)(end_t - start_t) / (double)CLOCKS_PER_SEC);
-    
     
     do
     {
-        start_t = clock();
+    
         // Update one "block" each time
         // "Cumulative" difference in H caused by block
         for(int j = 0; j < block_num; j ++)
@@ -1310,9 +1274,6 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
         
         r_curr = F;
         iters ++;
-        end_t = clock();
-        printf("Iter Time: %f\n", (double)(end_t - start_t) / (double)CLOCKS_PER_SEC);
-        
     }
     while(!stop(iters, r_prev, r_curr, _setting));
     
@@ -1346,9 +1307,6 @@ void techniques::materializeBCD(string table_T, setting _setting, double *&model
 
 void techniques::factorizeBCD(string table_S, string table_R, setting _setting, double *&model, int block_size, double avail_mem, const char *lm)
 {
-    // Elapsed time measurement
-    clock_t start_t, end_t;
-    
     DataManagement DM;
     DM.message("Start factorizeBCD");
     
@@ -1601,7 +1559,6 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
     }
     **/
     
-    start_t = clock();
     // Caching S
     printf("\n");
     printf("Avail_col_S: %d\n", avail_col_S);
@@ -1619,12 +1576,9 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
         printf("Cache %d th column in R\n", k);
         DM.fetchColumn(fields_R[1+k],row_num_R, cache_R[k]);
     }
-    end_t = clock();
-    printf("Caching Time: %f\n", (double)(end_t - start_t) / (double)CLOCKS_PER_SEC);
 
     do
     {
-        start_t = clock();
         // Update one "block" each time
         // "Cumulative" difference in H caused by block
         for(int j = 0; j < block_num; j ++)
@@ -1803,9 +1757,6 @@ void techniques::factorizeBCD(string table_S, string table_R, setting _setting, 
         
         r_curr = F;
         iters ++;
-        end_t = clock();
-        printf("Iter Time: %f\n", (double)(end_t - start_t) / (double)CLOCKS_PER_SEC);
-    
     }
     while(!stop(iters, r_prev, r_curr, _setting));
     

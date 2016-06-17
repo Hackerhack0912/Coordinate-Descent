@@ -1,0 +1,11 @@
+From the paper titled "Stochastic Coordinate Descent Methods for Regularized Smooth and Nonsmooth Losses":
+In the huge-scale problems in the sense that even the problem's data may be only partially available at the moment 
+of evaluating the current test point, going over all dimensions causes an expensive outer iteration. Instead, one can 
+randomly update only one componet of w at each outer iteration. This kind of methods is referred to as Stochastic CD
+(SCD). 
+
+The implementation we are currently using now is "fully" SCD, which means in each outer iteration, we consider all "features"
+(going over all dimensions). Enlightened by this paper, still, the fact that "factorize learning" saves little on cpu has 
+not been changed generally, but in some cases under which that the speed of convergence is muche faster on "coordinates 
+corresponding to features in R" and "coordinates randomly picked correspond to features in R", "factorize learning" will have much better performance. The extreme case is that the convergence happens when just considering the update of coordinates cooresponding features in R, then the whole computational process is almost fully redundant without applying "factorize learning".
+Though this is unlikely to happen, we can still get some insights I think. And applying random SCD could make the whole experiment process be much faster.   
