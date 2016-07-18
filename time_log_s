@@ -1,0 +1,1754 @@
+Start stream
+size of table info: 4
+Check the vector size to store the tableInfo: 
+Fetch the information of fields of the corresponding table
+size of table info: 4
+Check the vector size to store the tableInfo: 
+Fetch the information of fields of the corresponding table
+
+Avail_col_S: 14
+
+Avail_col_R: 45
+
+Time takes before iteration starts: 5019 ms
+
+Start fetching KKMR reference
+Finish fetchig KKMR reference
+
+Time takes to fetch KKMR 250 ms
+
+Column from R
+Time takes for full column construction:57 ms
+Time takes for partial gradient computation:186 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:25 ms
+Time takes for coordinate 58: 270 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 38: 534 ms
+Column from S
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 3: 511 ms
+Column from R
+Time takes for full column construction:28 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 20: 540 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 25: 536 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:486 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 28: 539 ms
+Column from S
+Time takes for partial gradient computation:495 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 8: 529 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:509 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 18: 571 ms
+Column from R
+Time takes for full column construction:36 ms
+Time takes for partial gradient computation:558 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:37 ms
+Time takes for coordinate 52: 632 ms
+Column from R
+Time takes for full column construction:45 ms
+Time takes for partial gradient computation:553 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 26: 632 ms
+Column from S
+Time takes for partial gradient computation:545 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:35 ms
+Time takes for coordinate 11: 580 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:532 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 53: 596 ms
+Column from R
+Time takes for full column construction:31 ms
+Time takes for partial gradient computation:527 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 55: 590 ms
+Column from R
+Time takes for full column construction:33 ms
+Time takes for partial gradient computation:520 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 22: 581 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:557 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 32: 615 ms
+Column from R
+Time takes for full column construction:29 ms
+Time takes for partial gradient computation:552 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 36: 615 ms
+Column from R
+Time takes for full column construction:31 ms
+Time takes for partial gradient computation:543 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 40: 599 ms
+Column from R
+Time takes for full column construction:28 ms
+Time takes for partial gradient computation:545 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 49: 598 ms
+Column from S
+Time takes for partial gradient computation:552 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:39 ms
+Time takes for coordinate 4: 592 ms
+Column from R
+Time takes for full column construction:45 ms
+Time takes for partial gradient computation:544 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 23: 619 ms
+Column from R
+Time takes for full column construction:34 ms
+Time takes for partial gradient computation:559 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 31: 627 ms
+Column from R
+Time takes for full column construction:43 ms
+Time takes for partial gradient computation:583 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:25 ms
+Time takes for coordinate 51: 652 ms
+Column from S
+Time takes for partial gradient computation:545 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 13: 573 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:559 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 54: 611 ms
+Column from S
+Time takes for partial gradient computation:548 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 2: 580 ms
+Column from R
+Time takes for full column construction:31 ms
+Time takes for partial gradient computation:559 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 39: 625 ms
+Column from R
+Time takes for full column construction:35 ms
+Time takes for partial gradient computation:553 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 17: 619 ms
+Column from S
+Time takes for partial gradient computation:553 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:37 ms
+Time takes for coordinate 6: 591 ms
+Column from R
+Time takes for full column construction:40 ms
+Time takes for partial gradient computation:551 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 29: 616 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:564 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 47: 618 ms
+Column from R
+Time takes for full column construction:32 ms
+Time takes for partial gradient computation:555 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 56: 618 ms
+Column from R
+Time takes for full column construction:39 ms
+Time takes for partial gradient computation:556 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 30: 623 ms
+Column from S
+Time takes for partial gradient computation:516 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:26 ms
+Time takes for coordinate 0: 543 ms
+Column from R
+Time takes for full column construction:28 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 46: 536 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:502 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 43: 564 ms
+Column from R
+Time takes for full column construction:35 ms
+Time takes for partial gradient computation:526 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 35: 589 ms
+Column from R
+Time takes for full column construction:33 ms
+Time takes for partial gradient computation:547 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 57: 608 ms
+Column from R
+Time takes for full column construction:31 ms
+Time takes for partial gradient computation:547 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 16: 603 ms
+Column from R
+Time takes for full column construction:28 ms
+Time takes for partial gradient computation:552 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:25 ms
+Time takes for coordinate 42: 606 ms
+Column from S
+Time takes for partial gradient computation:552 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:35 ms
+Time takes for coordinate 7: 588 ms
+Column from S
+Time takes for partial gradient computation:551 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 1: 582 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:528 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 27: 585 ms
+Column from S
+Time takes for partial gradient computation:543 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:29 ms
+Time takes for coordinate 10: 572 ms
+Column from R
+Time takes for full column construction:32 ms
+Time takes for partial gradient computation:560 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:25 ms
+Time takes for coordinate 24: 619 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:557 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 50: 619 ms
+Column from R
+Time takes for full column construction:32 ms
+Time takes for partial gradient computation:555 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 14: 618 ms
+Column from R
+Time takes for full column construction:31 ms
+Time takes for partial gradient computation:578 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 21: 635 ms
+Column from R
+Time takes for full column construction:31 ms
+Time takes for partial gradient computation:553 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 41: 616 ms
+Column from R
+Time takes for full column construction:34 ms
+Time takes for partial gradient computation:561 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 37: 626 ms
+Column from S
+Time takes for partial gradient computation:574 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:36 ms
+Time takes for coordinate 5: 611 ms
+Column from R
+Time takes for full column construction:38 ms
+Time takes for partial gradient computation:519 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 15: 581 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:581 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 45: 640 ms
+Column from S
+Time takes for partial gradient computation:567 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 9: 601 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:552 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 33: 614 ms
+Column from R
+Time takes for full column construction:35 ms
+Time takes for partial gradient computation:558 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 19: 624 ms
+Column from R
+Time takes for full column construction:37 ms
+Time takes for partial gradient computation:550 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 34: 615 ms
+Column from R
+Time takes for full column construction:32 ms
+Time takes for partial gradient computation:537 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:35 ms
+Time takes for coordinate 48: 605 ms
+Column from S
+Time takes for partial gradient computation:554 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 12: 588 ms
+Column from R
+Time takes for full column construction:35 ms
+Time takes for partial gradient computation:588 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:25 ms
+Time takes for coordinate 44: 649 ms
+Time takes for loss computation: 733 ms
+
+Start fetching KKMR reference
+Finish fetchig KKMR reference
+
+Time takes to fetch KKMR 193 ms
+
+Column from R
+Time takes for full column construction:33 ms
+Time takes for partial gradient computation:551 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 58: 617 ms
+Column from R
+Time takes for full column construction:39 ms
+Time takes for partial gradient computation:575 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:29 ms
+Time takes for coordinate 38: 645 ms
+Column from S
+Time takes for partial gradient computation:580 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:40 ms
+Time takes for coordinate 3: 621 ms
+Column from R
+Time takes for full column construction:37 ms
+Time takes for partial gradient computation:566 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 20: 636 ms
+Column from R
+Time takes for full column construction:33 ms
+Time takes for partial gradient computation:519 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 25: 576 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:515 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 28: 567 ms
+Column from S
+Time takes for partial gradient computation:534 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:36 ms
+Time takes for coordinate 8: 571 ms
+Column from R
+Time takes for full column construction:34 ms
+Time takes for partial gradient computation:512 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 18: 580 ms
+Column from R
+Time takes for full column construction:35 ms
+Time takes for partial gradient computation:530 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 52: 593 ms
+Column from R
+Time takes for full column construction:32 ms
+Time takes for partial gradient computation:545 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 26: 602 ms
+Column from S
+Time takes for partial gradient computation:565 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:29 ms
+Time takes for coordinate 11: 595 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:504 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 53: 556 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 55: 529 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 22: 525 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 32: 529 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 36: 533 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 40: 536 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 49: 534 ms
+Column from S
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 4: 509 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 23: 527 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 31: 524 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 51: 523 ms
+Column from S
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 13: 502 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 54: 523 ms
+Column from S
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 2: 503 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:485 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 39: 540 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 17: 530 ms
+Column from S
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 6: 508 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 29: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 47: 529 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:485 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 56: 543 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 30: 528 ms
+Column from S
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 0: 503 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 46: 524 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 43: 533 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:488 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 35: 542 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 57: 534 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 16: 534 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 42: 530 ms
+Column from S
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 7: 509 ms
+Column from S
+Time takes for partial gradient computation:487 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 1: 515 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 27: 528 ms
+Column from S
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 10: 504 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 24: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 50: 530 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 14: 525 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 21: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 41: 531 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 37: 523 ms
+Column from S
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 5: 509 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 15: 529 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 45: 524 ms
+Column from S
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 9: 503 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 33: 525 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 19: 524 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 34: 523 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 48: 524 ms
+Column from S
+Time takes for partial gradient computation:484 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 12: 512 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 44: 526 ms
+Time takes for loss computation: 647 ms
+
+Start fetching KKMR reference
+Finish fetchig KKMR reference
+
+Time takes to fetch KKMR 168 ms
+
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 58: 538 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 38: 534 ms
+Column from S
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 3: 508 ms
+Column from R
+Time takes for full column construction:31 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 20: 533 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 25: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 28: 525 ms
+Column from S
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 8: 504 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 18: 535 ms
+Column from R
+Time takes for full column construction:32 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 52: 535 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 26: 529 ms
+Column from S
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 11: 505 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 53: 525 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 55: 531 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 22: 533 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:25 ms
+Time takes for coordinate 32: 532 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 36: 533 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 40: 533 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 49: 530 ms
+Column from S
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 4: 504 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 23: 530 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 31: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 51: 528 ms
+Column from S
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 13: 505 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 54: 525 ms
+Column from S
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 2: 510 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 39: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 17: 526 ms
+Column from S
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 6: 505 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 29: 525 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 47: 533 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 56: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 30: 527 ms
+Column from S
+Time takes for partial gradient computation:485 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 0: 512 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 46: 524 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 43: 530 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 35: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 57: 534 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 16: 535 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 42: 529 ms
+Column from S
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 7: 504 ms
+Column from S
+Time takes for partial gradient computation:489 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 1: 517 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 27: 530 ms
+Column from S
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 10: 509 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 24: 524 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 50: 524 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 14: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 21: 525 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 41: 525 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 37: 525 ms
+Column from S
+Time takes for partial gradient computation:483 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:29 ms
+Time takes for coordinate 5: 512 ms
+Column from R
+Time takes for full column construction:34 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 15: 539 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 45: 526 ms
+Column from S
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 9: 505 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 33: 524 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 19: 524 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 34: 523 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 48: 524 ms
+Column from S
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 12: 502 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 44: 523 ms
+Time takes for loss computation: 647 ms
+
+Start fetching KKMR reference
+Finish fetchig KKMR reference
+
+Time takes to fetch KKMR 169 ms
+
+Column from R
+Time takes for full column construction:28 ms
+Time takes for partial gradient computation:492 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 58: 544 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 38: 525 ms
+Column from S
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 3: 513 ms
+Column from R
+Time takes for full column construction:31 ms
+Time takes for partial gradient computation:487 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 20: 543 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 25: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 28: 526 ms
+Column from S
+Time takes for partial gradient computation:483 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 8: 510 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 18: 524 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 52: 532 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 26: 536 ms
+Column from S
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 11: 508 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 53: 531 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 55: 525 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 22: 529 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 32: 523 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 36: 523 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 40: 524 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 49: 526 ms
+Column from S
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 4: 506 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 23: 528 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 31: 534 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 51: 536 ms
+Column from S
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:29 ms
+Time takes for coordinate 13: 508 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 54: 533 ms
+Column from S
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 2: 509 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 39: 525 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:483 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 17: 533 ms
+Column from S
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 6: 504 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 29: 533 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 47: 529 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 56: 525 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 30: 524 ms
+Column from S
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 0: 508 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 46: 526 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 43: 530 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 35: 531 ms
+Column from R
+Time takes for full column construction:29 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 57: 533 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 16: 527 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 42: 528 ms
+Column from S
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 7: 503 ms
+Column from S
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 1: 509 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 27: 526 ms
+Column from S
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 10: 504 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 24: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:485 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 50: 543 ms
+Column from R
+Time takes for full column construction:33 ms
+Time takes for partial gradient computation:541 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 14: 598 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:549 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:35 ms
+Time takes for coordinate 21: 612 ms
+Column from R
+Time takes for full column construction:39 ms
+Time takes for partial gradient computation:590 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 41: 660 ms
+Column from R
+Time takes for full column construction:34 ms
+Time takes for partial gradient computation:537 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 37: 605 ms
+Column from S
+Time takes for partial gradient computation:549 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:37 ms
+Time takes for coordinate 5: 587 ms
+Column from R
+Time takes for full column construction:46 ms
+Time takes for partial gradient computation:548 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 15: 619 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:568 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:26 ms
+Time takes for coordinate 45: 622 ms
+Column from S
+Time takes for partial gradient computation:552 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:36 ms
+Time takes for coordinate 9: 589 ms
+Column from R
+Time takes for full column construction:35 ms
+Time takes for partial gradient computation:535 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 33: 595 ms
+Column from R
+Time takes for full column construction:28 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 19: 528 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:490 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 34: 540 ms
+Column from R
+Time takes for full column construction:28 ms
+Time takes for partial gradient computation:516 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 48: 569 ms
+Column from S
+Time takes for partial gradient computation:486 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 12: 517 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:492 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 44: 543 ms
+Time takes for loss computation: 653 ms
+
+Start fetching KKMR reference
+Finish fetchig KKMR reference
+
+Time takes to fetch KKMR 170 ms
+
+Column from R
+Time takes for full column construction:29 ms
+Time takes for partial gradient computation:491 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 58: 544 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:490 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 38: 547 ms
+Column from S
+Time takes for partial gradient computation:494 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 3: 522 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 20: 532 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:513 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 25: 567 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 28: 524 ms
+Column from S
+Time takes for partial gradient computation:485 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 8: 516 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 18: 531 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 52: 524 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 26: 527 ms
+Column from S
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 11: 504 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 53: 529 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 55: 529 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 22: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 32: 524 ms
+Column from R
+Time takes for full column construction:32 ms
+Time takes for partial gradient computation:565 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 36: 629 ms
+Column from R
+Time takes for full column construction:36 ms
+Time takes for partial gradient computation:550 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 40: 615 ms
+Column from R
+Time takes for full column construction:31 ms
+Time takes for partial gradient computation:560 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 49: 623 ms
+Column from S
+Time takes for partial gradient computation:539 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:29 ms
+Time takes for coordinate 4: 569 ms
+Column from R
+Time takes for full column construction:40 ms
+Time takes for partial gradient computation:542 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 23: 617 ms
+Column from R
+Time takes for full column construction:33 ms
+Time takes for partial gradient computation:538 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:24 ms
+Time takes for coordinate 31: 596 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 51: 532 ms
+Column from S
+Time takes for partial gradient computation:577 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 13: 610 ms
+Column from R
+Time takes for full column construction:32 ms
+Time takes for partial gradient computation:539 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:26 ms
+Time takes for coordinate 54: 597 ms
+Column from S
+Time takes for partial gradient computation:559 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 2: 592 ms
+Column from R
+Time takes for full column construction:31 ms
+Time takes for partial gradient computation:517 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 39: 572 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:484 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 17: 534 ms
+Column from S
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 6: 503 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 29: 524 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 47: 524 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 56: 535 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 30: 538 ms
+Column from S
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 0: 509 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 46: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 43: 526 ms
+Column from R
+Time takes for full column construction:26 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 35: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 57: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 16: 523 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 42: 524 ms
+Column from S
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 7: 503 ms
+Column from S
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 1: 508 ms
+Column from R
+Time takes for full column construction:33 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 27: 540 ms
+Column from S
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 10: 510 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 24: 539 ms
+Column from R
+Time takes for full column construction:30 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 50: 535 ms
+Column from R
+Time takes for full column construction:28 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 14: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 21: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 41: 531 ms
+Column from R
+Time takes for full column construction:32 ms
+Time takes for partial gradient computation:493 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 37: 548 ms
+Column from S
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 5: 503 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 15: 525 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:473 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 45: 524 ms
+Column from S
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 9: 510 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 33: 525 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 19: 525 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 34: 526 ms
+Column from R
+Time takes for full column construction:27 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 48: 526 ms
+Column from S
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 12: 504 ms
+Column from R
+Time takes for full column construction:28 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:23 ms
+Time takes for coordinate 44: 530 ms
+Time takes for loss computation: 646 ms
+Time takes to clear the cache: 147 ms
+
+The final loss: 196236.157011
+Number of iteration: 5
+Model: -9.47182372720160614676, 1.07612089294901847047, 1.14476547871091249853, 47.52171341499600032421, -13.37333812456680703917, -1.97693977472061388490, -7.03772794273306256940, 0.13676888453112290289, -28.89565425574600254777, -0.73828787039799914638, 7.00817741043232267373, -18.00622074366924607602, -6.25289436816304089461, 11.35233331176755733338, -0.00036896635049525530, 0.00720612708324976006, -0.04258353074282114625, 0.00099814657054946715, -0.00290608604923887860, 0.00117562902800751544, -0.00011947251116994467, -0.01246505374281137862, -0.00326865133856977510, 0.01493787338076773587, -0.01008390470453403472, 0.00999150291728177417, -0.01154314596573288026, 0.00087200640329540059, -0.03644239296185262239, -0.00169981189335441547, 0.00742761353207909217, 0.00078175967826516206, 0.01903002779684812018, 0.00323700029815282694, 0.02309369538285130016, -0.00925503483858721582, -0.00220784515323337299, -0.00075698333595462764, 0.01700043499301467920, 0.00353932109344298924, -0.00020501961354432824, -0.02071651875754852365, 0.00113077820709661615, -0.00319817163295468571, 0.02798189356788247442, 0.00262555219879114518, -0.00774826256427444890, 0.00481843263507510024, -0.00190614773292318435, 0.00238588634629705509, -0.02640892160643602826, 0.01097005161136393667, 0.00012616431917898425, 0.00044870195872905066, -0.00376754423626120055, -0.00194791921846820576, 0.00016576115605530911, -0.00153935185031921652, 0.02272706499806301586
+Finish stream

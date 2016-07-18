@@ -1,0 +1,1200 @@
+Start materialize
+size of table info: 4
+Check the vector size to store the tableInfo: 
+Fetch the information of fields of the corresponding table
+
+Avail_col: 59
+
+Time takes before iteration starts: 11838 ms
+
+Time takes for partial gradient computation:183 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 58: 212 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 38: 503 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 3: 508 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 20: 502 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 25: 504 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 28: 510 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 8: 509 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 18: 509 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 52: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 26: 503 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 11: 508 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 53: 507 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 55: 504 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 22: 502 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 32: 502 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 36: 512 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 40: 508 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 49: 505 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 4: 503 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 23: 503 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 31: 503 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 51: 504 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 13: 507 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 54: 508 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 2: 503 ms
+Time takes for partial gradient computation:483 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 39: 510 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 17: 503 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 6: 503 ms
+Time takes for partial gradient computation:488 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 29: 518 ms
+Time takes for partial gradient computation:489 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 47: 519 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 56: 508 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 30: 502 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 0: 503 ms
+Time takes for partial gradient computation:484 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 46: 511 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 43: 505 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 35: 507 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 57: 509 ms
+Time takes for partial gradient computation:486 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:29 ms
+Time takes for coordinate 16: 515 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 42: 502 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 7: 507 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 1: 503 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 27: 507 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:29 ms
+Time takes for coordinate 10: 508 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 24: 506 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 50: 503 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 14: 503 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 21: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 41: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 37: 503 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 5: 511 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 15: 502 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 45: 503 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 9: 503 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 33: 503 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 19: 503 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 34: 504 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 48: 504 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 12: 506 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 44: 509 ms
+Time takes for loss computation: 645 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 58: 502 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 38: 504 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 3: 502 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 20: 503 ms
+Time takes for partial gradient computation:488 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 25: 518 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 28: 507 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 8: 504 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 18: 509 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 52: 505 ms
+Time takes for partial gradient computation:487 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 26: 514 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 11: 512 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 53: 505 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 55: 510 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 22: 506 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 32: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 36: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 40: 503 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 49: 511 ms
+Time takes for partial gradient computation:483 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 4: 513 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 23: 507 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 31: 508 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 51: 504 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 13: 508 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 54: 505 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 2: 509 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 39: 504 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 17: 502 ms
+Time takes for partial gradient computation:487 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 6: 514 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 29: 504 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 47: 505 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 56: 504 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 30: 506 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 0: 504 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 46: 506 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 43: 512 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 35: 504 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 57: 502 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 16: 508 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 42: 504 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 7: 506 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 1: 505 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 27: 508 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 10: 511 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 24: 510 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 50: 510 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 14: 505 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 21: 504 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 41: 505 ms
+Time takes for partial gradient computation:484 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 37: 514 ms
+Time takes for partial gradient computation:483 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 5: 513 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 15: 507 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 45: 509 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 9: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 33: 502 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 19: 509 ms
+Time takes for partial gradient computation:484 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 34: 514 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 48: 508 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 12: 512 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 44: 513 ms
+Time takes for loss computation: 649 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 58: 503 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 38: 502 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 3: 508 ms
+Time takes for partial gradient computation:489 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 20: 516 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 25: 504 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 28: 503 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 8: 505 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 18: 512 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 52: 504 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 26: 504 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 11: 509 ms
+Time takes for partial gradient computation:484 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 53: 518 ms
+Time takes for partial gradient computation:520 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 55: 548 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 22: 508 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 32: 502 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 36: 509 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 40: 512 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 49: 508 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 4: 503 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 23: 502 ms
+Time takes for partial gradient computation:484 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 31: 515 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 51: 509 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 13: 510 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 54: 508 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 2: 507 ms
+Time takes for partial gradient computation:483 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 39: 513 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 17: 507 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 6: 507 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 29: 511 ms
+Time takes for partial gradient computation:483 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 47: 513 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 56: 510 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 30: 502 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 0: 510 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 46: 504 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 43: 504 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:29 ms
+Time takes for coordinate 35: 512 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 57: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 16: 502 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 42: 509 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 7: 510 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 1: 510 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 27: 509 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 10: 509 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 24: 511 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 50: 509 ms
+Time takes for partial gradient computation:487 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 14: 515 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 21: 504 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 41: 505 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 37: 504 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 5: 506 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 15: 504 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 45: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 9: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 33: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 19: 503 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 34: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 48: 503 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 12: 503 ms
+Time takes for partial gradient computation:484 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 44: 511 ms
+Time takes for loss computation: 643 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 58: 503 ms
+Time takes for partial gradient computation:484 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 38: 515 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 3: 509 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 20: 505 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 25: 507 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 28: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 8: 503 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 18: 504 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 52: 502 ms
+Time takes for partial gradient computation:485 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 26: 513 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 11: 503 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 53: 503 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 55: 506 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 22: 511 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 32: 504 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 36: 506 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 40: 506 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 49: 507 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 4: 508 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 23: 505 ms
+Time takes for partial gradient computation:484 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 31: 515 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 51: 510 ms
+Time takes for partial gradient computation:483 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 13: 514 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 54: 509 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 2: 509 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 39: 510 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 17: 510 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 6: 509 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 29: 510 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 47: 510 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 56: 511 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 30: 505 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 0: 504 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 46: 504 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 43: 504 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 35: 505 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 57: 512 ms
+Time takes for partial gradient computation:484 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 16: 514 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 42: 509 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 7: 507 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 1: 505 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 27: 507 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 10: 506 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 24: 512 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 50: 509 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 14: 509 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 21: 510 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 41: 509 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 37: 509 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 5: 511 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 15: 512 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 45: 509 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 9: 509 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 33: 509 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 19: 509 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 34: 504 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 48: 513 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 12: 509 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 44: 506 ms
+Time takes for loss computation: 642 ms
+Time takes for partial gradient computation:486 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 58: 513 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 38: 510 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 3: 507 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 20: 502 ms
+Time takes for partial gradient computation:486 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 25: 516 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:29 ms
+Time takes for coordinate 28: 510 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 8: 509 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:29 ms
+Time takes for coordinate 18: 508 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 52: 503 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 26: 504 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 11: 503 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 53: 503 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 55: 503 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 22: 503 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 32: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 36: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 40: 502 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 49: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 4: 502 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 23: 504 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 31: 503 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 51: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 13: 503 ms
+Time takes for partial gradient computation:474 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 54: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 2: 502 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 39: 506 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 17: 504 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 6: 508 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 29: 503 ms
+Time takes for partial gradient computation:485 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 47: 512 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 56: 504 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 30: 512 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 0: 509 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 46: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 43: 502 ms
+Time takes for partial gradient computation:475 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 35: 503 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 57: 507 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 16: 504 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 42: 511 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 7: 506 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 1: 504 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 27: 505 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 10: 508 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 24: 505 ms
+Time takes for partial gradient computation:481 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 50: 511 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 14: 507 ms
+Time takes for partial gradient computation:479 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 21: 506 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 41: 512 ms
+Time takes for partial gradient computation:480 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:28 ms
+Time takes for coordinate 37: 508 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 5: 506 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 15: 505 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 45: 505 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 9: 504 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 33: 504 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 19: 504 ms
+Time takes for partial gradient computation:476 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 34: 504 ms
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 48: 505 ms
+Time takes for partial gradient computation:482 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 12: 509 ms
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 44: 505 ms
+Time takes for loss computation: 652 ms
+Time takes to clear the cache: 502 ms
+
+The final loss: 196236.157011
+Number of iteration: 5
+Model: -9.47182372720160614676, 1.07612089294901847047, 1.14476547871091249853, 47.52171341499600032421, -13.37333812456680703917, -1.97693977472061388490, -7.03772794273306256940, 0.13676888453112290289, -28.89565425574600254777, -0.73828787039799914638, 7.00817741043232267373, -18.00622074366924607602, -6.25289436816304089461, 11.35233331176755733338, -0.00036896635049525530, 0.00720612708324976006, -0.04258353074282114625, 0.00099814657054946715, -0.00290608604923887860, 0.00117562902800751544, -0.00011947251116994467, -0.01246505374281137862, -0.00326865133856977510, 0.01493787338076773587, -0.01008390470453403472, 0.00999150291728177417, -0.01154314596573288026, 0.00087200640329540059, -0.03644239296185262239, -0.00169981189335441547, 0.00742761353207909217, 0.00078175967826516206, 0.01903002779684812018, 0.00323700029815282694, 0.02309369538285130016, -0.00925503483858721582, -0.00220784515323337299, -0.00075698333595462764, 0.01700043499301467920, 0.00353932109344298924, -0.00020501961354432824, -0.02071651875754852365, 0.00113077820709661615, -0.00319817163295468571, 0.02798189356788247442, 0.00262555219879114518, -0.00774826256427444890, 0.00481843263507510024, -0.00190614773292318435, 0.00238588634629705509, -0.02640892160643602826, 0.01097005161136393667, 0.00012616431917898425, 0.00044870195872905066, -0.00376754423626120055, -0.00194791921846820576, 0.00016576115605530911, -0.00153935185031921652, 0.02272706499806301586
+Finish materialize

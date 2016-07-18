@@ -1,0 +1,1953 @@
+Start factorize
+size of table info: 4
+Check the vector size to store the tableInfo: 
+Fetch the information of fields of the corresponding table
+size of table info: 4
+Check the vector size to store the tableInfo: 
+Fetch the information of fields of the corresponding table
+
+Start fetching KKMR reference
+Finished fetching KKMR reference
+
+Avail_col_S: 14
+
+Avail_col_R: 45
+
+Time takes before iteration starts: 5164 ms
+
+Column from R
+Time takes for factorized factor computation:200 ms
+Time takes for partial gradient computation:636 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:272 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 58: 1293 ms
+Column from R
+Time takes for factorized factor computation:493 ms
+Time takes for partial gradient computation:550 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:255 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 38: 1354 ms
+Column from S
+Time takes for partial gradient computation:485 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 3: 513 ms
+Column from R
+Time takes for factorized factor computation:482 ms
+Time takes for partial gradient computation:659 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:336 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 20: 1534 ms
+Column from R
+Time takes for factorized factor computation:569 ms
+Time takes for partial gradient computation:569 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:328 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 25: 1522 ms
+Column from R
+Time takes for factorized factor computation:483 ms
+Time takes for partial gradient computation:588 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:300 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 28: 1428 ms
+Column from S
+Time takes for partial gradient computation:477 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 8: 504 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:564 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:309 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 18: 1409 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:564 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:294 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 52: 1392 ms
+Column from R
+Time takes for factorized factor computation:483 ms
+Time takes for partial gradient computation:533 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:301 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 26: 1374 ms
+Column from S
+Time takes for partial gradient computation:478 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 11: 505 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:532 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:303 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 53: 1371 ms
+Column from R
+Time takes for factorized factor computation:498 ms
+Time takes for partial gradient computation:551 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:298 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 55: 1399 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:587 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:304 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 22: 1425 ms
+Column from R
+Time takes for factorized factor computation:476 ms
+Time takes for partial gradient computation:574 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:301 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 32: 1409 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:681 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:381 ms
+Time takes for residual update:39 ms
+Time takes for coordinate 36: 1604 ms
+Column from R
+Time takes for factorized factor computation:485 ms
+Time takes for partial gradient computation:667 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:301 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 40: 1513 ms
+Column from R
+Time takes for factorized factor computation:475 ms
+Time takes for partial gradient computation:674 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:294 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 49: 1498 ms
+Column from S
+Time takes for partial gradient computation:483 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 4: 513 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:720 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:551 ms
+Time takes for residual update:56 ms
+Time takes for coordinate 23: 1827 ms
+Column from R
+Time takes for factorized factor computation:508 ms
+Time takes for partial gradient computation:624 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:304 ms
+Time takes for residual update:42 ms
+Time takes for coordinate 31: 1503 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:670 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:294 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 51: 1501 ms
+Column from S
+Time takes for partial gradient computation:541 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 13: 574 ms
+Column from R
+Time takes for factorized factor computation:486 ms
+Time takes for partial gradient computation:691 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:301 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 54: 1538 ms
+Column from S
+Time takes for partial gradient computation:526 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 2: 554 ms
+Column from R
+Time takes for factorized factor computation:481 ms
+Time takes for partial gradient computation:710 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:297 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 39: 1542 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:732 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:297 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 17: 1567 ms
+Column from S
+Time takes for partial gradient computation:516 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 6: 544 ms
+Column from R
+Time takes for factorized factor computation:482 ms
+Time takes for partial gradient computation:687 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:298 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 29: 1519 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:683 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:297 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 47: 1511 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:754 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:315 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 56: 1605 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:671 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:304 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 30: 1510 ms
+Column from S
+Time takes for partial gradient computation:526 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 0: 556 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:748 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:298 ms
+Time takes for residual update:37 ms
+Time takes for coordinate 46: 1585 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:696 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:316 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 43: 1546 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:752 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:303 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 35: 1587 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:682 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:294 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 57: 1513 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:753 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:294 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 16: 1575 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:758 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:294 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 42: 1582 ms
+Column from S
+Time takes for partial gradient computation:520 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:29 ms
+Time takes for coordinate 7: 549 ms
+Column from S
+Time takes for partial gradient computation:534 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 1: 562 ms
+Column from R
+Time takes for factorized factor computation:483 ms
+Time takes for partial gradient computation:726 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:294 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 27: 1555 ms
+Column from S
+Time takes for partial gradient computation:521 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 10: 549 ms
+Column from R
+Time takes for factorized factor computation:487 ms
+Time takes for partial gradient computation:746 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:298 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 24: 1586 ms
+Column from R
+Time takes for factorized factor computation:484 ms
+Time takes for partial gradient computation:737 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:298 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 50: 1573 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:750 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:319 ms
+Time takes for residual update:35 ms
+Time takes for coordinate 14: 1609 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:733 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:295 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 21: 1559 ms
+Column from R
+Time takes for factorized factor computation:476 ms
+Time takes for partial gradient computation:720 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:305 ms
+Time takes for residual update:35 ms
+Time takes for coordinate 41: 1565 ms
+Column from R
+Time takes for factorized factor computation:489 ms
+Time takes for partial gradient computation:721 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:312 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 37: 1581 ms
+Column from S
+Time takes for partial gradient computation:525 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 5: 555 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:700 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:302 ms
+Time takes for residual update:35 ms
+Time takes for coordinate 15: 1539 ms
+Column from R
+Time takes for factorized factor computation:484 ms
+Time takes for partial gradient computation:746 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:307 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 45: 1593 ms
+Column from S
+Time takes for partial gradient computation:529 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 9: 557 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:721 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:296 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 33: 1548 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:733 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:304 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 19: 1572 ms
+Column from R
+Time takes for factorized factor computation:481 ms
+Time takes for partial gradient computation:744 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:304 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 34: 1587 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:746 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:302 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 48: 1584 ms
+Column from S
+Time takes for partial gradient computation:528 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 12: 558 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:749 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:297 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 44: 1578 ms
+Times takes for loss computation: 642 ms
+Column from R
+Time takes for factorized factor computation:482 ms
+Time takes for partial gradient computation:760 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:294 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 58: 1589 ms
+Column from R
+Time takes for factorized factor computation:482 ms
+Time takes for partial gradient computation:767 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:305 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 38: 1610 ms
+Column from S
+Time takes for partial gradient computation:528 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 3: 558 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:747 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:295 ms
+Time takes for residual update:35 ms
+Time takes for coordinate 20: 1582 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:722 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:295 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 25: 1553 ms
+Column from R
+Time takes for factorized factor computation:484 ms
+Time takes for partial gradient computation:755 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:294 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 28: 1593 ms
+Column from S
+Time takes for partial gradient computation:516 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 8: 544 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:706 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:293 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 18: 1530 ms
+Column from R
+Time takes for factorized factor computation:484 ms
+Time takes for partial gradient computation:715 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:301 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 52: 1560 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:712 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:294 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 26: 1539 ms
+Column from S
+Time takes for partial gradient computation:524 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 11: 552 ms
+Column from R
+Time takes for factorized factor computation:484 ms
+Time takes for partial gradient computation:698 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:294 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 53: 1528 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:716 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:295 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 55: 1541 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:727 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:293 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 22: 1560 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:791 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:309 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 32: 1637 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:770 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:307 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 36: 1612 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:733 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:298 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 40: 1565 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:771 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:299 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 49: 1608 ms
+Column from S
+Time takes for partial gradient computation:528 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 4: 555 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:743 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:302 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 23: 1582 ms
+Column from R
+Time takes for factorized factor computation:483 ms
+Time takes for partial gradient computation:833 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:259 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 31: 1629 ms
+Column from R
+Time takes for factorized factor computation:481 ms
+Time takes for partial gradient computation:745 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:264 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 51: 1547 ms
+Column from S
+Time takes for partial gradient computation:523 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 13: 551 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:742 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:294 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 54: 1567 ms
+Column from S
+Time takes for partial gradient computation:518 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 2: 545 ms
+Column from R
+Time takes for factorized factor computation:493 ms
+Time takes for partial gradient computation:721 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:294 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 39: 1560 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:725 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:292 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 17: 1548 ms
+Column from S
+Time takes for partial gradient computation:530 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 6: 557 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:705 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:332 ms
+Time takes for residual update:44 ms
+Time takes for coordinate 29: 1585 ms
+Column from R
+Time takes for factorized factor computation:728 ms
+Time takes for partial gradient computation:742 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:302 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 47: 1843 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:732 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:301 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 56: 1571 ms
+Column from R
+Time takes for factorized factor computation:476 ms
+Time takes for partial gradient computation:748 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:312 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 30: 1594 ms
+Column from S
+Time takes for partial gradient computation:533 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 0: 564 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:624 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:295 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 46: 1454 ms
+Column from R
+Time takes for factorized factor computation:481 ms
+Time takes for partial gradient computation:742 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:296 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 43: 1574 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:742 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:301 ms
+Time takes for residual update:35 ms
+Time takes for coordinate 35: 1581 ms
+Column from R
+Time takes for factorized factor computation:493 ms
+Time takes for partial gradient computation:757 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:294 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 57: 1601 ms
+Column from R
+Time takes for factorized factor computation:476 ms
+Time takes for partial gradient computation:762 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:288 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 16: 1584 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:779 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:277 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 42: 1588 ms
+Column from S
+Time takes for partial gradient computation:532 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 7: 560 ms
+Column from S
+Time takes for partial gradient computation:524 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 1: 554 ms
+Column from R
+Time takes for factorized factor computation:476 ms
+Time takes for partial gradient computation:847 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:257 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 27: 1633 ms
+Column from S
+Time takes for partial gradient computation:525 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 10: 553 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:792 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:294 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 24: 1621 ms
+Column from R
+Time takes for factorized factor computation:486 ms
+Time takes for partial gradient computation:793 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:308 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 50: 1643 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:727 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:295 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 14: 1553 ms
+Column from R
+Time takes for factorized factor computation:482 ms
+Time takes for partial gradient computation:747 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:295 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 21: 1578 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:724 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:297 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 41: 1556 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:727 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:301 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 37: 1563 ms
+Column from S
+Time takes for partial gradient computation:525 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 5: 556 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:785 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:307 ms
+Time takes for residual update:37 ms
+Time takes for coordinate 15: 1632 ms
+Column from R
+Time takes for factorized factor computation:482 ms
+Time takes for partial gradient computation:776 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:295 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 45: 1605 ms
+Column from S
+Time takes for partial gradient computation:521 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 9: 549 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:735 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:293 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 33: 1561 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:777 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:291 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 19: 1602 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:743 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:300 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 34: 1576 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:783 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:289 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 48: 1602 ms
+Column from S
+Time takes for partial gradient computation:533 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 12: 563 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:766 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:295 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 44: 1594 ms
+Times takes for loss computation: 644 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:815 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:289 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 58: 1638 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:823 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:295 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 38: 1654 ms
+Column from S
+Time takes for partial gradient computation:522 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 3: 550 ms
+Column from R
+Time takes for factorized factor computation:482 ms
+Time takes for partial gradient computation:793 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:298 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 20: 1629 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:751 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:301 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 25: 1588 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:752 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:303 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 28: 1595 ms
+Column from S
+Time takes for partial gradient computation:523 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 8: 553 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:766 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:301 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 18: 1602 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:757 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:299 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 52: 1593 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:768 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:292 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 26: 1595 ms
+Column from S
+Time takes for partial gradient computation:518 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 11: 545 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:795 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:293 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 53: 1620 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:808 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:300 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 55: 1641 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:780 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:299 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 22: 1618 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:830 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:300 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 32: 1663 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:796 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:287 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 36: 1615 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:732 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:292 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 40: 1556 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:751 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:277 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 49: 1561 ms
+Column from S
+Time takes for partial gradient computation:520 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 4: 547 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:814 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:289 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 23: 1641 ms
+Column from R
+Time takes for factorized factor computation:489 ms
+Time takes for partial gradient computation:827 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:276 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 31: 1645 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:756 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:264 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 51: 1551 ms
+Column from S
+Time takes for partial gradient computation:523 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 13: 550 ms
+Column from R
+Time takes for factorized factor computation:483 ms
+Time takes for partial gradient computation:755 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:285 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 54: 1577 ms
+Column from S
+Time takes for partial gradient computation:520 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 2: 547 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:734 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:301 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 39: 1570 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:766 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:302 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 17: 1609 ms
+Column from S
+Time takes for partial gradient computation:527 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 6: 555 ms
+Column from R
+Time takes for factorized factor computation:483 ms
+Time takes for partial gradient computation:771 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:302 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 29: 1613 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:763 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:297 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 47: 1591 ms
+Column from R
+Time takes for factorized factor computation:493 ms
+Time takes for partial gradient computation:795 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:298 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 56: 1641 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:749 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:288 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 30: 1575 ms
+Column from S
+Time takes for partial gradient computation:518 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 0: 545 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:974 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:315 ms
+Time takes for residual update:36 ms
+Time takes for coordinate 46: 1826 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:755 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:297 ms
+Time takes for residual update:36 ms
+Time takes for coordinate 43: 1588 ms
+Column from R
+Time takes for factorized factor computation:485 ms
+Time takes for partial gradient computation:784 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:291 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 35: 1616 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:801 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:299 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 57: 1636 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:789 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:296 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 16: 1622 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:758 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:272 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 42: 1559 ms
+Column from S
+Time takes for partial gradient computation:527 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 7: 557 ms
+Column from S
+Time takes for partial gradient computation:524 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 1: 555 ms
+Column from R
+Time takes for factorized factor computation:476 ms
+Time takes for partial gradient computation:793 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:255 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 27: 1578 ms
+Column from S
+Time takes for partial gradient computation:522 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 10: 549 ms
+Column from R
+Time takes for factorized factor computation:484 ms
+Time takes for partial gradient computation:872 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:279 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 24: 1692 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:812 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:295 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 50: 1640 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:750 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:296 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 14: 1579 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:767 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:299 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 21: 1600 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:773 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:298 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 41: 1608 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:781 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:306 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 37: 1624 ms
+Column from S
+Time takes for partial gradient computation:526 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 5: 553 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:796 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:307 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 15: 1637 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:795 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:301 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 45: 1634 ms
+Column from S
+Time takes for partial gradient computation:534 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:29 ms
+Time takes for coordinate 9: 564 ms
+Column from R
+Time takes for factorized factor computation:476 ms
+Time takes for partial gradient computation:957 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:293 ms
+Time takes for residual update:42 ms
+Time takes for coordinate 33: 1792 ms
+Column from R
+Time takes for factorized factor computation:481 ms
+Time takes for partial gradient computation:838 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:273 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 19: 1644 ms
+Column from R
+Time takes for factorized factor computation:484 ms
+Time takes for partial gradient computation:777 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:283 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 34: 1597 ms
+Column from R
+Time takes for factorized factor computation:489 ms
+Time takes for partial gradient computation:768 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:273 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 48: 1589 ms
+Column from S
+Time takes for partial gradient computation:533 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 12: 563 ms
+Column from R
+Time takes for factorized factor computation:476 ms
+Time takes for partial gradient computation:780 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:276 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 44: 1586 ms
+Times takes for loss computation: 644 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:759 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:279 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 58: 1570 ms
+Column from R
+Time takes for factorized factor computation:483 ms
+Time takes for partial gradient computation:760 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:286 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 38: 1591 ms
+Column from S
+Time takes for partial gradient computation:521 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 3: 549 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:811 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:296 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 20: 1643 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:820 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:296 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 25: 1651 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:794 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:304 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 28: 1632 ms
+Column from S
+Time takes for partial gradient computation:526 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 8: 554 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:795 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:290 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 18: 1618 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:794 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:290 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 52: 1617 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:809 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:306 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 26: 1653 ms
+Column from S
+Time takes for partial gradient computation:529 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 11: 559 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:804 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:295 ms
+Time takes for residual update:37 ms
+Time takes for coordinate 53: 1638 ms
+Column from R
+Time takes for factorized factor computation:487 ms
+Time takes for partial gradient computation:857 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:290 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 55: 1691 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:834 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:286 ms
+Time takes for residual update:29 ms
+Time takes for coordinate 22: 1650 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:829 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:281 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 32: 1643 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:796 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:267 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 36: 1592 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:780 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:282 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 40: 1601 ms
+Column from R
+Time takes for factorized factor computation:489 ms
+Time takes for partial gradient computation:824 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:259 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 49: 1628 ms
+Column from S
+Time takes for partial gradient computation:524 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 4: 551 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:790 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:269 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 23: 1594 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:771 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:279 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 31: 1591 ms
+Column from R
+Time takes for factorized factor computation:482 ms
+Time takes for partial gradient computation:782 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:263 ms
+Time takes for residual update:35 ms
+Time takes for coordinate 51: 1587 ms
+Column from S
+Time takes for partial gradient computation:531 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 13: 561 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:814 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:297 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 54: 1647 ms
+Column from S
+Time takes for partial gradient computation:529 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 2: 560 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:793 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:298 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 39: 1625 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:794 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:301 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 17: 1631 ms
+Column from S
+Time takes for partial gradient computation:526 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 6: 556 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:779 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:297 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 29: 1610 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:776 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:296 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 47: 1610 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:792 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:276 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 56: 1601 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:838 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:291 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 30: 1664 ms
+Column from S
+Time takes for partial gradient computation:536 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 0: 563 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:918 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:288 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 46: 1740 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:805 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:301 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 43: 1642 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:806 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:288 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 35: 1626 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:781 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:295 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 57: 1611 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:759 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:269 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 16: 1564 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:780 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:255 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 42: 1568 ms
+Column from S
+Time takes for partial gradient computation:520 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 7: 548 ms
+Column from S
+Time takes for partial gradient computation:524 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 1: 551 ms
+Column from R
+Time takes for factorized factor computation:481 ms
+Time takes for partial gradient computation:771 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:277 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 27: 1586 ms
+Column from S
+Time takes for partial gradient computation:538 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 10: 568 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:924 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:274 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 24: 1729 ms
+Column from R
+Time takes for factorized factor computation:481 ms
+Time takes for partial gradient computation:824 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:295 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 50: 1661 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:789 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:299 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 14: 1622 ms
+Column from R
+Time takes for factorized factor computation:476 ms
+Time takes for partial gradient computation:812 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:289 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 21: 1632 ms
+Column from R
+Time takes for factorized factor computation:482 ms
+Time takes for partial gradient computation:770 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:290 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 41: 1595 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:767 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:298 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 37: 1604 ms
+Column from S
+Time takes for partial gradient computation:526 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 5: 556 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:759 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:274 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 15: 1565 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:799 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:276 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 45: 1606 ms
+Column from S
+Time takes for partial gradient computation:526 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 9: 554 ms
+Column from R
+Time takes for factorized factor computation:487 ms
+Time takes for partial gradient computation:884 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:280 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 33: 1704 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:871 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:268 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 19: 1674 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:807 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:270 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 34: 1613 ms
+Column from R
+Time takes for factorized factor computation:484 ms
+Time takes for partial gradient computation:811 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:289 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 48: 1640 ms
+Column from S
+Time takes for partial gradient computation:533 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 12: 563 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:803 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:290 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 44: 1626 ms
+Times takes for loss computation: 643 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:772 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:280 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 58: 1585 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:772 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:258 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 38: 1561 ms
+Column from S
+Time takes for partial gradient computation:525 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 3: 553 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:798 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:290 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 20: 1625 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:794 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:277 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 25: 1604 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:833 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:298 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 28: 1669 ms
+Column from S
+Time takes for partial gradient computation:526 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 8: 553 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:805 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:297 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 18: 1636 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:794 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:286 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 52: 1611 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:799 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:295 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 26: 1629 ms
+Column from S
+Time takes for partial gradient computation:523 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 11: 551 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:759 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:290 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 53: 1584 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:783 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:293 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 55: 1612 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:890 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:299 ms
+Time takes for residual update:37 ms
+Time takes for coordinate 22: 1726 ms
+Column from R
+Time takes for factorized factor computation:483 ms
+Time takes for partial gradient computation:869 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:275 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 32: 1683 ms
+Column from R
+Time takes for factorized factor computation:488 ms
+Time takes for partial gradient computation:830 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:261 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 36: 1633 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:781 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:276 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 40: 1592 ms
+Column from R
+Time takes for factorized factor computation:476 ms
+Time takes for partial gradient computation:778 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:274 ms
+Time takes for residual update:29 ms
+Time takes for coordinate 49: 1582 ms
+Column from S
+Time takes for partial gradient computation:521 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 4: 549 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:789 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:287 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 23: 1612 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:781 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:281 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 31: 1598 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:767 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:279 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 51: 1583 ms
+Column from S
+Time takes for partial gradient computation:526 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 13: 554 ms
+Column from R
+Time takes for factorized factor computation:480 ms
+Time takes for partial gradient computation:786 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:272 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 54: 1592 ms
+Column from S
+Time takes for partial gradient computation:526 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 2: 553 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:782 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:286 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 39: 1600 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:812 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:296 ms
+Time takes for residual update:35 ms
+Time takes for coordinate 17: 1646 ms
+Column from S
+Time takes for partial gradient computation:529 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 6: 557 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:804 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:297 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 29: 1634 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:778 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:284 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 47: 1596 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:777 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:292 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 56: 1602 ms
+Column from R
+Time takes for factorized factor computation:476 ms
+Time takes for partial gradient computation:758 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:288 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 30: 1578 ms
+Column from S
+Time takes for partial gradient computation:527 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 0: 555 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:893 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:270 ms
+Time takes for residual update:36 ms
+Time takes for coordinate 46: 1701 ms
+Column from R
+Time takes for factorized factor computation:484 ms
+Time takes for partial gradient computation:873 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:280 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 43: 1691 ms
+Column from R
+Time takes for factorized factor computation:481 ms
+Time takes for partial gradient computation:782 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:286 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 35: 1603 ms
+Column from R
+Time takes for factorized factor computation:485 ms
+Time takes for partial gradient computation:804 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:268 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 57: 1616 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:780 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:278 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 16: 1589 ms
+Column from R
+Time takes for factorized factor computation:481 ms
+Time takes for partial gradient computation:787 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:256 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 42: 1578 ms
+Column from S
+Time takes for partial gradient computation:525 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 7: 552 ms
+Column from S
+Time takes for partial gradient computation:521 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 1: 548 ms
+Column from R
+Time takes for factorized factor computation:483 ms
+Time takes for partial gradient computation:781 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:252 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 27: 1572 ms
+Column from S
+Time takes for partial gradient computation:529 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 10: 556 ms
+Column from R
+Time takes for factorized factor computation:481 ms
+Time takes for partial gradient computation:780 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:284 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 24: 1602 ms
+Column from R
+Time takes for factorized factor computation:476 ms
+Time takes for partial gradient computation:810 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:280 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 50: 1622 ms
+Column from R
+Time takes for factorized factor computation:483 ms
+Time takes for partial gradient computation:797 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:280 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 14: 1613 ms
+Column from R
+Time takes for factorized factor computation:478 ms
+Time takes for partial gradient computation:820 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:284 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 21: 1640 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:780 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:297 ms
+Time takes for residual update:32 ms
+Time takes for coordinate 41: 1613 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:780 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:284 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 37: 1599 ms
+Column from S
+Time takes for partial gradient computation:525 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 5: 553 ms
+Column from R
+Time takes for factorized factor computation:479 ms
+Time takes for partial gradient computation:774 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:271 ms
+Time takes for residual update:33 ms
+Time takes for coordinate 15: 1581 ms
+Column from R
+Time takes for factorized factor computation:481 ms
+Time takes for partial gradient computation:811 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:269 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 45: 1618 ms
+Column from S
+Time takes for partial gradient computation:528 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 9: 556 ms
+Column from R
+Time takes for factorized factor computation:483 ms
+Time takes for partial gradient computation:789 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:283 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 33: 1611 ms
+Column from R
+Time takes for factorized factor computation:486 ms
+Time takes for partial gradient computation:884 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:261 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 19: 1685 ms
+Column from R
+Time takes for factorized factor computation:477 ms
+Time takes for partial gradient computation:814 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:289 ms
+Time takes for residual update:34 ms
+Time takes for coordinate 34: 1639 ms
+Column from R
+Time takes for factorized factor computation:476 ms
+Time takes for partial gradient computation:778 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:261 ms
+Time takes for residual update:31 ms
+Time takes for coordinate 48: 1570 ms
+Column from S
+Time takes for partial gradient computation:525 ms
+Time takes for coordinate update:0 ms
+Time takes for residual update:27 ms
+Time takes for coordinate 12: 553 ms
+Column from R
+Time takes for factorized factor computation:481 ms
+Time takes for partial gradient computation:781 ms
+Time takes for coordinate update:0 ms
+Time takes for factorized residual diff computation:268 ms
+Time takes for residual update:30 ms
+Time takes for coordinate 44: 1584 ms
+Times takes for loss computation: 641 ms
+Time takes to clear the cache: 1070 ms
+
+The final loss: 196236.157011
+Number of iteration: 5
+Model: -9.47182372720160437041, 1.07612089294901847047, 1.14476547871091227648, 47.52171341499600032421, -13.37333812456680526282, -1.97693977472061410694, -7.03772794273306256940, 0.13676888453112290289, -28.89565425574599544234, -0.73828787039799903535, 7.00817741043232267373, -18.00622074366924252331, -6.25289436816304089461, 11.35233331176755555703, -0.00036896635049608341, 0.00720612708324970021, -0.04258353074282093809, 0.00099814657054962935, -0.00290608604923881008, 0.00117562902800726890, -0.00011947251116989738, -0.01246505374281164404, -0.00326865133857021962, 0.01493787338076875588, -0.01008390470453474595, 0.00999150291728085997, -0.01154314596573321333, 0.00087200640329538487, -0.03644239296185140115, -0.00169981189335436994, 0.00742761353207947901, 0.00078175967826629798, 0.01903002779685037185, 0.00323700029815330052, 0.02309369538285179976, -0.00925503483858680122, -0.00220784515323446890, -0.00075698333595470213, 0.01700043499301749639, 0.00353932109344303001, -0.00020501961354432599, -0.02071651875754809691, 0.00113077820709658015, -0.00319817163295481495, 0.02798189356788178747, 0.00262555219879129654, -0.00774826256427393802, 0.00481843263507482356, -0.00190614773292297509, 0.00238588634629698744, -0.02640892160643504641, 0.01097005161136397483, 0.00012616431917886095, 0.00044870195872907727, -0.00376754423626103618, -0.00194791921846646041, 0.00016576115605538219, -0.00153935185031932580, 0.02272706499806299157
+Finish factorize
