@@ -46,6 +46,8 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
     // Set Timer
     clock_t c_start;
     clock_t c_end;
+    clock_t c_start_1;
+    clock_t c_end_1;
     
     c_start = clock();
     // Get the table information and column names
@@ -126,7 +128,19 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
     int iters = 0;
     
     // Initialization
+    /**
+    for(int i = 0; i < feature_num; i ++)
+    {
+        model[i] = 0.00;
+    }
+    **/
     memset(model, 0.00, sizeof(float)*feature_num);
+    /**
+    for(long i = 0; i < row_num; i ++)
+    {
+        H[i] = 0.00;
+    }
+    **/
     memset(H, 0.00, sizeof(float)*row_num);
     DM.fetchColumn(fields[1], row_num, Y);
     
@@ -140,6 +154,8 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
     }
     shuffling_index = shuffle(original_index_set, (unsigned)time(NULL));
     
+    
+    
     // Caching
     printf("\n");
     printf("Avail_col: %d\n", avail_cache);
@@ -150,27 +166,29 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
     }
     
     c_end = clock();
-    cout<<"Caching:"<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<"ms\n";
+    cout<<"\nTime takes before iteration starts: "<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<" ms\n\n";
     
     do
     {
-        c_start = clock();
-        
         // Update one coordinate each time
         for(int j = 0; j < feature_num; j ++)
         {
             int cur_index = shuffling_index.at(j);
             //printf("Current feature index: %d\n", cur_index);
+            c_start = clock();
             
             F_partial = 0.00;
             
             // If the column corresponding to the current updating coordinate is in the cache, no extra I/O is needed
             if( cur_index < avail_cache)
             {
+                c_start_1 = clock();
                 for(long i = 0; i < row_num ; i ++)
                 {
                     F_partial += gradientCompute(Y[i],H[i],lm)*cache[cur_index][i];
                 }
+                c_end_1 = clock();
+                cout<<"Time takes for partial gradient computation:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
             }
             else
             {
@@ -183,6 +201,7 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
                 }
             }
             
+            c_start_1 = clock();
             // Store the old W(j)
             double W_j = model[cur_index];
             
@@ -190,15 +209,20 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
             model[cur_index] = model[cur_index] - step_size * F_partial;
             
             double diff = model[cur_index] - W_j;
+            c_end_1 = clock();
+            cout<<"Time takes for coordinate update:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
     
             // Update the intermediate variable
             // H = H + (Wj - old_Wj)* X(,j)
             if( cur_index < avail_cache)
             {
+                c_start_1 = clock();
                 for(long m = 0; m < row_num; m ++ )
                 {
                     H[m] = H[m] + diff*cache[cur_index][m];
                 }
+                c_end_1 = clock();
+                cout<<"Time takes for residual update:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
             }
             else
             {
@@ -207,8 +231,11 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
                     H[m] = H[m] + diff*X[m];
                 }
             }
+            c_end = clock();
+            cout<<"Time takes for coordinate "<<cur_index<<": "<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<" ms\n";
         }
         
+        c_start = clock();
         r_prev = F;
         // Caculate F
         F = 0.00;
@@ -220,10 +247,12 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
         r_curr = F;
         iters ++;
         c_end = clock();
-        cout<<"Iteration:"<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<"ms\n";
+        cout<<"Time takes for loss computation: "<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<" ms\n";
+        
     }
     while(!stop(iters , r_prev, r_curr, _setting));
     
+    c_start = clock();
     delete [] Y;
     delete [] H;
     
@@ -241,6 +270,9 @@ void techniques::materialize(string table_T, setting _setting, double *&model, d
         delete [] cache;
     }
     
+    c_end = clock();
+    cout<<"Time takes to clear the cache: "<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<" ms\n";
+    
     printf("\n");
     outputResults(r_curr, feature_num, iters, model);
     
@@ -256,6 +288,8 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
     // Set Timer
     clock_t c_start;
     clock_t c_end;
+    clock_t c_start_1;
+    clock_t c_end_1;
     
     c_start = clock();
     // Get the table information and column names
@@ -410,7 +444,19 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
     int iters = 0;
     
     // Initialization
+    /**
+    for(int i = 0; i < feature_num; i ++)
+    {
+        model[i] = 0.00;
+    }
+    **/
     memset(model, 0.00, sizeof(float)*feature_num);
+    /**
+    for(int i = 0; i < row_num_S; i ++)
+    {
+        H[i] = 0.00;
+    }
+    **/
     memset(H, 0.00, sizeof(float)*row_num_S);
     DM.fetchColumn(fields_S[1], row_num_S, Y);
     
@@ -443,7 +489,7 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
     }
     
     c_end = clock();
-    cout<<"Caching:"<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<"ms\n";
+    cout<<"\nTime takes before iteration starts: "<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<" ms\n";
 
     do
     {
@@ -463,25 +509,33 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
         fk.read((char *)KKMR, row_num_S*(sizeof(double)));
         fk.close();
         DM.message("Finish fetchig KKMR reference");
+        c_end = clock();
+        cout<<"\nTime takes to fetch KKMR "<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<" ms\n\n";
+        
        
         // Update one coordinate each time
         for(int j = 0; j < feature_num; j ++)
         {
             int cur_index = shuffling_index.at(j);
             //printf("Current feature index: %d\n", cur_index);
+            c_start = clock();
             
             F_partial = 0.00;
             
             if(cur_index < feature_num_S)
             {
+                cout<<"Column from S"<<endl;
                 // Check cache for S
                 if(cur_index < avail_col_S)
                 {
+                    c_start_1 = clock();
                     // Compute the partial gradient
                     for(long i = 0; i < row_num_S; i ++)
                     {
                         F_partial += gradientCompute(Y[i],H[i],lm)*cache_S[cur_index][i];
                     }
+                    c_end_1 = clock();
+                    cout<<"Time takes for partial gradient computation:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
                 }
                 else
                 {
@@ -496,16 +550,20 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
             }
             else
             {
+                cout<<"Column from R"<<endl;
                 // Check cache for R
                 int col_index_R = cur_index - feature_num_S;
                 //printf("col_index_R: %d\n", col_index_R);
                 if(col_index_R < avail_col_R)
                 {
+                    c_start_1 = clock();
                     for(long m = 0; m < row_num_S; m ++)
                     {
                         long fk = KKMR[m];
                         X_S[m]= cache_R[col_index_R][fk-1];
                     }
+                    c_end_1 = clock();
+                    cout<<"Time takes for full column construction:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
                 }
                 else
                 {
@@ -517,12 +575,17 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
                     }
                 }
                 
+                c_start_1 = clock();
                 // Compute the partial gradient
                 for(long i = 0; i < row_num_S; i ++)
                 {
                     F_partial += gradientCompute(Y[i],H[i],lm)*X_S[i];
                 }
+                c_end_1 = clock();
+                cout<<"Time takes for partial gradient computation:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
             }
+            
+            c_start_1 = clock();
             // Store the old W(j)
             double W_j = model[cur_index];
             
@@ -530,25 +593,36 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
             model[cur_index] = model[cur_index] - step_size * F_partial;
             
             double diff = model[cur_index] - W_j;
-
+            c_end_1 = clock();
+            cout<<"Time takes for coordinate update:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
+            
             //Update the intermediate variable
             //H = H + (Wj - old_Wj)* X(,j)
             if( cur_index < avail_col_S)
             {
+                c_start_1 = clock();
                 for(long m = 0; m < row_num_S; m ++ )
                 {
                     H[m] = H[m] + diff*cache_S[cur_index][m];
                 }
+                c_end_1 = clock();
+                cout<<"Time takes for residual update:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
             }
             else
             {
+                c_start_1 = clock();
                 for(long m = 0; m < row_num_S; m ++ )
                 {
                     H[m] = H[m] + diff*X_S[m];
                 }
+                c_end_1 = clock();
+                cout<<"Time takes for residual update:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
             }
+            c_end = clock();
+            cout<<"Time takes for coordinate "<<cur_index<<": "<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<" ms\n";
         }
         
+        c_start = clock();
         r_prev = F;
         // Caculate F
         F = 0.00;
@@ -557,13 +631,15 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
             double tmp = lossCompute(Y[i],H[i],lm);
             F += tmp;
         }
+        c_end = clock();
+        cout<<"Time takes for loss computation: "<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<" ms\n";
         
         r_curr = F;
         iters ++;
-        c_end = clock();
-        cout<<"Iteration:"<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<"ms\n";
     }
     while(!stop(iters , r_prev, r_curr, _setting));
+    
+    c_start = clock();
     
     delete [] Y;
     delete [] H;
@@ -593,6 +669,9 @@ void techniques::stream(string table_S, string table_R, setting _setting, double
         delete [] cache_R;
     }
     
+    c_end = clock();
+    cout<<"Time takes to clear the cache: "<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<" ms\n";
+    
     printf("\n");
     outputResults(r_curr, feature_num, iters, model);
     
@@ -608,6 +687,8 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     // Set Timer
     clock_t c_start;
     clock_t c_end;
+    clock_t c_start_1;
+    clock_t c_end_1;
     
     c_start = clock();
     // Get the table information and column names
@@ -777,7 +858,20 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     int iters = 0;
     
     // Initialization
+    /**
+    for(int i = 0; i < feature_num; i ++)
+    {
+        model[i] = 0.00;
+        
+    }
+    **/
     memset(model, 0.00, sizeof(float)*feature_num);
+    /**
+    for(int i = 0; i < row_num_S; i ++)
+    {
+        H[i] = 0.00;
+    }
+    **/
     memset(H, 0.00, sizeof(float)*row_num_S);
     
     DM.fetchColumn(fields_S[1], row_num_S, Y);
@@ -826,29 +920,33 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
     }
     
     c_end = clock();
-    cout<<"Caching:"<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<"ms\n";
+    cout<<"\nTime takes before iteration starts: "<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<" ms\n\n";
 
     do
     {
-        c_start = clock();
         // Update one coordinate each time
         for(int j = 0; j < feature_num; j ++)
         {
             int cur_index = shuffling_index.at(j);
             //printf("Current feature index: %d\n", cur_index);
+            c_start = clock();
             
             F_partial = 0.00;
             
             if(cur_index < feature_num_S)
             {
+                cout<<"Column from S"<<endl;
                 // Check cache for S
                 if(cur_index < avail_col_S)
                 {
+                    c_start_1 = clock();
                     // Compute the partial gradient
                     for(long i = 0; i < row_num_S; i ++)
                     {
                         F_partial += gradientCompute(Y[i],H[i],lm)*cache_S[cur_index][i];
                     }
+                    c_end_1 = clock();
+                    cout<<"Time takes for partial gradient computation:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
                 }
                 else
                 {
@@ -861,6 +959,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                     }
                 }
                 
+                c_start_1 = clock();
                 // Store the old W(j)
                 double W_j = model[cur_index];
                 
@@ -868,15 +967,20 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                 model[cur_index] = model[cur_index] - step_size * F_partial;
                 
                 double diff = model[cur_index] - W_j;
+                c_end_1 = clock();
+                cout<<"Time takes for coordinate update:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
                 
                 // Update the intermediate variable
                 // H = H + (Wj - old_Wj)* X(,j)
                 if(cur_index < avail_col_S)
                 {
+                    c_start_1 = clock();
                     for(long m = 0; m < row_num_S; m ++ )
                     {
                         H[m] = H[m] + diff*cache_S[cur_index][m];
                     }
+                    c_end_1 = clock();
+                    cout<<"Time takes for residual update:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
                 }
                 else{
                     for(long m = 0; m < row_num_S; m ++ )
@@ -887,25 +991,38 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
             }
             else
             {
+                cout<<"Column from R"<<endl;
+                // Clear X_R_f
+                /**
+                for(long i = 0; i < row_num_R; i ++){
+                    X_R_f[i] = 0.00;
+                }
+                **/
                 memset(X_R_f, 0.00, sizeof(float)*row_num_R);
                 
                 // Check cache for R
                 int col_index_R = cur_index - feature_num_S;
                 
+                c_start_1 = clock();
                 // Compute the factorized factor
                 for(long m = 0; m < row_num_S; m ++)
                 {
                     long fk = KKMR[m];
                     X_R_f[fk-1] += gradientCompute(Y[m],H[m],lm);
                 }
+                c_end_1 = clock();
+                cout<<"Time takes for factorized factor computation:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
                 
                 if(col_index_R < avail_col_R)
                 {
+                    c_start_1 = clock();
                     // Compute the partial gradient
                     for(long k = 0; k < row_num_R; k ++)
                     {
                         F_partial += cache_R[col_index_R][k]*X_R_f[k];
                     }
+                    c_end_1 = clock();
+                    cout<<"Time takes for partial gradient computation:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
                 }
                 else
                 {
@@ -916,6 +1033,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                     }
                 }
                 
+                c_start_1 = clock();
                 // Store the old W(j)
                 double W_j = model[cur_index];
                 
@@ -923,14 +1041,19 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                 model[cur_index] = model[cur_index] - step_size * F_partial;
                 
                 double diff = model[cur_index] - W_j;
+                c_end_1 = clock();
+                cout<<"Time takes for coordinate update:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
                 
                 // Factorized computation
                 if(col_index_R < avail_col_R)
                 {
+                    c_start_1 = clock();
                     for(long k = 0; k < row_num_R; k ++)
                     {
                         X_R_f[k] = diff*cache_R[col_index_R][k];
                     }
+                    c_end_1 = clock();
+                    cout<<"Time takes for factorized residual diff computation:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
                 }
                 else
                 {
@@ -940,6 +1063,7 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                     }
                 }
                 
+                c_start_1 = clock();
                 // Update the intermediate variable
                 // H = H + (Wj - old_Wj)* X(,j)
                 for(long m = 0; m < row_num_S; m ++ )
@@ -947,9 +1071,16 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
                     long fk = KKMR[m];
                     H[m] = H[m] + X_R_f[fk-1];
                 }
+                c_end_1 = clock();
+                cout<<"Time takes for residual update:"<<1000*(c_end_1-c_start_1)/CLOCKS_PER_SEC<<" ms\n";
+    
             }
+            
+            c_end = clock();
+            cout<<"Time takes for coordinate "<<cur_index<<": "<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<" ms\n";
         }
         
+        c_start = clock();
         r_prev = F;
         // Caculate F
         F = 0.00;
@@ -961,10 +1092,13 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
         
         r_curr = F;
         iters ++;
+        
         c_end = clock();
-        cout<<"Iteration:"<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<" ms\n";
+        cout<<"Times takes for loss computation: "<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<" ms\n";
     }
     while(!stop(iters, r_prev, r_curr, _setting));
+    
+    c_start = clock();
     
     delete [] Y;
     delete [] H;
@@ -997,6 +1131,9 @@ void techniques::factorize(string table_S, string table_R, setting _setting, dou
         }
         delete [] cache_R;
     }
+    
+    c_end = clock();
+    cout<<"Time takes to clear the cache: "<<1000*(c_end-c_start)/CLOCKS_PER_SEC<<" ms\n";
     
     printf("\n");
     outputResults(r_curr, feature_num, iters, model);
