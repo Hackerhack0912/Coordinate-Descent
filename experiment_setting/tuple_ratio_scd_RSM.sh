@@ -4,8 +4,8 @@
 lm=("lr" "lsr")
 lm_stepSize=(0.01 0.00001)
 tuple_ratio=(1 5 10 15)    # tuple ratio setting
-RSM=5  # memory size setting
-parameter_RSM=(10000000 3 9 5) # parameters for RSM
+RSM=1  # memory size setting
+parameter_RSM=(2000000 15 45 5) # parameters for RSM
 
 echo "tuple ratio"
 # RSM 4*2*3*4 = 96

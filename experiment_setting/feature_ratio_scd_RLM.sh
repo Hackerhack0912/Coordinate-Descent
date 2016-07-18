@@ -5,7 +5,7 @@ lm=("lr" "lsr")
 lm_stepSize=(0.01 0.00001)
 feature_ratio=(1 2 3 4 5) # feature ratio setting
 RLM=48 # memory size setting
-parameter_RLM=(10000000 3 20) # parameters for RLM
+parameter_RLM=(2000000 15 5) # parameters for RLM
 
 echo "feature ratio"
 # RLM 4*2*3*4 = 96

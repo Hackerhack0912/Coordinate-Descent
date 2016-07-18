@@ -1,54 +1,54 @@
-tuple ratio(nS/nR) (Give 5 GB memory to this)
+tuple ratio(nS/nR)
 tuple ratio: 1
 S_MEM = 0.223517 GB; R_MEM = 0.670552 GB; T_MEM = 0.894070 GB
 Minimum memory required: 
-Materilaize: 0.223517 GB; Stream: 0.372529 GB; Factorize: 0.447035 GB 
+Materilaize: 0.044703 GB; Stream: 0.074506 GB; Factorize: 0.089407 GB 
 
 tuple ratio: 5
 S_MEM = 1.117587 GB; R_MEM = 0.670552 GB; T_MEM = 4.470348 GB
 Minimum memory required: 
-Materilaize: 1.117587 GB; Stream: 1.564622 GB; Factorize: 1.639128 GB 
+Materilaize: 0.223517 GB; Stream: 0.312924 GB; Factorize: 0.327826 GB 
 
 tuple ratio: 10
 S_MEM = 2.235174 GB; R_MEM = 0.670552 GB; T_MEM = 8.940697 GB
 Minimum memory required: 
-Materilaize: 2.235174 GB; Stream: 3.054738 GB; Factorize: 3.129244 GB 
+Materilaize: 0.447035 GB; Stream: 0.610948 GB; Factorize: 0.625849 GB 
 
 tuple ratio: 15
 S_MEM = 3.352761 GB; R_MEM = 0.670552 GB; T_MEM = 13.411045 GB
 Minimum memory required: 
-Materilaize: 3.352761 GB; Stream: 4.544854 GB; Factorize: 4.619360 GB 
+Materilaize: 0.670552 GB; Stream: 0.908971 GB; Factorize: 0.923872 GB 
 
  
-feature ratio(dR/dS) (Give 3.5 GB memory to this)
+feature ratio(dR/dS)
 feature ratio: 1
 S_MEM = 2.235174 GB; R_MEM = 0.223517 GB; T_MEM = 4.470348 GB
 Minimum memory required: 
-Materilaize: 2.235174 GB; Stream: 3.054738 GB; Factorize: 3.129244 GB
+Materilaize: 0.447035 GB; Stream: 0.610948 GB; Factorize: 0.625849 GB
 
 feature ratio: 2
 S_MEM = 2.235174 GB; R_MEM = 0.447035 GB; T_MEM = 6.705523 GB
 Minimum memory required: 
-Materilaize: 2.235174 GB; Stream: 3.054738 GB; Factorize: 3.129244 GB
+Materilaize: 0.447035 GB; Stream: 0.610948 GB; Factorize: 0.625849 GB
 
 feature ratio: 3
 S_MEM = 2.235174 GB; R_MEM = 0.670552 GB; T_MEM = 8.940697 GB
 Minimum memory required: 
-Materilaize: 2.235174 GB; Stream: 3.054738 GB; Factorize: 3.129244 GB
+Materilaize: 0.447035 GB; Stream: 0.610948 GB; Factorize: 0.625849 GB
 
 feature ratio: 4
 S_MEM = 2.235174 GB; R_MEM = 0.894070 GB; T_MEM = 11.175871 GB
 Minimum memory required: 
-Materilaize: 2.235174 GB; Stream: 3.054738 GB; Factorize: 3.129244 GB
+Materilaize: 0.447035 GB; Stream: 0.610948 GB; Factorize: 0.625849 GB
 
 feature ratio: 5
 S_MEM = 2.235174 GB; R_MEM = 1.117587 GB; T_MEM = 13.411045 GB
 Minimum memory required: 
-Materilaize: 2.235174 GB; Stream: 3.054738 GB; Factorize: 3.129244 GB
+Materilaize: 0.447035 GB; Stream: 0.610948 GB; Factorize: 0.625849 GB
 
  
-iteration number (Give 3.5 GB memory to this)
+iteration number
 S_MEM = 2.235174 GB; R_MEM = 0.670552 GB; T_MEM = 8.940697 GB
 Minimum memory required: 
-Materilaize: 2.235174 GB;Stream: 3.054738 GB; Factorize: 3.129244 GB 
+Materilaize: 0.447035 GB;Stream: 0.610948 GB; Factorize: 0.625849 GB 
 

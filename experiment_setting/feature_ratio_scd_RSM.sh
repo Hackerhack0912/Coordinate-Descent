@@ -4,8 +4,8 @@
 lm=("lr" "lsr")
 lm_stepSize=(0.01 0.00001)
 feature_ratio=(1 2 3 4 5) # tuple ratio setting
-RSM=3.5  # memory size setting
-parameter_RSM=(10000000 3 20) # parameters for RSM
+RSM=1  # memory size setting
+parameter_RSM=(2000000 15 5) # parameters for RSM
 
 echo "feature ratio"
 # RSM 4*2*3*4 = 96

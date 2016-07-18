@@ -3,9 +3,9 @@
 # iteration number
 lm=("lr" "lsr")
 lm_stepSize=(0.01 0.00001)
-iter_num=20 # iteration number setting
+iter_num=5 # iteration number setting
 RLM=48 # memory size setting
-parameter_RLM=(10000000 3 9) # parameters for RSM
+parameter_RLM=(2000000 15 45) # parameters for RSM
 
 echo "iteration number"
 # RLM 4*2*3*4 = 96
